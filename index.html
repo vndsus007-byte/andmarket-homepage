@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>카페앤드마켓 — 생산자 and' 소비자 앤드마켓</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Inter', 'sans-serif'] },
+      colors: {
+        brand: {
+          50: '#FFF7ED',
+          100: '#FFEDD5',
+          200: '#FED7AA',
+          300: '#FDBA74',
+          400: '#FB923C',
+          500: '#F97316',
+          600: '#EA580C',
+          700: '#C2410C',
+        },
+        accent: {
+          400: '#60A5FA',
+          500: '#3B82F6',
+          600: '#2563EB',
+        }
+      }
+    }
+  }
+}
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: #FFFAF5; color: #1E293B; overflow-x: hidden; }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #FFF7ED; }
+  ::-webkit-scrollbar-thumb { background: #FDBA74; border-radius: 3px; }
+
+  .glass-warm {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(249,115,22,0.12);
+    box-shadow: 0 4px 30px rgba(249,115,22,0.06);
+  }
+  .glass-card {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(249,115,22,0.08);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+  }
+  .glass-dark {
+    background: rgba(30,41,59,0.9);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  @keyframes float-up {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.15); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(8px, -6px); }
+    50% { transform: translate(-4px, 8px); }
+    75% { transform: translate(6px, 4px); }
+  }
+
+  .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+  .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+  .animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+  .animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+  .animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+  .animate-on-scroll.delay-4 { transition-delay: 0.4s; }
+
+  .shimmer-text {
+    background: linear-gradient(90deg, #EA580C 0%, #3B82F6 30%, #EA580C 50%, #2563EB 70%, #EA580C 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 5s linear infinite;
+  }
+
+  .float-anim { animation: float-up 4s ease-in-out infinite; }
+  .drift-anim { animation: drift 6s ease-in-out infinite; }
+
+  .card-hover { transition: all 0.3s ease; }
+  .card-hover:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(249,115,22,0.12); border-color: rgba(249,115,22,0.25); }
+
+  .type-card { position: relative; overflow: hidden; }
+  .type-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(to right, transparent, var(--accent-c), transparent);
+    opacity: 0; transition: opacity 0.3s;
+  }
+  .type-card:hover::before { opacity: 1; }
+
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: ''; position: absolute; bottom: -4px; left: 50%; width: 0; height: 2px;
+    background: #F97316; transition: all 0.3s; transform: translateX(-50%); border-radius: 1px;
+  }
+  .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+  .dot-pattern {
+    position: absolute; pointer-events: none;
+  }
+  .blue-dot {
+    width: 10px; height: 10px; border-radius: 50%; background: #3B82F6; opacity: 0.3;
+    position: absolute;
+  }
+  .blue-dot.lg { width: 14px; height: 14px; }
+  .blue-dot.sm { width: 6px; height: 6px; }
+  .blue-dot.pulse { animation: pulse-dot 3s ease-in-out infinite; }
+  .blue-dot.drift { animation: drift 8s ease-in-out infinite; }
+
+  .toast {
+    position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(100px);
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(16px); border: 1px solid rgba(249,115,22,0.25);
+    padding: 16px 32px; border-radius: 12px; z-index: 100; transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #EA580C; font-size: 14px; font-weight: 500; box-shadow: 0 8px 30px rgba(249,115,22,0.15);
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  .mobile-menu {
+    position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+    background: rgba(255,250,245,0.98); backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(249,115,22,0.1); z-index: 60;
+    transition: right 0.3s ease; padding: 80px 32px 32px;
+  }
+  .mobile-menu.open { right: 0; }
+  .mobile-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.3); z-index: 55;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  }
+  .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+
+  .synergy-item { position: relative; padding-left: 24px; }
+  .synergy-item::before {
+    content: ''; position: absolute; left: 0; top: 10px;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #F97316; box-shadow: 0 0 10px rgba(249,115,22,0.4);
+  }
+
+  .step-connector { position: relative; }
+  .step-connector::after {
+    content: ''; position: absolute; top: 50%; right: -32px; width: 64px; height: 2px;
+    background: linear-gradient(to right, rgba(249,115,22,0.4), rgba(249,115,22,0.08));
+  }
+  .step-connector:last-child::after { display: none; }
+
+  .orange-blob {
+    border-radius: 50%; position: absolute; pointer-events: none; filter: blur(80px);
+  }
+
+  @media (max-width: 768px) {
+    .step-connector::after { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Toast -->
+<div id="toast" class="toast">
+  <iconify-icon icon="lucide:check-circle" class="mr-2 align-middle"></iconify-icon>
+  <span id="toast-msg">상담 신청이 완료되었습니다.</span>
+</div>
+
+<!-- Mobile Overlay -->
+<div id="mobile-overlay" class="mobile-overlay" onclick="closeMobileMenu()"></div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu">
+  <button onclick="closeMobileMenu()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 transition-colors">
+    <iconify-icon icon="lucide:x" width="24"></iconify-icon>
+  </button>
+  <nav class="flex flex-col gap-6">
+    <a href="#intro" onclick="closeMobileMenu()" class="text-slate-500 hover:text-orange-600 transition-colors text-sm font-medium">사업 소개</a>
+    <a href="#roles" onclick="closeMobileMenu()" class="text-slate-500 hover:text-orange-600 transition-colors text-sm font-medium">역할 분담</a>
+    <a href="#revenue" onclick="closeMobileMenu()" class="text-slate-500 hover:text-orange-600 transition-colors text-sm font-medium">수익 구조</a>
+    <a href="#types" onclick="closeMobileMenu()" class="text-slate-500 hover:text-orange-600 transition-colors text-sm font-medium">가맹 유형</a>
+    <a href="#cases" onclick="closeMobileMenu()" class="text-slate-500 hover:text-orange-600 transition-colors text-sm font-medium">매장 사례</a>
+    <a href="#assets" onclick="closeMobileMenu()" class="text-slate-500 hover:text-orange-600 transition-colors text-sm font-medium">본사 자산</a>
+    <a href="#synergy" onclick="closeMobileMenu()" class="text-slate-500 hover:text-orange-600 transition-colors text-sm font-medium">시너지</a>
+    <a href="#contact" onclick="closeMobileMenu()" class="mt-4 inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors">
+      <iconify-icon icon="lucide:phone" width="16"></iconify-icon>
+      상담 신청
+    </a>
+  </nav>
+</div>
+
+<!-- Navigation -->
+<div class="fixed top-0 left-0 right-0 h-16 z-50 glass-warm" style="border-bottom: 1px solid rgba(249,115,22,0.08);">
+  <div class="max-w-7xl mx-auto h-full px-6 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-full flex items-center justify-center text-white font-semibold text-xs" style="background: linear-gradient(135deg, #F97316, #EA580C); box-shadow: 0 4px 12px rgba(249,115,22,0.3);">
+        앤
+      </div>
+      <span class="text-slate-800 font-medium text-sm tracking-tight">카페앤드마켓</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#intro" class="nav-link text-slate-500 hover:text-orange-600 transition-colors text-xs font-medium tracking-wide">사업 소개</a>
+      <a href="#revenue" class="nav-link text-slate-500 hover:text-orange-600 transition-colors text-xs font-medium tracking-wide">수익 구조</a>
+      <a href="#types" class="nav-link text-slate-500 hover:text-orange-600 transition-colors text-xs font-medium tracking-wide">가맹 유형</a>
+      <a href="#cases" class="nav-link text-slate-500 hover:text-orange-600 transition-colors text-xs font-medium tracking-wide">매장 사례</a>
+      <a href="#synergy" class="nav-link text-slate-500 hover:text-orange-600 transition-colors text-xs font-medium tracking-wide">시너지</a>
+      <a href="#contact" class="bg-orange-500 hover:bg-orange-600 text-white text-xs font-medium px-4 py-2 rounded-lg transition-colors" style="box-shadow: 0 4px 14px rgba(249,115,22,0.3);">
+        상담 신청
+      </a>
+    </nav>
+    <button onclick="openMobileMenu()" class="md:hidden text-slate-500 hover:text-orange-600 transition-colors">
+      <iconify-icon icon="lucide:menu" width="22"></iconify-icon>
+    </button>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col items-center justify-center pt-16 overflow-hidden" style="background: linear-gradient(180deg, #FFF7ED 0%, #FFFAF5 40%, #FFFFFF 100%);">
+  <!-- Orange blobs -->
+  <div class="orange-blob" style="width: 500px; height: 500px; background: #FDBA74; opacity: 0.15; top: 5%; left: -10%;"></div>
+  <div class="orange-blob" style="width: 400px; height: 400px; background: #FB923C; opacity: 0.1; top: 30%; right: -8%;"></div>
+  <div class="orange-blob" style="width: 300px; height: 300px; background: #FED7AA; opacity: 0.2; bottom: 10%; left: 30%;"></div>
+
+  <!-- Blue dot patterns (inspired by uploaded images) -->
+  <div class="dot-pattern" style="top: 12%; left: 8%;">
+    <div class="blue-dot lg pulse" style="left: 0; top: 0;"></div>
+    <div class="blue-dot" style="left: 0; top: 28px;"></div>
+    <div class="blue-dot sm" style="left: 0; top: 50px;"></div>
+  </div>
+  <div class="dot-pattern" style="top: 8%; right: 12%;">
+    <div class="blue-dot" style="left: 0; top: 0;"></div>
+    <div class="blue-dot sm pulse" style="left: 20px; top: 0;"></div>
+    <div class="blue-dot lg" style="left: 38px; top: 0;"></div>
+    <div class="blue-dot" style="left: 60px; top: 0;"></div>
+    <div class="blue-dot sm" style="left: 78px; top: 0;"></div>
+  </div>
+  <div class="dot-pattern" style="bottom: 20%; left: 5%;">
+    <div class="blue-dot sm drift" style="left: 0; top: 0;"></div>
+    <div class="blue-dot" style="left: 18px; top: 0;"></div>
+    <div class="blue-dot sm" style="left: 36px; top: 0;"></div>
+    <div class="blue-dot" style="left: 54px; top: 0;"></div>
+    <div class="blue-dot lg pulse" style="left: 72px; top: 0;"></div>
+  </div>
+  <div class="dot-pattern" style="bottom: 15%; right: 8%;">
+    <div class="blue-dot" style="left: 0; top: 0;"></div>
+    <div class="blue-dot sm drift" style="left: 0; top: 24px;"></div>
+    <div class="blue-dot lg" style="left: 0; top: 44px;"></div>
+  </div>
+  <div class="dot-pattern" style="top: 50%; left: 15%;">
+    <div class="blue-dot sm pulse" style="left: 0; top: 0; opacity: 0.15;"></div>
+  </div>
+  <div class="dot-pattern" style="top: 45%; right: 18%;">
+    <div class="blue-dot drift" style="left: 0; top: 0; opacity: 0.15;"></div>
+    <div class="blue-dot sm" style="left: 16px; top: 8px; opacity: 0.1;"></div>
+  </div>
+
+  <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 glass-warm rounded-full px-4 py-2 mb-8" style="animation: fade-in-up 0.6s ease-out;">
+      <div class="w-2 h-2 rounded-full bg-orange-500" style="box-shadow: 0 0 8px rgba(249,115,22,0.5);"></div>
+      <span class="text-xs font-medium text-slate-500 tracking-wide">FRANCHISE BUSINESS · 2026</span>
+    </div>
+
+    <!-- Catchphrase -->
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-medium leading-tight tracking-tighter mb-6 text-slate-800" style="animation: fade-in-up 0.8s ease-out;">
+      생산자 <span class="shimmer-text">and'</span> 소비자<br>
+      <span class="text-transparent bg-clip-text" style="background: linear-gradient(135deg, #F97316, #EA580C); -webkit-background-clip: text;">앤드마켓</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-base md:text-lg text-slate-500 font-light leading-relaxed max-w-2xl mx-auto mb-10" style="animation: fade-in-up 1s ease-out;">
+      생산지 관리 및 자체 물류를 통해 매일 달라지는 신선하고 다양한 상품을<br class="hidden md:block">
+      <span class="text-slate-700 font-medium">유통마진 없이 온라인보다 저렴한 가격</span>으로 공급합니다.
+    </p>
+
+    <!-- Key points -->
+    <div class="flex flex-wrap items-center justify-center gap-3 mb-12" style="animation: fade-in-up 1.2s ease-out;">
+      <div class="glass-warm rounded-full px-5 py-2.5 flex items-center gap-2">
+        <iconify-icon icon="lucide:wallet" width="14" class="text-orange-500"></iconify-icon>
+        <span class="text-xs font-medium text-slate-600">무자본</span>
+      </div>
+      <div class="glass-warm rounded-full px-5 py-2.5 flex items-center gap-2">
+        <iconify-icon icon="lucide:store" width="14" class="text-orange-500"></iconify-icon>
+        <span class="text-xs font-medium text-slate-600">기존 점포로</span>
+      </div>
+      <div class="glass-warm rounded-full px-5 py-2.5 flex items-center gap-2">
+        <iconify-icon icon="lucide:percent" width="14" class="text-blue-500"></iconify-icon>
+        <span class="text-xs font-medium text-slate-600">매출 <span class="text-orange-600 font-semibold">5%</span> 확정 수익</span>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4" style="animation: fade-in-up 1.4s ease-out;">
+      <a href="#contact" class="group bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-8 py-3.5 rounded-xl transition-all duration-300 flex items-center gap-2" style="box-shadow: 0 8px 25px rgba(249,115,22,0.3);">
+        상담 신청하기
+        <iconify-icon icon="lucide:arrow-right" width="16" class="group-hover:translate-x-1 transition-transform"></iconify-icon>
+      </a>
+      <a href="#intro" class="text-sm font-medium text-slate-500 hover:text-orange-600 px-8 py-3.5 rounded-xl border border-orange-200 hover:border-orange-300 transition-all duration-300 flex items-center gap-2 bg-white/50">
+        사업 알아보기
+        <iconify-icon icon="lucide:chevron-down" width="16" class="animate-bounce"></iconify-icon>
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
+    <div class="w-5 h-8 rounded-full border border-orange-300 flex items-start justify-center p-1">
+      <div class="w-1 h-2 rounded-full bg-orange-400 animate-bounce"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 01: 사업 소개 -->
+<section id="intro" class="relative py-24 md:py-32 bg-white">
+  <div class="orange-blob" style="width: 400px; height: 400px; background: #FED7AA; opacity: 0.15; top: -10%; left: 50%; transform: translateX(-50%);"></div>
+  <!-- Dots -->
+  <div class="dot-pattern" style="top: 10%; right: 5%;">
+    <div class="blue-dot sm pulse" style="left:0;top:0;"></div>
+    <div class="blue-dot" style="left:16px;top:0;"></div>
+    <div class="blue-dot sm" style="left:32px;top:0;"></div>
+    <div class="blue-dot" style="left:48px;top:0;"></div>
+    <div class="blue-dot sm" style="left:64px;top:0;"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="inline-flex items-center gap-2 mb-4">
+        <div class="w-8 h-px bg-orange-400"></div>
+        <span class="text-orange-500 text-xs font-medium tracking-widest uppercase">01 · 사업 소개</span>
+        <div class="w-8 h-px bg-orange-400"></div>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-medium tracking-tighter mb-4 text-slate-800">공동구매 × 앤드마켓이란?</h2>
+      <p class="text-slate-400 text-sm font-light max-w-xl mx-auto">본사가 모든 운영을 책임지고, 앤드장은 확정 수익을 보장받는<br>혁신적인 상생형 프랜차이즈 모델입니다.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div class="glass-card rounded-xl p-6 card-hover animate-on-scroll delay-1">
+        <div class="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center mb-5">
+          <iconify-icon icon="lucide:building-2" width="20" class="text-orange-500"></iconify-icon>
+        </div>
+        <div class="text-xs text-orange-500 font-medium mb-2 tracking-wide">01</div>
+        <h3 class="text-base font-medium mb-3 text-slate-800">본사 운영 모델</h3>
+        <p class="text-sm text-slate-400 font-light leading-relaxed">상품 소싱·플랫폼·CS·배송 관리 모두 본사가 책임집니다. 앤드장은 운영 부담 없이 수익만 집중하세요.</p>
+      </div>
+      <div class="glass-card rounded-xl p-6 card-hover animate-on-scroll delay-2">
+        <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-5">
+          <iconify-icon icon="lucide:user-check" width="20" class="text-blue-500"></iconify-icon>
+        </div>
+        <div class="text-xs text-blue-500 font-medium mb-2 tracking-wide">02</div>
+        <h3 class="text-base font-medium mb-3 text-slate-800">앤드장 (지점장)</h3>
+        <p class="text-sm text-slate-400 font-light leading-relaxed">지역 회원 관리와 픽업 운영만 담당합니다. 무자본·기존 점포로 시작하는 핵심 원칙입니다.</p>
+      </div>
+      <div class="glass-card rounded-xl p-6 card-hover animate-on-scroll delay-3">
+        <div class="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center mb-5">
+          <iconify-icon icon="lucide:badge-check" width="20" class="text-orange-500"></iconify-icon>
+        </div>
+        <div class="text-xs text-orange-500 font-medium mb-2 tracking-wide">03</div>
+        <h3 class="text-base font-medium mb-3 text-slate-800">확정 수익 배분</h3>
+        <p class="text-sm text-slate-400 font-light leading-relaxed">지점 매출의 5%를 확정 지급합니다. 프로모션 비용은 5:5 원칙으로 협의합니다.</p>
+      </div>
+    </div>
+
+    <!-- Flow -->
+    <div class="mt-16 max-w-4xl mx-auto animate-on-scroll">
+      <div class="glass-card rounded-xl p-8 md:p-10">
+        <h3 class="text-center text-sm font-medium text-slate-600 mb-8">사업 흐름</h3>
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
+          <div class="flex-1 text-center">
+            <div class="w-14 h-14 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center mx-auto mb-3">
+              <iconify-icon icon="lucide:tractor" width="22" class="text-orange-500"></iconify-icon>
+            </div>
+            <div class="text-xs font-medium text-slate-700 mb-1">생산지 소싱</div>
+            <div class="text-[11px] text-slate-400">직거래 네트워크</div>
+          </div>
+          <iconify-icon icon="lucide:chevron-right" width="20" class="text-orange-300 hidden md:block"></iconify-icon>
+          <iconify-icon icon="lucide:chevron-down" width="20" class="text-orange-300 md:hidden"></iconify-icon>
+          <div class="flex-1 text-center">
+            <div class="w-14 h-14 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center mx-auto mb-3">
+              <iconify-icon icon="lucide:truck" width="22" class="text-blue-500"></iconify-icon>
+            </div>
+            <div class="text-xs font-medium text-slate-700 mb-1">자체 물류</div>
+            <div class="text-[11px] text-slate-400">매일 신선 배송</div>
+          </div>
+          <iconify-icon icon="lucide:chevron-right" width="20" class="text-orange-300 hidden md:block"></iconify-icon>
+          <iconify-icon icon="lucide:chevron-down" width="20" class="text-orange-300 md:hidden"></iconify-icon>
+          <div class="flex-1 text-center">
+            <div class="w-14 h-14 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center mx-auto mb-3">
+              <iconify-icon icon="lucide:smartphone" width="22" class="text-orange-500"></iconify-icon>
+            </div>
+            <div class="text-xs font-medium text-slate-700 mb-1">온라인 주문</div>
+            <div class="text-[11px] text-slate-400">오픈채팅 기반</div>
+          </div>
+          <iconify-icon icon="lucide:chevron-right" width="20" class="text-orange-300 hidden md:block"></iconify-icon>
+          <iconify-icon icon="lucide:chevron-down" width="20" class="text-orange-300 md:hidden"></iconify-icon>
+          <div class="flex-1 text-center">
+            <div class="w-14 h-14 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center mx-auto mb-3">
+              <iconify-icon icon="lucide:map-pin" width="22" class="text-blue-500"></iconify-icon>
+            </div>
+            <div class="text-xs font-medium text-slate-700 mb-1">지역 픽업</div>
+            <div class="text-[11px] text-slate-400">앤드장 운영</div>
+          </div>
+          <iconify-icon icon="lucide:chevron-right" width="20" class="text-orange-300 hidden md:block"></iconify-icon>
+          <iconify-icon icon="lucide:chevron-down" width="20" class="text-orange-300 md:hidden"></iconify-icon>
+          <div class="flex-1 text-center">
+            <div class="w-14 h-14 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center mx-auto mb-3">
+              <iconify-icon icon="lucide:heart-handshake" width="22" class="text-orange-500"></iconify-icon>
+            </div>
+            <div class="text-xs font-medium text-slate-700 mb-1">소비자</div>
+            <div class="text-[11px] text-slate-400">저렴하고 신선하게</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 02: 역할 분담 -->
+<section id="roles" class="relative py-24 md:py-32" style="background: linear-gradient(180deg, #FFF7ED 0%, #FFFFFF 100%);">
+  <div class="dot-pattern" style="top: 15%; left: 4%;">
+    <div class="blue-dot" style="left:0;top:0;"></div>
+    <div class="blue-dot sm" style="left:0;top:22px;"></div>
+    <div class="blue-dot lg pulse" style="left:0;top:40px;"></div>
+  </div>
+  <div class="dot-pattern" style="bottom: 10%; right: 6%;">
+    <div class="blue-dot sm drift" style="left:0;top:0;"></div>
+    <div class="blue-dot" style="left:18px;top:0;"></div>
+    <div class="blue-dot sm" style="left:36px;top:0;"></div>
+    <div class="blue-dot" style="left:54px;top:0;"></div>
+    <div class="blue-dot lg" style="left:72px;top:0;"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="inline-flex items-center gap-2 mb-4">
+        <div class="w-8 h-px bg-orange-400"></div>
+        <span class="text-orange-500 text-xs font-medium tracking-widest uppercase">02 · 역할 분담</span>
+        <div class="w-8 h-px bg-orange-400"></div>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-medium tracking-tighter mb-4 text-slate-800">본사가 하는 것 vs 앤드장이 하는 것</h2>
+      <p class="text-slate-400 text-sm font-light">명확한 역할 분담으로 앤드장의 운영 부담을 최소화합니다.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      <!-- HQ -->
+      <div class="glass-card rounded-xl p-8 card-hover animate-on-scroll delay-1">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center">
+            <iconify-icon icon="lucide:building-2" width="20" class="text-orange-500"></iconify-icon>
+          </div>
+          <div>
+            <h3 class="text-base font-medium text-slate-800">본사 (HQ)</h3>
+            <p class="text-[11px] text-slate-400">모든 운영을 책임집니다</p>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <iconify-icon icon="lucide:check-circle-2" width="16" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
+            <div>
+              <div class="text-sm font-medium text-slate-700">상품 소싱</div>
+              <div class="text-xs text-slate-400">생산지 관리 · 자체 물류</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <iconify-icon icon="lucide:check-circle-2" width="16" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
+            <div>
+              <div class="text-sm font-medium text-slate-700">오픈채팅방 운영</div>
+              <div class="text-xs text-slate-400">콘텐츠 · 고객 소통</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <iconify-icon icon="lucide:check-circle-2" width="16" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
+            <div>
+              <div class="text-sm font-medium text-slate-700">CS 관리</div>
+              <div class="text-xs text-slate-400">전체 회원 응대</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <iconify-icon icon="lucide:check-circle-2" width="16" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
+            <div>
+              <div class="text-sm font-medium text-slate-700">배송 관리</div>
+              <div class="text-xs text-slate-400">지역별 픽업 장소</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <iconify-icon icon="lucide:check-circle-2" width="16" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
+            <div>
+              <div class="text-sm font-medium text-slate-700">사이트 운영</div>
+              <div class="text-xs text-slate-400">주문조회 · 자동 안내</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <iconify-icon icon="lucide:check-circle-2" width="16" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
+            <div>
+              <div class="text-sm font-medium text-slate-700">사인물 · 간판 제작</div>
+              <div class="text-xs text-slate-400">제작 및 부착 비용 본사 부담</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Partner -->
+      <div class="glass-card rounded-xl p-8 card-hover animate-on-scroll delay-2">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center">
+            <iconify-icon icon="lucide:user-check" width="20" class="text-blue-500"></iconify-icon>
+          </div>
+          <div>
+            <h3 class="text-base font-medium text-slate-800">앤드장 (파트너)</h3>
+            <p class="text-[11px] text-slate-400">핵심만 집중합니다</p>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <iconify-icon icon="lucide:check-circle-2" width="16" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
+            <div>
+              <div class="text-sm font-medium text-slate-700">지역 회원 관리</div>
+              <div class="text-xs text-slate-400">오픈채팅 가입 관리</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <iconify-icon icon="lucide:check-circle-2" width="16" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
+            <div>
+              <div class="text-sm font-medium text-slate-700">지역 고객 소통</div>
+              <div class="text-xs text-slate-400">단골 관계 형성</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <iconify-icon icon="lucide:check-circle-2" width="16" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
+            <div>
+              <div class="text-sm font-medium text-slate-700">픽업 상품 수령 및 분출</div>
+              <div class="text-xs text-slate-400">간단한 분류 작업</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <iconify-icon icon="lucide:check-circle-2" width="16" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
+            <div>
+              <div class="text-sm font-medium text-slate-700">현장 CS</div>
+              <div class="text-xs text-slate-400">간단한 응대</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <iconify-icon icon="lucide:check-circle-2" width="16" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
+            <div>
+              <div class="text-sm font-medium text-slate-700">본사와 소통</div>
+              <div class="text-xs text-slate-400">운영 관련 협의</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <iconify-icon icon="lucide:check-circle-2" width="16" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
+            <div>
+              <div class="text-sm font-medium text-slate-700">본업 + 공구 동시 운영</div>
+              <div class="text-xs text-slate-400">선택 사항</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 03: 수익 구조 -->
+<section id="revenue" class="relative py-24 md:py-32 bg-white">
+  <div class="orange-blob" style="width: 500px; height: 500px; background: #FDBA74; opacity: 0.1; bottom: 0; left: -10%;"></div>
+  <div class="dot-pattern" style="top: 20%; right: 8%;">
+    <div class="blue-dot lg drift" style="left:0;top:0;"></div>
+    <div class="blue-dot sm" style="left:20px;top:0;"></div>
+    <div class="blue-dot" style="left:34px;top:0;"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="inline-flex items-center gap-2 mb-4">
+        <div class="w-8 h-px bg-orange-400"></div>
+        <span class="text-orange-500 text-xs font-medium tracking-widest uppercase">03 · 수익 구조</span>
+        <div class="w-8 h-px bg-orange-400"></div>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-medium tracking-tighter mb-4 text-slate-800">투명하고 확정적인 수익 배분</h2>
+      <p class="text-slate-400 text-sm font-light">앤드장님께 투명한 매출 데이터와 함께 확정 수익을 보장합니다.</p>
+    </div>
+
+    <!-- Main Revenue Card -->
+    <div class="max-w-3xl mx-auto mb-10 animate-on-scroll">
+      <div class="rounded-2xl p-10 text-center relative overflow-hidden" style="background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 50%, #FFF7ED 100%); border: 1px solid rgba(249,115,22,0.15);">
+        <div class="absolute top-4 right-6">
+          <div class="blue-dot pulse" style="opacity:0.2;"></div>
+        </div>
+        <div class="absolute bottom-6 left-8">
+          <div class="blue-dot sm drift" style="opacity:0.15;"></div>
+        </div>
+        <div class="relative z-10">
+          <div class="inline-flex items-center gap-2 bg-white/60 rounded-full px-4 py-1.5 mb-6 border border-orange-200/50">
+            <iconify-icon icon="lucide:shield-check" width="14" class="text-orange-500"></iconify-icon>
+            <span class="text-xs font-medium text-orange-600">CONFIRMED REVENUE</span>
+          </div>
+          <div class="text-7xl md:text-8xl font-semibold text-slate-800 mb-2 tracking-tighter" style="font-family: ui-monospace, monospace;">
+            <span class="text-transparent bg-clip-text" style="background: linear-gradient(135deg, #F97316, #EA580C); -webkit-background-clip: text;">5</span><span class="text-orange-500">%</span>
+          </div>
+          <div class="text-lg text-slate-600 font-medium mb-2">앤드장 확정 수익</div>
+          <p class="text-sm text-slate-400 font-light">지점 매출의 5%를 확정 지급합니다</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div class="glass-card rounded-xl p-6 card-hover animate-on-scroll delay-1">
+        <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-4">
+          <iconify-icon icon="lucide:handshake" width="20" class="text-blue-500"></iconify-icon>
+        </div>
+        <h3 class="text-sm font-medium mb-2 text-slate-800">프로모션 비용 5:5</h3>
+        <p class="text-xs text-slate-400 font-light leading-relaxed">프로모션 비용은 본사와 앤드장이 5:5 원칙으로 협의하여 진행합니다.</p>
+      </div>
+      <div class="glass-card rounded-xl p-6 card-hover animate-on-scroll delay-2">
+        <div class="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center mb-4">
+          <iconify-icon icon="lucide:sign-post" width="20" class="text-orange-500"></iconify-icon>
+        </div>
+        <h3 class="text-sm font-medium mb-2 text-slate-800">사인물 비용 본사 부담</h3>
+        <p class="text-xs text-slate-400 font-light leading-relaxed">지점 간판 및 픽업점 사인물 제작·부착 비용은 모두 본사가 부담합니다.</p>
+      </div>
+      <div class="glass-card rounded-xl p-6 card-hover animate-on-scroll delay-3">
+        <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-4">
+          <iconify-icon icon="lucide:bar-chart-3" width="20" class="text-blue-500"></iconify-icon>
+        </div>
+        <h3 class="text-sm font-medium mb-2 text-slate-800">투명한 데이터 공유</h3>
+        <p class="text-xs text-slate-400 font-light leading-relaxed">주별/월별 판매수량·금액과 키오스크 데이터를 정기적으로 공유합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 04: 3가지 유형 -->
+<section id="types" class="relative py-24 md:py-32" style="background: linear-gradient(180deg, #FFF7ED 0%, #FFFFFF 100%);">
+  <div class="dot-pattern" style="top: 8%; left: 6%;">
+    <div class="blue-dot" style="left:0;top:0;"></div>
+    <div class="blue-dot sm" style="left:0;top:22px;"></div>
+    <div class="blue-dot lg pulse" style="left:0;top:40px;"></div>
+  </div>
+  <div class="dot-pattern" style="bottom: 12%; right: 5%;">
+    <div class="blue-dot sm drift" style="left:0;top:0;"></div>
+    <div class="blue-dot" style="left:16px;top:0;"></div>
+    <div class="blue-dot sm" style="left:32px;top:0;"></div>
+    <div class="blue-dot" style="left:48px;top:0;"></div>
+    <div class="blue-dot lg" style="left:64px;top:0;"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="inline-flex items-center gap-2 mb-4">
+        <div class="w-8 h-px bg-orange-400"></div>
+        <span class="text-orange-500 text-xs font-medium tracking-widest uppercase">04 · 가맹 유형</span>
+        <div class="w-8 h-px bg-orange-400"></div>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-medium tracking-tighter mb-4 text-slate-800">상생형 프랜차이즈 3가지 유형</h2>
+      <p class="text-slate-400 text-sm font-light">부가되고 · 함께하고 · 살려내는 세 가지 방식으로 모든 자영업자와 상생합니다.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <!-- Type 1 -->
+      <div class="type-card glass-card rounded-xl p-8 card-hover animate-on-scroll delay-1" style="--accent-c: #F97316;">
+        <div class="text-5xl font-semibold text-orange-100 mb-4" style="font-family: ui-monospace, monospace;">01</div>
+        <div class="inline-flex items-center gap-2 rounded-full px-3 py-1 mb-4 bg-orange-50 border border-orange-200">
+          <iconify-icon icon="lucide:plus-circle" width="12" class="text-orange-500"></iconify-icon>
+          <span class="text-[11px] font-medium text-orange-600">부가되는</span>
+        </div>
+        <h3 class="text-lg font-medium mb-3 text-slate-800">본업에 공구 모듈 추가</h3>
+        <p class="text-sm text-slate-400 font-light leading-relaxed mb-5">이미 운영 중인 자영업자에게 본업에 공구 모듈을 더하는 형태입니다. 무자본·기존 점포로 새로운 수익원을 추가합니다.</p>
+        <div class="flex items-center gap-2 pt-4 border-t border-orange-100">
+          <iconify-icon icon="lucide:target" width="14" class="text-orange-400"></iconify-icon>
+          <span class="text-xs text-slate-400">타겟: 기존 자영업자</span>
+        </div>
+      </div>
+
+      <!-- Type 2 -->
+      <div class="type-card glass-card rounded-xl p-8 card-hover animate-on-scroll delay-2" style="--accent-c: #3B82F6;">
+        <div class="text-5xl font-semibold text-blue-100 mb-4" style="font-family: ui-monospace, monospace;">02</div>
+        <div class="inline-flex items-center gap-2 rounded-full px-3 py-1 mb-4 bg-blue-50 border border-blue-200">
+          <iconify-icon icon="lucide:users" width="12" class="text-blue-500"></iconify-icon>
+          <span class="text-[11px] font-medium text-blue-600">함께하는</span>
+        </div>
+        <h3 class="text-lg font-medium mb-3 text-slate-800">카페 사업 회생</h3>
+        <p class="text-sm text-slate-400 font-light leading-relaxed mb-5">폐업을 고민하는 카페 운영자에게 공구 매출을 더해 기존 사업을 회생합니다. 지역 모집을 통해 함께 운영합니다.</p>
+        <div class="flex items-center gap-2 pt-4 border-t border-blue-100">
+          <iconify-icon icon="lucide:target" width="14" class="text-blue-400"></iconify-icon>
+          <span class="text-xs text-slate-400">타겟: 기존 카페 운영자</span>
+        </div>
+      </div>
+
+      <!-- Type 3 -->
+      <div class="type-card glass-card rounded-xl p-8 card-hover animate-on-scroll delay-3" style="--accent-c: #10B981;">
+        <div class="text-5xl font-semibold text-emerald-100 mb-4" style="font-family: ui-monospace, monospace;">03</div>
+        <div class="inline-flex items-center gap-2 rounded-full px-3 py-1 mb-4 bg-emerald-50 border border-emerald-200">
+          <iconify-icon icon="lucide:heart-pulse" width="12" class="text-emerald-500"></iconify-icon>
+          <span class="text-[11px] font-medium text-emerald-600">살려내는</span>
+        </div>
+        <h3 class="text-lg font-medium mb-3 text-slate-800">공실 상가 활용</h3>
+        <p class="text-sm text-slate-400 font-light leading-relaxed mb-5">공실 상가 소유주에게 공실을 픽업 공간으로 활용합니다. 매출 셰어와 보증금 디파짓으로 임대 부담을 최소화합니다.</p>
+        <div class="flex items-center gap-2 pt-4 border-t border-emerald-100">
+          <iconify-icon icon="lucide:target" width="14" class="text-emerald-400"></iconify-icon>
+          <span class="text-xs text-slate-400">타겟: 공실 상가 소유주</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 05: 매장 사례 -->
+<section id="cases" class="relative py-24 md:py-32 bg-white">
+  <div class="orange-blob" style="width: 350px; height: 350px; background: #FED7AA; opacity: 0.12; top: 10%; right: -5%;"></div>
+  <div class="dot-pattern" style="bottom: 15%; left: 4%;">
+    <div class="blue-dot sm pulse" style="left:0;top:0;"></div>
+    <div class="blue-dot" style="left:18px;top:0;"></div>
+    <div class="blue-dot sm" style="left:36px;top:0;"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="inline-flex items-center gap-2 mb-4">
+        <div class="w-8 h-px bg-orange-400"></div>
+        <span class="text-orange-500 text-xs font-medium tracking-widest uppercase">05 · 매장 사례</span>
+        <div class="w-8 h-px bg-orange-400"></div>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-medium tracking-tighter mb-4 text-slate-800">실제 운영 중인 매장</h2>
+      <p class="text-slate-400 text-sm font-light">두 가지 유형의 매장이 각기 다른 방식으로 시너지를 입증합니다.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <!-- Cafe Type -->
+      <div class="glass-card rounded-2xl overflow-hidden card-hover animate-on-scroll delay-1">
+        <div class="relative h-48 overflow-hidden">
+          <img src="https://picsum.photos/seed/cafe-and-yeoul-orange/800/400.jpg" alt="카페 앤드마켓 여울점" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent"></div>
+          <div class="absolute bottom-4 left-6 right-6">
+            <div class="inline-flex items-center gap-2 rounded-full px-3 py-1 mb-2 bg-white/70 border border-orange-200">
+              <iconify-icon icon="lucide:coffee" width="12" class="text-orange-500"></iconify-icon>
+              <span class="text-[11px] font-medium text-orange-600">STORE TYPE 1</span>
+            </div>
+            <h3 class="text-lg font-medium text-slate-800">카페 앤드마켓</h3>
+            <p class="text-xs text-slate-500">여울점 · 망포점</p>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="text-[11px] text-slate-500 bg-orange-50 rounded-full px-3 py-1 border border-orange-100">커피</span>
+            <span class="text-[11px] text-slate-500 bg-orange-50 rounded-full px-3 py-1 border border-orange-100">브런치</span>
+            <span class="text-[11px] text-slate-500 bg-orange-50 rounded-full px-3 py-1 border border-orange-100">김밥</span>
+            <span class="text-[11px] text-slate-500 bg-orange-50 rounded-full px-3 py-1 border border-orange-100">분식</span>
+            <span class="text-[11px] text-slate-500 bg-blue-50 rounded-full px-3 py-1 border border-blue-100">공구 픽업</span>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <iconify-icon icon="lucide:check" width="14" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <p class="text-xs text-slate-400 font-light">다양한 매장 메뉴로 공구 부진 시에도 매장 매출 유지</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <iconify-icon icon="lucide:check" width="14" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <p class="text-xs text-slate-400 font-light">2~3인 근무로 안정적 운영, 본사 직영점도 가능</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <iconify-icon icon="lucide:check" width="14" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <p class="text-xs text-slate-400 font-light">주변 소규모 픽업점의 허브 매장으로 기능</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <iconify-icon icon="lucide:check" width="14" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <p class="text-xs text-slate-400 font-light">공구 픽업 손님이 카페에서 김밥·음료 함께 구매 <span class="text-orange-600 font-medium">(실증 완료)</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pickup Type -->
+      <div class="glass-card rounded-2xl overflow-hidden card-hover animate-on-scroll delay-2">
+        <div class="relative h-48 overflow-hidden">
+          <img src="https://picsum.photos/seed/andmarket-seojeong-blue/800/400.jpg" alt="앤드마켓 서정점" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent"></div>
+          <div class="absolute bottom-4 left-6 right-6">
+            <div class="inline-flex items-center gap-2 rounded-full px-3 py-1 mb-2 bg-white/70 border border-blue-200">
+              <iconify-icon icon="lucide:map-pin" width="12" class="text-blue-500"></iconify-icon>
+              <span class="text-[11px] font-medium text-blue-600">STORE TYPE 2</span>
+            </div>
+            <h3 class="text-lg font-medium text-slate-800">앤드마켓</h3>
+            <p class="text-xs text-slate-500">서정점 · 수지점</p>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="text-[11px] text-slate-500 bg-blue-50 rounded-full px-3 py-1 border border-blue-100">테이크아웃</span>
+            <span class="text-[11px] text-slate-500 bg-blue-50 rounded-full px-3 py-1 border border-blue-100">간이 커피</span>
+            <span class="text-[11px] text-slate-500 bg-orange-50 rounded-full px-3 py-1 border border-orange-100">공구 픽업</span>
+            <span class="text-[11px] text-slate-500 bg-blue-50 rounded-full px-3 py-1 border border-blue-100">소규모</span>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <iconify-icon icon="lucide:check" width="14" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <p class="text-xs text-slate-400 font-light">파트타임 또는 템포로리 인건비 부담 최소화</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <iconify-icon icon="lucide:check" width="14" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <p class="text-xs text-slate-400 font-light">간이 커피기계 테이크아웃 위주, 낮은 초기 투자</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <iconify-icon icon="lucide:check" width="14" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <p class="text-xs text-slate-400 font-light">10평 내외 소공간으로도 픽업 거점 기능 충분</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <iconify-icon icon="lucide:check" width="14" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <p class="text-xs text-slate-400 font-light">거점 카페형 매장의 위성 픽업점으로 <span class="text-orange-600 font-medium">빠른 확장</span> 가능</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 06: 본사 자산 -->
+<section id="assets" class="relative py-24 md:py-32" style="background: linear-gradient(180deg, #FFF7ED 0%, #FFFFFF 100%);">
+  <div class="orange-blob" style="width: 400px; height: 400px; background: #FB923C; opacity: 0.08; top: 10%; left: 50%; transform: translateX(-50%);"></div>
+  <div class="dot-pattern" style="top: 5%; left: 10%;">
+    <div class="blue-dot drift" style="left:0;top:0;opacity:0.15;"></div>
+    <div class="blue-dot sm" style="left:20px;top:0;opacity:0.1;"></div>
+    <div class="blue-dot" style="left:36px;top:0;opacity:0.12;"></div>
+    <div class="blue-dot sm" style="left:54px;top:0;opacity:0.08;"></div>
+    <div class="blue-dot lg" style="left:70px;top:0;opacity:0.15;"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="inline-flex items-center gap-2 mb-4">
+        <div class="w-8 h-px bg-orange-400"></div>
+        <span class="text-orange-500 text-xs font-medium tracking-widest uppercase">06 · 본사 자산</span>
+        <div class="w-8 h-px bg-orange-400"></div>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-medium tracking-tighter mb-4 text-slate-800">앤드장은 받기만 하고,<br>본사는 책임집니다</h2>
+      <p class="text-slate-400 text-sm font-light">본사는 3가지 핵심 자산을 가맹점에 제공합니다.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div class="glass-card rounded-xl p-8 card-hover animate-on-scroll delay-1 group">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-100 to-orange-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+          <iconify-icon icon="lucide:leaf" width="24" class="text-orange-500"></iconify-icon>
+        </div>
+        <h3 class="text-base font-medium mb-1 text-slate-800">상품 소싱력</h3>
+        <p class="text-xs text-orange-500 font-medium mb-4">HACCP 자가 공장</p>
+        <div class="space-y-3">
+          <div class="flex items-start gap-2">
+            <div class="w-1 h-1 rounded-full bg-orange-400 mt-2 flex-shrink-0"></div>
+            <p class="text-xs text-slate-400 font-light">사과즙·배즙 등 자체 제조 PB 상품</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <div class="w-1 h-1 rounded-full bg-orange-400 mt-2 flex-shrink-0"></div>
+            <p class="text-xs text-slate-400 font-light">전국 생산지 직거래 네트워크</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <div class="w-1 h-1 rounded-full bg-orange-400 mt-2 flex-shrink-0"></div>
+            <p class="text-xs text-slate-400 font-light">매일 달라지는 신선 상품 공급</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-xl p-8 card-hover animate-on-scroll delay-2 group">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+          <iconify-icon icon="lucide:monitor-smartphone" width="24" class="text-blue-500"></iconify-icon>
+        </div>
+        <h3 class="text-base font-medium mb-1 text-slate-800">운영 시스템</h3>
+        <p class="text-xs text-blue-500 font-medium mb-4">자체 주문조회 플랫폼</p>
+        <div class="space-y-3">
+          <div class="flex items-start gap-2">
+            <div class="w-1 h-1 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+            <p class="text-xs text-slate-400 font-light">andmarket-customer.vercel.app</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <div class="w-1 h-1 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+            <p class="text-xs text-slate-400 font-light">자동 환영 안내봇 시스템</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <div class="w-1 h-1 rounded-full bg-blue-400 mt-2 flex-shrink-0"></div>
+            <p class="text-xs text-slate-400 font-light">키오스크·정산 시스템 통합</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card rounded-xl p-8 card-hover animate-on-scroll delay-3 group">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-100 to-blue-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+          <iconify-icon icon="lucide:book-open" width="24" class="text-orange-500"></iconify-icon>
+        </div>
+        <h3 class="text-base font-medium mb-1 text-slate-800">운영 노하우</h3>
+        <p class="text-xs text-orange-500 font-medium mb-4">콘텐츠 + 매뉴얼</p>
+        <div class="space-y-3">
+          <div class="flex items-start gap-2">
+            <div class="w-1 h-1 rounded-full bg-orange-400 mt-2 flex-shrink-0"></div>
+            <p class="text-xs text-slate-400 font-light">오픈채팅 운영 표준 가이드</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <div class="w-1 h-1 rounded-full bg-orange-400 mt-2 flex-shrink-0"></div>
+            <p class="text-xs text-slate-400 font-light">위기 대응·재고 관리·CS 매뉴얼</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <div class="w-1 h-1 rounded-full bg-orange-400 mt-2 flex-shrink-0"></div>
+            <p class="text-xs text-slate-400 font-light">친구추천 이벤트 등 회원 확장 시스템</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 07: 시너지 -->
+<section id="synergy" class="relative py-24 md:py-32 bg-white">
+  <div class="orange-blob" style="width: 450px; height: 450px; background: #FED7AA; opacity: 0.1; top: 30%; left: 50%; transform: translateX(-50%);"></div>
+  <div class="dot-pattern" style="top: 10%; right: 6%;">
+    <div class="blue-dot" style="left:0;top:0;"></div>
+    <div class="blue-dot sm drift" style="left:0;top:24px;"></div>
+    <div class="blue-dot lg pulse" style="left:0;top:44px;"></div>
+  </div>
+  <div class="dot-pattern" style="bottom: 8%; left: 8%;">
+    <div class="blue-dot sm" style="left:0;top:0;"></div>
+    <div class="blue-dot" style="left:18px;top:0;"></div>
+    <div class="blue-dot sm" style="left:36px;top:0;"></div>
+    <div class="blue-dot" style="left:54px;top:0;"></div>
+    <div class="blue-dot sm drift" style="left:72px;top:0;"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16 animate-on-scroll">
+      <div class="inline-flex items-center gap-2 mb-4">
+        <div class="w-8 h-px bg-orange-400"></div>
+        <span class="text-orange-500 text-xs font-medium tracking-widest uppercase">07 · 시너지 효과</span>
+        <div class="w-8 h-px bg-orange-400"></div>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-medium tracking-tighter mb-4 text-slate-800">카페 + 공구 결합 시너지</h2>
+      <p class="text-slate-400 text-sm font-light">이미 실증된 두 매출원의 결합 효과</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <!-- Actual patterns -->
+      <div class="glass-card rounded-xl p-8 card-hover animate-on-scroll delay-1">
+        <div class="flex items-center gap-2 mb-6">
+          <iconify-icon icon="lucide:receipt-text" width="18" class="text-orange-500"></iconify-icon>
+          <h3 class="text-sm font-medium text-slate-800">실제 발생 패턴</h3>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-center gap-3 p-3 rounded-lg bg-orange-50/50 border border-orange-100/50">
+            <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center flex-shrink-0 border border-orange-200">
+              <span class="text-xs font-semibold text-orange-500">1</span>
+            </div>
+            <p class="text-xs text-slate-600 font-light">앤드김밥 1줄 + 아메리카노 + 공구 픽업</p>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-lg bg-orange-50/50 border border-orange-100/50">
+            <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center flex-shrink-0 border border-orange-200">
+              <span class="text-xs font-semibold text-orange-500">2</span>
+            </div>
+            <p class="text-xs text-slate-600 font-light">꼬마김밥 + 크랩샌드위치 + 어묵탕 + 공구 (DT)</p>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-lg bg-orange-50/50 border border-orange-100/50">
+            <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center flex-shrink-0 border border-orange-200">
+              <span class="text-xs font-semibold text-orange-500">3</span>
+            </div>
+            <p class="text-xs text-slate-600 font-light">앤드김밥 4줄 + 꼬마김밥 + 공구 (단체 주문)</p>
+          </div>
+          <div class="flex items-center gap-3 p-3 rounded-lg bg-orange-50/50 border border-orange-100/50">
+            <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center flex-shrink-0 border border-orange-200">
+              <span class="text-xs font-semibold text-orange-500">4</span>
+            </div>
+            <p class="text-xs text-slate-600 font-light">앤드김밥 + 마라탕 + 공구 (점심 + 픽업)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Synergy effects -->
+      <div class="glass-card rounded-xl p-8 card-hover animate-on-scroll delay-2">
+        <div class="flex items-center gap-2 mb-6">
+          <iconify-icon icon="lucide:zap" width="18" class="text-orange-500"></iconify-icon>
+          <h3 class="text-sm font-medium text-slate-800">시너지 효과</h3>
+          <span class="text-[10px] text-orange-600 bg-orange-50 rounded-full px-2 py-0.5 ml-1 border border-orange-200">PROVEN</span>
+        </div>
+        <div class="space-y-5">
+          <div class="synergy-item">
+            <div class="text-sm font-medium text-slate-700 mb-1">공구 픽업 → 카페 추가 매출</div>
+            <p class="text-xs text-slate-400 font-light">픽업 온 고객이 자연스럽게 카페 메뉴를 함께 주문합니다.</p>
+          </div>
+          <div class="synergy-item">
+            <div class="text-sm font-medium text-slate-700 mb-1">카페 단골 → 공구 회원 전환</div>
+            <p class="text-xs text-slate-400 font-light">기존 카페 단골 고객이 공구 회원으로 자연 전환됩니다.</p>
+          </div>
+          <div class="synergy-item">
+            <div class="text-sm font-medium text-slate-700 mb-1">두 매출원이 상호 견인</div>
+            <p class="text-xs text-slate-400 font-light">한쪽이 부진해도 다른 쪽이 방어하는 든든한 구조입니다.</p>
+          </div>
+          <div class="synergy-item">
+            <div class="text-sm font-medium text-slate-700 mb-1">경쟁사가 따라할 수 없는 구조</div>
+            <p class="text-xs text-slate-400 font-light">카페 + 공구의 결합은 본사의 소싱력이 있어야만 가능합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 08: Contact -->
+<section id="contact" class="relative py-24 md:py-32" style="background: linear-gradient(180deg, #FFF7ED 0%, #FFEDD5 100%);">
+  <div class="orange-blob" style="width: 600px; height: 600px; background: #FB923C; opacity: 0.06; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+
+  <!-- Decorative blue dots -->
+  <div class="dot-pattern" style="top: 10%; left: 8%;">
+    <div class="blue-dot sm pulse" style="left:0;top:0;"></div>
+    <div class="blue-dot" style="left:18px;top:0;"></div>
+    <div class="blue-dot sm" style="left:36px;top:0;"></div>
+  </div>
+  <div class="dot-pattern" style="top: 8%; right: 10%;">
+    <div class="blue-dot" style="left:0;top:0;"></div>
+    <div class="blue-dot sm drift" style="left:0;top:22px;"></div>
+    <div class="blue-dot lg" style="left:0;top:42px;"></div>
+  </div>
+  <div class="dot-pattern" style="bottom: 10%; left: 15%;">
+    <div class="blue-dot sm" style="left:0;top:0;"></div>
+    <div class="blue-dot" style="left:18px;top:0;"></div>
+    <div class="blue-dot sm" style="left:36px;top:0;"></div>
+    <div class="blue-dot" style="left:54px;top:0;"></div>
+    <div class="blue-dot lg pulse" style="left:72px;top:0;"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12 animate-on-scroll">
+        <div class="inline-flex items-center gap-2 mb-4">
+          <div class="w-8 h-px bg-orange-400"></div>
+          <span class="text-orange-500 text-xs font-medium tracking-widest uppercase">CONTACT</span>
+          <div class="w-8 h-px bg-orange-400"></div>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tighter mb-4 text-slate-800">함께 시작하시겠습니까?</h2>
+        <p class="text-slate-400 text-sm font-light max-w-lg mx-auto">부가되고, 함께하고, 살려내는 상생형 가맹사업<br>앤드장님의 본업 매출을 지키면서 공구 매출을 더합니다.</p>
+      </div>
+
+      <!-- Steps -->
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <div class="glass-card rounded-xl p-6 text-center card-hover animate-on-scroll delay-1 step-connector">
+          <div class="w-12 h-12 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center mx-auto mb-4">
+            <span class="text-lg font-semibold text-orange-500" style="font-family: ui-monospace, monospace;">1</span>
+          </div>
+          <h3 class="text-sm font-medium mb-1 text-slate-800">상담 신청</h3>
+          <p class="text-xs text-slate-400 font-light">본사와 1차 미팅</p>
+        </div>
+        <div class="glass-card rounded-xl p-6 text-center card-hover animate-on-scroll delay-2 step-connector">
+          <div class="w-12 h-12 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center mx-auto mb-4">
+            <span class="text-lg font-semibold text-blue-500" style="font-family: ui-monospace, monospace;">2</span>
+          </div>
+          <h3 class="text-sm font-medium mb-1 text-slate-800">유형 결정</h3>
+          <p class="text-xs text-slate-400 font-light">3유형 중 적합 모델 선택</p>
+        </div>
+        <div class="glass-card rounded-xl p-6 text-center card-hover animate-on-scroll delay-3">
+          <div class="w-12 h-12 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center mx-auto mb-4">
+            <span class="text-lg font-semibold text-orange-500" style="font-family: ui-monospace, monospace;">3</span>
+          </div>
+          <h3 class="text-sm font-medium mb-1 text-slate-800">오픈 준비</h3>
+          <p class="text-xs text-slate-400 font-light">사인물·시스템 본사 지원</p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-8 md:p-10 animate-on-scroll" style="border: 1px solid rgba(249,115,22,0.1); box-shadow: 0 8px 40px rgba(249,115,22,0.08);">
+        <form id="contact-form" onsubmit="handleSubmit(event)">
+          <div class="grid md:grid-cols-2 gap-5 mb-5">
+            <div>
+              <label class="block text-xs font-medium text-slate-500 mb-2">이름 <span class="text-orange-500">*</span></label>
+              <input type="text" name="name" required placeholder="홍길동"
+                class="w-full bg-white border border-orange-100 rounded-lg px-4 py-3 text-sm text-slate-800 placeholder-slate-300 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition-all">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-500 mb-2">연락처 <span class="text-orange-500">*</span></label>
+              <input type="tel" name="phone" required placeholder="010-0000-0000"
+                class="w-full bg-white border border-orange-100 rounded-lg px-4 py-3 text-sm text-slate-800 placeholder-slate-300 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition-all">
+            </div>
+          </div>
+          <div class="mb-5">
+            <label class="block text-xs font-medium text-slate-500 mb-2">관심 유형</label>
+            <select name="type"
+              class="w-full bg-white border border-orange-100 rounded-lg px-4 py-3 text-sm text-slate-500 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition-all appearance-none"
+              style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f97316' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E&quot;); background-repeat: no-repeat; background-position: right 12px center;">
+              <option value="">선택해 주세요</option>
+              <option value="add">부가되는 — 기존 자영업자</option>
+              <option value="together">함께하는 — 기존 카페 운영자</option>
+              <option value="revive">살려내는 — 공실 상가 소유주</option>
+              <option value="new">새로 시작하고 싶습니다</option>
+            </select>
+          </div>
+          <div class="mb-6">
+            <label class="block text-xs font-medium text-slate-500 mb-2">추가 문의</label>
+            <textarea name="message" rows="4" placeholder="현재 운영 중인 사업이나 궁금한 점을 자유롭게 적어주세요."
+              class="w-full bg-white border border-orange-100 rounded-lg px-4 py-3 text-sm text-slate-800 placeholder-slate-300 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition-all resize-none"></textarea>
+          </div>
+          <button type="submit"
+            class="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium py-3.5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
+            style="box-shadow: 0 8px 25px rgba(249,115,22,0.3);">
+            <iconify-icon icon="lucide:send" width="16"></iconify-icon>
+            상담 신청하기
+          </button>
+          <p class="text-center text-[11px] text-slate-400 mt-4">제출 후 영업일 기준 1~2일 내 본사에서 연락드립니다.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="relative py-12 bg-white border-t border-orange-100">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-full flex items-center justify-center text-white font-semibold text-[10px]" style="background: linear-gradient(135deg, #F97316, #EA580C);">
+          앤
+        </div>
+        <div>
+          <span class="text-slate-800 text-sm font-medium">카페앤드마켓</span>
+          <p class="text-[10px] text-slate-400">생산자 and' 소비자 앤드마켓</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#intro" class="text-xs text-slate-400 hover:text-orange-500 transition-colors">사업 소개</a>
+        <a href="#revenue" class="text-xs text-slate-400 hover:text-orange-500 transition-colors">수익 구조</a>
+        <a href="#types" class="text-xs text-slate-400 hover:text-orange-500 transition-colors">가맹 유형</a>
+        <a href="#contact" class="text-xs text-slate-400 hover:text-orange-500 transition-colors">상담 신청</a>
+      </div>
+      <p class="text-[11px] text-slate-400">© 2025 카페앤드마켓. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function openMobileMenu() {
+  document.getElementById('mobile-menu').classList.add('open');
+  document.getElementById('mobile-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+  document.getElementById('mobile-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    if (scrollY >= section.offsetTop - 100) current = section.getAttribute('id');
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+  });
+  const nav = document.querySelector('.fixed.top-0');
+  if (window.scrollY > 50) {
+    nav.style.background = 'rgba(255,250,245,0.9)';
+    nav.style.boxShadow = '0 1px 20px rgba(249,115,22,0.06)';
+  } else {
+    nav.style.background = 'rgba(255,255,255,0.7)';
+    nav.style.boxShadow = 'none';
+  }
+});
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toast-msg').textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3500);
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
+  const name = e.target.name.value;
+  showToast(`${name}님, 상담 신청이 완료되었습니다!`);
+  e.target.reset();
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
