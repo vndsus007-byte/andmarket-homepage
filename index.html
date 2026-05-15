@@ -3,7 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>카페앤드마켓 — 생산자 and' 소비자 앤드마켓</title>
+<title>앤드마켓 - 생산자와 소비자가 직접 만나는 공동구매 플랫폼</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="앤드마켓은 생산자와 소비자가 직접 만나는 공동구매 플랫폼입니다. 유통마진 없이 신선하고 다양한 상품을 온라인보다 저렴한 가격으로 만나보세요. 카페 창업, 자영업자, 공실 상가 소유주 모두에게 새로운 기회를 제공합니다.">
+<meta name="keywords" content="앤드마켓, 공동구매, 프랜차이즈, 카페창업, 생산자직거래, 카페앤드마켓, 자영업 창업, 공실상가 활용, 부업, 상생 가맹">
+<meta name="author" content="앤드마켓">
+<meta name="subject" content="공동구매 프랜차이즈 - 앤드마켓">
+<meta name="classification" content="비즈니스">
+<meta name="rating" content="general">
+<meta name="distribution" content="global">
+
+<!-- 검색 로봇 -->
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="yeti" content="index, follow">
+<meta name="naverbot" content="index, follow">
+
+<!-- 표준 URL -->
+<link rel="canonical" href="https://andmarket09.com/">
+
+<!-- 언어 설정 -->
+<meta http-equiv="Content-Language" content="ko">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Open Graph (카카오톡/페이스북/네이버 공유용) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="앤드마켓 - 생산자와 소비자가 직접 만나는 공동구매 플랫폼">
+<meta property="og:description" content="유통마진 없이 신선한 상품을 합리적인 가격으로. 부가되는 자영업, 함께하는 카페, 살려내는 공실까지 — 새로운 비즈니스의 시작.">
+<meta property="og:url" content="https://andmarket09.com/">
+<meta property="og:site_name" content="앤드마켓">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://andmarket09.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="앤드마켓 - 생산자와 소비자가 직접 만나는 공동구매 플랫폼">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="앤드마켓 - 생산자와 소비자가 직접 만나는 공동구매 플랫폼">
+<meta name="twitter:description" content="유통마진 없이 신선한 상품을 합리적인 가격으로. 새로운 비즈니스의 시작.">
+<meta name="twitter:image" content="https://andmarket09.com/og-image.png">
+
+<!-- 네이버 사이트 소유 확인 (선택 - 서치어드바이저 등록 시 추가) -->
+<!-- <meta name="naver-site-verification" content="여기에_인증코드_입력" /> -->
+
+<!-- 구글 사이트 소유 확인 (선택 - 서치 콘솔 등록 시 추가) -->
+<!-- <meta name="google-site-verification" content="여기에_인증코드_입력" /> -->
+
+<!-- 구조화된 데이터 (JSON-LD) - 네이버/구글 검색 결과 풍부한 표시 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "앤드마켓",
+  "alternateName": "카페앤드마켓",
+  "url": "https://andmarket09.com",
+  "logo": "https://andmarket09.com/logo.png",
+  "description": "앤드마켓은 생산자와 소비자가 직접 만나는 공동구매 플랫폼입니다. 유통마진 없이 신선하고 다양한 상품을 합리적인 가격으로 공급합니다.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "KR"
+  },
+  "sameAs": [
+    "http://pf.kakao.com/_pLxlsX"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "앤드마켓",
+  "url": "https://andmarket09.com",
+  "inLanguage": "ko-KR",
+  "publisher": {
+    "@type": "Organization",
+    "name": "앤드마켓"
+  }
+}
+</script>
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E☕%3C/text%3E%3C/svg%3E">
+
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -176,6 +260,16 @@ tailwind.config = {
 </style>
 </head>
 <body>
+
+<!-- 플로팅 카카오톡 상담 버튼 -->
+<a href="http://pf.kakao.com/_pLxlsX/chat" target="_blank" rel="noopener noreferrer"
+  id="floating-kakao"
+  class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-yellow-300 hover:bg-yellow-400 text-slate-800 text-sm font-medium px-5 py-3.5 rounded-full transition-all duration-300 hover:scale-105"
+  style="box-shadow: 0 8px 24px rgba(254,204,2,0.5);"
+  aria-label="카카오톡 상담">
+  <iconify-icon icon="ri:kakao-talk-fill" width="22"></iconify-icon>
+  <span class="hidden sm:inline">카톡상담</span>
+</a>
 
 <!-- Toast -->
 <div id="toast" class="toast">
@@ -1072,9 +1166,34 @@ tailwind.config = {
         </div>
       </div>
 
+      <!-- 카카오톡 빠른 상담 안내 -->
+      <div class="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-6 md:p-8 mb-6 animate-on-scroll" style="border: 1px solid rgba(254,204,2,0.3);">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-4 text-center md:text-left">
+            <div class="w-14 h-14 rounded-full bg-yellow-300 flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="ri:kakao-talk-fill" width="28" style="color: #3C1E1E;"></iconify-icon>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold text-slate-800 mb-1">카카오톡으로 빠른 상담</h3>
+              <p class="text-xs text-slate-500 font-light">간단한 문의는 카카오톡 채널로! 영업시간 내 빠르게 답변드립니다.</p>
+            </div>
+          </div>
+          <a href="http://pf.kakao.com/_pLxlsX/chat" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 bg-yellow-300 hover:bg-yellow-400 text-slate-800 text-sm font-medium px-6 py-3 rounded-xl transition-all whitespace-nowrap"
+            style="box-shadow: 0 4px 14px rgba(254,204,2,0.4);">
+            <iconify-icon icon="ri:kakao-talk-fill" width="18"></iconify-icon>
+            카톡 상담하기
+          </a>
+        </div>
+      </div>
+
       <!-- Form -->
       <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-8 md:p-10 animate-on-scroll" style="border: 1px solid rgba(249,115,22,0.1); box-shadow: 0 8px 40px rgba(249,115,22,0.08);">
-        <form id="contact-form" onsubmit="handleSubmit(event)">
+        <div class="mb-6 text-center">
+          <h3 class="text-base font-semibold text-slate-800 mb-1">📋 상세 상담 신청</h3>
+          <p class="text-xs text-slate-500 font-light">정식 상담을 원하시면 아래 양식을 작성해주세요. 영업일 기준 1~2일 내 연락드립니다.</p>
+        </div>
+        <form id="contact-form" action="https://formspree.io/f/mykoqlkv" method="POST" onsubmit="handleSubmit(event)">
           <div class="grid md:grid-cols-2 gap-5 mb-5">
             <div>
               <label class="block text-xs font-medium text-slate-500 mb-2">이름 <span class="text-orange-500">*</span></label>
@@ -1135,8 +1254,12 @@ tailwind.config = {
         <a href="#revenue" class="text-xs text-slate-400 hover:text-orange-500 transition-colors">수익 구조</a>
         <a href="#types" class="text-xs text-slate-400 hover:text-orange-500 transition-colors">가맹 유형</a>
         <a href="#contact" class="text-xs text-slate-400 hover:text-orange-500 transition-colors">상담 신청</a>
+        <a href="http://pf.kakao.com/_pLxlsX" target="_blank" rel="noopener noreferrer" class="text-xs text-slate-400 hover:text-yellow-600 transition-colors flex items-center gap-1">
+          <iconify-icon icon="ri:kakao-talk-fill" width="14"></iconify-icon>
+          카톡채널
+        </a>
       </div>
-      <p class="text-[11px] text-slate-400">© 2025 카페앤드마켓. All rights reserved.</p>
+      <p class="text-[11px] text-slate-400">© 2026 카페앤드마켓. All rights reserved.</p>
     </div>
   </div>
 </footer>
@@ -1190,11 +1313,36 @@ function showToast(msg) {
   setTimeout(() => toast.classList.remove('show'), 3500);
 }
 
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
-  const name = e.target.name.value;
-  showToast(`${name}님, 상담 신청이 완료되었습니다!`);
-  e.target.reset();
+  const form = e.target;
+  const name = form.name.value;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.innerHTML;
+  
+  // 전송 중 표시
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<iconify-icon icon="lucide:loader-2" width="16" class="animate-spin"></iconify-icon> 전송 중...';
+  
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+    
+    if (response.ok) {
+      showToast(`${name}님, 상담 신청이 완료되었습니다!`);
+      form.reset();
+    } else {
+      showToast('전송에 실패했습니다. 잠시 후 다시 시도해주세요.');
+    }
+  } catch (error) {
+    showToast('전송 중 오류가 발생했습니다. 카카오톡으로 문의해주세요.');
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = originalText;
+  }
 }
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
