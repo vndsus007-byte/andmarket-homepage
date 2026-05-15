@@ -286,18 +286,22 @@ tailwind.config = {
   <button onclick="closeMobileMenu()" class="absolute top-6 right-6 text-slate-700 hover:text-slate-900 transition-colors">
     <iconify-icon icon="lucide:x" width="24"></iconify-icon>
   </button>
-  <a href="https://open.kakao.com/o/gaC9N17h" target="_blank" rel="noopener noreferrer" onclick="closeMobileMenu()" class="flex items-center gap-3 mb-8 cursor-pointer">
-    <div class="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center" style="box-shadow: 0 4px 14px rgba(249,115,22,0.3);">
-      <img src="/logo.png" alt="앤드마켓 로고" class="w-full h-full object-cover">
-    </div>
-    <div class="flex flex-col">
-      <span class="text-slate-900 font-extrabold text-base tracking-tight leading-tight">카페앤드마켓</span>
-      <span class="text-orange-600 font-bold text-[10px] tracking-wider flex items-center gap-1">
-        <iconify-icon icon="ri:kakao-talk-fill" width="10"></iconify-icon>
-        입장하기 →
-      </span>
-    </div>
-  </a>
+  <div class="flex items-center gap-3 mb-8">
+    <a href="#" onclick="closeMobileMenu(); scrollToTop(event); return false;" class="cursor-pointer">
+      <div class="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center" style="box-shadow: 0 4px 14px rgba(249,115,22,0.3);">
+        <img src="/logo.png" alt="앤드마켓 로고 - 홈으로" class="w-full h-full object-cover">
+      </div>
+    </a>
+    <a href="https://open.kakao.com/o/gaC9N17h" target="_blank" rel="noopener noreferrer" onclick="closeMobileMenu()" class="cursor-pointer group">
+      <div class="flex flex-col">
+        <span class="text-slate-900 font-extrabold text-base tracking-tight leading-tight group-hover:text-orange-600 transition-colors">카페앤드마켓</span>
+        <span class="text-orange-600 font-bold text-[10px] tracking-wider flex items-center gap-1">
+          <iconify-icon icon="ri:kakao-talk-fill" width="10"></iconify-icon>
+          입장하기 →
+        </span>
+      </div>
+    </a>
+  </div>
   <nav class="flex flex-col gap-5">
     <a href="#intro" onclick="closeMobileMenu()" class="text-slate-700 hover:text-orange-600 transition-colors text-base font-bold">사업 소개</a>
     <a href="#roles" onclick="closeMobileMenu()" class="text-slate-700 hover:text-orange-600 transition-colors text-base font-bold">역할 분담</a>
@@ -316,18 +320,22 @@ tailwind.config = {
 <!-- Navigation -->
 <div class="fixed top-0 left-0 right-0 h-16 z-50" style="background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(15,23,42,0.1); box-shadow: 0 2px 20px rgba(15,23,42,0.05);">
   <div class="max-w-7xl mx-auto h-full px-6 flex items-center justify-between">
-    <a href="https://open.kakao.com/o/gaC9N17h" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 cursor-pointer group">
-      <div class="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center group-hover:scale-110 transition-transform" style="box-shadow: 0 4px 14px rgba(249,115,22,0.3);">
-        <img src="/logo.png" alt="앤드마켓 로고" class="w-full h-full object-cover">
-      </div>
-      <div class="flex flex-col">
-        <span class="text-slate-900 font-extrabold text-base tracking-tight leading-tight">카페앤드마켓</span>
-        <span class="text-orange-600 font-bold text-[10px] tracking-wider flex items-center gap-1">
-          <iconify-icon icon="ri:kakao-talk-fill" width="10"></iconify-icon>
-          입장하기 →
-        </span>
-      </div>
-    </a>
+    <div class="flex items-center gap-3">
+      <a href="#" onclick="scrollToTop(event)" class="cursor-pointer">
+        <div class="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center hover:scale-110 transition-transform" style="box-shadow: 0 4px 14px rgba(249,115,22,0.3);">
+          <img src="/logo.png" alt="앤드마켓 로고 - 홈으로" class="w-full h-full object-cover">
+        </div>
+      </a>
+      <a href="https://open.kakao.com/o/gaC9N17h" target="_blank" rel="noopener noreferrer" class="cursor-pointer group">
+        <div class="flex flex-col">
+          <span class="text-slate-900 font-extrabold text-base tracking-tight leading-tight group-hover:text-orange-600 transition-colors">카페앤드마켓</span>
+          <span class="text-orange-600 font-bold text-[10px] tracking-wider flex items-center gap-1">
+            <iconify-icon icon="ri:kakao-talk-fill" width="10"></iconify-icon>
+            입장하기 →
+          </span>
+        </div>
+      </a>
+    </div>
     <nav class="hidden md:flex items-center gap-7">
       <a href="#intro" class="nav-link text-slate-700 hover:text-orange-600 transition-colors text-sm font-bold tracking-wide">사업 소개</a>
       <a href="#revenue" class="nav-link text-slate-700 hover:text-orange-600 transition-colors text-sm font-bold tracking-wide">수익 구조</a>
