@@ -286,12 +286,12 @@ tailwind.config = {
   <button onclick="closeMobileMenu()" class="absolute top-6 right-6 text-slate-700 hover:text-slate-900 transition-colors">
     <iconify-icon icon="lucide:x" width="24"></iconify-icon>
   </button>
-  <div class="flex items-center gap-3 mb-8">
+  <a href="#" onclick="closeMobileMenu(); scrollToTop(event); return false;" class="flex items-center gap-3 mb-8 cursor-pointer">
     <div class="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center" style="box-shadow: 0 4px 14px rgba(249,115,22,0.3);">
       <img src="/logo.png" alt="앤드마켓 로고" class="w-full h-full object-cover">
     </div>
     <span class="text-slate-900 font-extrabold text-base tracking-tight">카페앤드마켓</span>
-  </div>
+  </a>
   <nav class="flex flex-col gap-5">
     <a href="#intro" onclick="closeMobileMenu()" class="text-slate-700 hover:text-orange-600 transition-colors text-base font-bold">사업 소개</a>
     <a href="#roles" onclick="closeMobileMenu()" class="text-slate-700 hover:text-orange-600 transition-colors text-base font-bold">역할 분담</a>
@@ -310,7 +310,7 @@ tailwind.config = {
 <!-- Navigation -->
 <div class="fixed top-0 left-0 right-0 h-16 z-50" style="background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(15,23,42,0.1); box-shadow: 0 2px 20px rgba(15,23,42,0.05);">
   <div class="max-w-7xl mx-auto h-full px-6 flex items-center justify-between">
-    <a href="#" class="flex items-center gap-3">
+    <a href="#" onclick="scrollToTop(event)" class="flex items-center gap-3 cursor-pointer">
       <div class="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center" style="box-shadow: 0 4px 14px rgba(249,115,22,0.3);">
         <img src="/logo.png" alt="앤드마켓 로고" class="w-full h-full object-cover">
       </div>
@@ -378,6 +378,12 @@ tailwind.config = {
       <div class="w-2 h-2 rounded-full bg-orange-500" style="box-shadow: 0 0 12px rgba(249,115,22,0.7);"></div>
       <span class="text-xs font-bold text-slate-700 tracking-widest">FRANCHISE BUSINESS · 2026</span>
     </div>
+
+    <!-- Empathy Message (카페 사장 어필) -->
+    <p class="text-base md:text-xl text-slate-700 font-bold mb-6 leading-relaxed" style="animation: fade-in-up 0.7s ease-out;">
+      ☕ 꿈을 안고 시작했던 <span class="text-orange-600">그 카페</span>,<br class="md:hidden">
+      <span class="text-slate-900">이대로 끝낼 수는 없잖아요.</span>
+    </p>
 
     <!-- Main Slogan -->
     <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight mb-6 text-slate-900" style="animation: fade-in-up 0.8s ease-out;">
@@ -702,21 +708,21 @@ tailwind.config = {
     </div>
 
     <!-- Main Revenue Card -->
-    <div class="max-w-3xl mx-auto mb-10 animate-on-scroll">
-      <div class="rounded-3xl p-12 text-center relative overflow-hidden" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); box-shadow: 0 20px 60px rgba(15,23,42,0.3);">
+    <div class="max-w-4xl mx-auto mb-10 animate-on-scroll px-4">
+      <div class="rounded-3xl py-14 px-8 md:px-20 text-center relative overflow-hidden" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); box-shadow: 0 20px 60px rgba(15,23,42,0.3);">
         <!-- Decorative gradient -->
-        <div class="absolute top-0 right-0 w-64 h-64 rounded-full" style="background: radial-gradient(circle, rgba(249,115,22,0.3) 0%, transparent 70%); transform: translate(30%, -30%);"></div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full" style="background: radial-gradient(circle, rgba(251,191,36,0.2) 0%, transparent 70%); transform: translate(-30%, 30%);"></div>
+        <div class="absolute top-0 right-0 w-64 h-64 rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(249,115,22,0.3) 0%, transparent 70%); transform: translate(30%, -30%);"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(251,191,36,0.2) 0%, transparent 70%); transform: translate(-30%, 30%);"></div>
         
         <div class="relative z-10">
           <div class="inline-flex items-center gap-2 rounded-full px-5 py-2 mb-8" style="background: rgba(249,115,22,0.15); border: 1px solid rgba(249,115,22,0.3);">
             <iconify-icon icon="lucide:shield-check" width="16" class="text-orange-400"></iconify-icon>
             <span class="text-sm font-bold text-orange-400 tracking-widest">CONFIRMED REVENUE</span>
           </div>
-          <div class="text-8xl md:text-9xl font-extrabold mb-3 tracking-tighter" style="font-family: ui-monospace, monospace;">
+          <div class="text-8xl md:text-9xl font-extrabold mb-3 leading-none" style="font-family: ui-monospace, monospace; letter-spacing: 0.02em; padding: 0 0.1em;">
             <span class="text-transparent bg-clip-text" style="background: linear-gradient(135deg, #FB923C, #F97316, #EA580C); -webkit-background-clip: text;">10</span><span style="color: #FB923C;">%</span>
           </div>
-          <div class="text-2xl text-white font-bold mb-3">앤드장 확정 수익</div>
+          <div class="text-2xl text-white font-bold mb-3 mt-6">앤드장 확정 수익</div>
           <p class="text-base text-slate-300 font-medium">지점 매출의 <span class="text-orange-400 font-bold">10%</span>를 확정 지급합니다</p>
         </div>
       </div>
@@ -1292,6 +1298,11 @@ tailwind.config = {
 </footer>
 
 <script>
+function scrollToTop(event) {
+  event.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 function openMobileMenu() {
   document.getElementById('mobile-menu').classList.add('open');
   document.getElementById('mobile-overlay').classList.add('open');
