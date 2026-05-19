@@ -198,80 +198,99 @@ tailwind.config = {
         </div>
       </a>
     </div>
-    <nav class="hidden md:flex items-center gap-7">
-      <a href="#intro" class="nav-link text-slate-700 hover:text-orange-600 transition-colors text-sm font-bold tracking-wide">사업 소개</a>
-      <a href="#revenue" class="nav-link text-slate-700 hover:text-orange-600 transition-colors text-sm font-bold tracking-wide">수익 구조</a>
-      <a href="#types" class="nav-link text-slate-700 hover:text-orange-600 transition-colors text-sm font-bold tracking-wide">가맹 유형</a>
-      <a href="#cases" class="nav-link text-slate-700 hover:text-orange-600 transition-colors text-sm font-bold tracking-wide">매장 사례</a>
-      <a href="#synergy" class="nav-link text-slate-700 hover:text-orange-600 transition-colors text-sm font-bold tracking-wide">시너지</a>
-      <a href="#contact" class="text-white text-sm font-bold px-5 py-2.5 rounded-lg transition-all hover:scale-105" style="background: linear-gradient(135deg, #F97316, #EA580C); box-shadow: 0 6px 18px rgba(249,115,22,0.4);">
+    <!-- 우측: 상담 CTA(데스크탑만) + 햄버거 메뉴(모바일/데스크탑 공통) -->
+    <div class="flex items-center gap-3">
+      <a href="#contact" class="hidden md:inline-flex text-white text-sm font-bold px-5 py-2.5 rounded-lg transition-all hover:scale-105 items-center gap-2" style="background: linear-gradient(135deg, #F97316, #EA580C); box-shadow: 0 6px 18px rgba(249,115,22,0.4);">
+        <iconify-icon icon="lucide:phone" width="14"></iconify-icon>
         상담 신청
       </a>
-    </nav>
-    <button id="menu-btn" class="md:hidden text-slate-700 hover:text-orange-600 transition-colors">
-      <iconify-icon icon="lucide:menu" width="24"></iconify-icon>
-    </button>
+      <button id="menu-btn" class="text-slate-700 hover:text-orange-600 transition-colors p-2 rounded-lg hover:bg-orange-50" aria-label="메뉴 열기">
+        <iconify-icon icon="lucide:menu" width="26"></iconify-icon>
+      </button>
+    </div>
   </div>
 </div>
 
 <!-- Hero Section -->
-<section class="relative min-h-screen flex flex-col items-center justify-center pt-16 overflow-hidden" style="background: linear-gradient(180deg, #FFF7ED 0%, #FFFAF5 40%, #FFFFFF 100%);">
-  <!-- Orange blobs -->
-  <div class="orange-blob" style="width: 500px; height: 500px; background: #FDBA74; opacity: 0.15; top: 5%; left: -10%;"></div>
-  <div class="orange-blob" style="width: 400px; height: 400px; background: #FB923C; opacity: 0.1; top: 30%; right: -8%;"></div>
-  <div class="orange-blob" style="width: 300px; height: 300px; background: #FED7AA; opacity: 0.2; bottom: 10%; left: 30%;"></div>
+<section class="relative pt-16 overflow-hidden" style="background: linear-gradient(180deg, #FFF7ED 0%, #FFFAF5 40%, #FFFFFF 100%);">
 
-  <!-- Blue dot patterns (inspired by uploaded images) -->
-  <div class="dot-pattern" style="top: 12%; left: 8%;">
-    <div class="blue-dot lg pulse" style="left: 0; top: 0;"></div>
-    <div class="blue-dot" style="left: 0; top: 28px;"></div>
-    <div class="blue-dot sm" style="left: 0; top: 50px;"></div>
-  </div>
-  <div class="dot-pattern" style="top: 8%; right: 12%;">
-    <div class="blue-dot" style="left: 0; top: 0;"></div>
-    <div class="blue-dot sm pulse" style="left: 20px; top: 0;"></div>
-    <div class="blue-dot lg" style="left: 38px; top: 0;"></div>
-    <div class="blue-dot" style="left: 60px; top: 0;"></div>
-    <div class="blue-dot sm" style="left: 78px; top: 0;"></div>
-  </div>
-  <div class="dot-pattern" style="bottom: 20%; left: 5%;">
-    <div class="blue-dot sm drift" style="left: 0; top: 0;"></div>
-    <div class="blue-dot" style="left: 18px; top: 0;"></div>
-    <div class="blue-dot sm" style="left: 36px; top: 0;"></div>
-    <div class="blue-dot" style="left: 54px; top: 0;"></div>
-    <div class="blue-dot lg pulse" style="left: 72px; top: 0;"></div>
-  </div>
-  <div class="dot-pattern" style="bottom: 15%; right: 8%;">
-    <div class="blue-dot" style="left: 0; top: 0;"></div>
-    <div class="blue-dot sm drift" style="left: 0; top: 24px;"></div>
-    <div class="blue-dot lg" style="left: 0; top: 44px;"></div>
-  </div>
-  <div class="dot-pattern" style="top: 50%; left: 15%;">
-    <div class="blue-dot sm pulse" style="left: 0; top: 0; opacity: 0.15;"></div>
-  </div>
-  <div class="dot-pattern" style="top: 45%; right: 18%;">
-    <div class="blue-dot drift" style="left: 0; top: 0; opacity: 0.15;"></div>
-    <div class="blue-dot sm" style="left: 16px; top: 8px; opacity: 0.1;"></div>
-  </div>
+  <!-- ====== Hero Image (Full-bleed) ====== -->
+  <div class="hero-image relative w-full overflow-hidden">
+    <!-- 카페 이미지 (Unsplash) — 추후 자체 이미지로 교체 가능 -->
+    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1600&q=80&auto=format&fit=crop"
+         alt="따뜻한 분위기의 카페 인테리어 - 카페앤드마켓"
+         class="w-full h-full object-cover"
+         loading="eager"
+         fetchpriority="high">
 
-  <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-    <!-- Badge -->
-    <div class="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-8" style="animation: fade-in-up 0.6s ease-out; background: rgba(15, 23, 42, 0.08); border: 1px solid rgba(15, 23, 42, 0.1);">
-      <div class="w-2 h-2 rounded-full bg-orange-500" style="box-shadow: 0 0 12px rgba(249,115,22,0.7);"></div>
-      <span class="text-xs font-bold text-slate-700 tracking-widest">FRANCHISE BUSINESS · 2026</span>
+    <!-- 다크 그라데이션 오버레이 (좌측·하단 진하게) -->
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(15,23,42,0.78) 0%, rgba(15,23,42,0.55) 45%, rgba(30,41,59,0.45) 100%);"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(180deg, transparent 50%, rgba(15,23,42,0.6) 100%);"></div>
+
+    <!-- 오렌지 글로우 액센트 -->
+    <div class="absolute pointer-events-none" style="width:520px;height:520px;border-radius:50%;filter:blur(120px);background:#F97316;opacity:0.25;bottom:-10%;right:-8%;"></div>
+    <div class="absolute pointer-events-none" style="width:380px;height:380px;border-radius:50%;filter:blur(100px);background:#EA580C;opacity:0.18;top:10%;left:-5%;"></div>
+
+    <!-- 이미지 위 텍스트 컨테이너 -->
+    <div class="absolute inset-0 flex items-center">
+      <div class="max-w-7xl mx-auto w-full px-6 md:px-10">
+        <div class="max-w-3xl">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-6" style="animation: fade-in-up 0.6s ease-out; background: rgba(249,115,22,0.18); backdrop-filter: blur(10px); border: 1px solid rgba(251,146,60,0.4);">
+            <div class="w-2 h-2 rounded-full bg-orange-400" style="box-shadow: 0 0 12px rgba(251,146,60,0.9);"></div>
+            <span class="text-xs font-bold text-orange-200 tracking-widest">FRANCHISE BUSINESS · 2026</span>
+          </div>
+
+          <!-- Empathy Message -->
+          <p class="text-base md:text-xl text-orange-100 font-bold mb-5 leading-relaxed drop-shadow-lg" style="animation: fade-in-up 0.7s ease-out;">
+            ☕ 꿈을 안고 시작했던 <span class="text-orange-300">그 카페</span>,<br class="md:hidden">
+            <span class="text-white">이대로 끝낼 수는 없잖아요.</span>
+          </p>
+
+          <!-- Main Slogan (이미지 위) -->
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-white drop-shadow-2xl" style="animation: fade-in-up 0.8s ease-out; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+            포기하지 마세요.<br>
+            <span class="text-transparent bg-clip-text" style="background: linear-gradient(135deg, #FED7AA, #FB923C, #F97316); -webkit-background-clip: text; filter: drop-shadow(0 2px 8px rgba(249,115,22,0.4));">다시 일어설 방법</span>이 있습니다.
+          </h1>
+        </div>
+      </div>
     </div>
 
-    <!-- Empathy Message (카페 사장 어필) -->
-    <p class="text-base md:text-xl text-slate-700 font-bold mb-6 leading-relaxed" style="animation: fade-in-up 0.7s ease-out;">
-      ☕ 꿈을 안고 시작했던 <span class="text-orange-600">그 카페</span>,<br class="md:hidden">
-      <span class="text-slate-900">이대로 끝낼 수는 없잖아요.</span>
-    </p>
+    <!-- Scroll Indicator (이미지 하단) -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
+      <span class="text-xs font-bold text-white/70 tracking-widest">SCROLL</span>
+      <div class="w-5 h-8 rounded-full border border-white/50 flex items-start justify-center p-1">
+        <div class="w-1 h-2 rounded-full bg-white/90 animate-bounce"></div>
+      </div>
+    </div>
+  </div>
 
-    <!-- Main Slogan -->
-    <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight mb-6 text-slate-900" style="animation: fade-in-up 0.8s ease-out;">
-      포기하지 마세요.<br>
-      <span class="text-transparent bg-clip-text" style="background: linear-gradient(135deg, #F97316, #EA580C); -webkit-background-clip: text;">다시 일어설 방법</span>이 있습니다.
-    </h1>
+  <!-- ====== Hero Below: 보조 정보 영역 ====== -->
+  <div class="relative py-16 md:py-20">
+    <!-- Orange blobs (보조 영역 배경) -->
+    <div class="orange-blob" style="width: 400px; height: 400px; background: #FDBA74; opacity: 0.15; top: 10%; left: -10%;"></div>
+    <div class="orange-blob" style="width: 350px; height: 350px; background: #FB923C; opacity: 0.1; bottom: 10%; right: -8%;"></div>
+
+    <!-- Blue dot patterns -->
+    <div class="dot-pattern" style="top: 15%; left: 8%;">
+      <div class="blue-dot lg pulse" style="left: 0; top: 0;"></div>
+      <div class="blue-dot" style="left: 0; top: 28px;"></div>
+      <div class="blue-dot sm" style="left: 0; top: 50px;"></div>
+    </div>
+    <div class="dot-pattern" style="top: 10%; right: 12%;">
+      <div class="blue-dot" style="left: 0; top: 0;"></div>
+      <div class="blue-dot sm pulse" style="left: 20px; top: 0;"></div>
+      <div class="blue-dot lg" style="left: 38px; top: 0;"></div>
+      <div class="blue-dot" style="left: 60px; top: 0;"></div>
+    </div>
+    <div class="dot-pattern" style="bottom: 20%; left: 5%;">
+      <div class="blue-dot sm drift" style="left: 0; top: 0;"></div>
+      <div class="blue-dot" style="left: 18px; top: 0;"></div>
+      <div class="blue-dot sm" style="left: 36px; top: 0;"></div>
+      <div class="blue-dot lg pulse" style="left: 54px; top: 0;"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
 
     <!-- Sub Message -->
     <p class="text-lg md:text-xl text-slate-700 font-medium leading-relaxed max-w-2xl mx-auto mb-4" style="animation: fade-in-up 1s ease-out;">
@@ -311,14 +330,8 @@ tailwind.config = {
         <iconify-icon icon="lucide:chevron-down" width="18" class="animate-bounce"></iconify-icon>
       </a>
     </div>
-  </div>
-
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
-    <div class="w-5 h-8 rounded-full border border-orange-300 flex items-start justify-center p-1">
-      <div class="w-1 h-2 rounded-full bg-orange-400 animate-bounce"></div>
-    </div>
-  </div>
+    </div><!-- /text container -->
+  </div><!-- /hero-below -->
 </section>
 
 <!-- Section 01: 사업 소개 -->
