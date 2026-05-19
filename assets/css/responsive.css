@@ -5,6 +5,14 @@
    ============================================ */
 
 
+/* ====== 한국어 줄바꿈 글로벌 룰 (모든 화면 적용) ====== */
+/* 한국어는 단어 단위로 줄바꿈되어야 가독성이 좋음 */
+h1, h2, h3, h4, h5, p, span, div, li, a, label, button {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+
 /* ====== 태블릿 (≤1024px) ====== */
 @media (max-width: 1024px) {
   /* Hero 이미지 영역 살짝 축소 */
@@ -24,6 +32,16 @@
     max-width: 100vw;
   }
 
+  /* 모든 섹션 제목 - 모바일에서 폰트 축소로 가독성 확보 */
+  section h2 {
+    font-size: 1.75rem !important;   /* 28px */
+    line-height: 1.25 !important;
+  }
+  /* 작은 부제 h3는 모바일에서 18px */
+  section h3 {
+    font-size: 1.125rem !important;  /* 18px */
+  }
+
   /* Hero 이미지 영역 - 모바일에서 컴팩트하게 */
   .hero-image {
     height: 58vh;
@@ -33,6 +51,11 @@
   /* 이미지 초점 - 인테리어 상단 중심부가 보이게 */
   .hero-image img {
     object-position: center 30%;
+  }
+  /* Hero 슬로건은 별도 처리 (h1, !important 우선순위) */
+  .hero-image h1 {
+    font-size: 1.75rem !important;   /* 28px */
+    line-height: 1.2 !important;
   }
 
   /* 가맹 유형 단계 연결선 - 세로 배치라 가로 연결선 제거 */
@@ -47,6 +70,12 @@
   .orange-blob {
     opacity: 0.5 !important;
     filter: blur(60px);
+  }
+
+  /* 섹션 상하 패딩 축소 - 모바일에서 스크롤 길이 단축 */
+  section[class*="py-24"] {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
   }
 
   /* Toast - 모바일에서 좌우 여백 확보 (중앙 정렬 유지) */
@@ -64,6 +93,14 @@
   .hero-image {
     height: 56vh;
     min-height: 420px;
+  }
+
+  /* 더 작은 화면에서 섹션 제목 더 축소 */
+  section h2 {
+    font-size: 1.5rem !important;    /* 24px */
+  }
+  .hero-image h1 {
+    font-size: 1.5rem !important;    /* 24px */
   }
 
   /* 모바일 메뉴 너비 - 작은 화면에선 더 좁게 */
