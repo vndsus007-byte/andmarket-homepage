@@ -103,16 +103,3 @@ body { font-family: 'Inter', sans-serif; background: #FFFAF5; color: #1E293B; ov
   object-fit: cover;
   object-position: center;
 }
-
-@media (max-width: 768px) {
-  .hero-image {
-    height: 68vh;
-    min-height: 460px;
-  }
-}
-@media (max-width: 480px) {
-  .hero-image {
-    height: 62vh;
-    min-height: 420px;
-  }
-}

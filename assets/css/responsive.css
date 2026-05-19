@@ -1,3 +1,62 @@
+/* ============================================
+   responsive.css
+   - 모든 반응형(태블릿·모바일) 미디어쿼리 통합 관리
+   - 베이스 스타일은 style.css, 애니메이션은 animation.css
+   ============================================ */
+
+
+/* ====== 태블릿 (≤1024px) ====== */
+@media (max-width: 1024px) {
+  /* Hero 이미지 영역 살짝 축소 */
+  .hero-image {
+    height: 70vh;
+    min-height: 480px;
+  }
+}
+
+
+/* ====== 모바일 (≤768px) ====== */
 @media (max-width: 768px) {
+
+  /* Hero 이미지 영역 - 모바일에서 컴팩트하게 */
+  .hero-image {
+    height: 58vh;
+    min-height: 440px;
+    max-height: 620px;
+  }
+  /* 이미지 초점 - 인테리어 상단 중심부가 보이게 */
+  .hero-image img {
+    object-position: center 30%;
+  }
+
+  /* 가맹 유형 단계 연결선 - 세로 배치라 가로 연결선 제거 */
   .step-connector::after { display: none; }
+
+  /* 도트 패턴 - 모바일에서 시각 노이즈 줄임 */
+  .dot-pattern {
+    opacity: 0.6;
+  }
+
+  /* Toast - 모바일에서 좌우 여백 확보 (중앙 정렬 유지) */
+  .toast {
+    bottom: 24px;
+    padding: 14px 24px;
+    font-size: 13px;
+    max-width: calc(100vw - 32px);
+  }
+}
+
+
+/* ====== 소형 모바일 (≤380px, iPhone SE 등) ====== */
+@media (max-width: 380px) {
+  .hero-image {
+    height: 56vh;
+    min-height: 420px;
+  }
+
+  /* 모바일 메뉴 너비 - 작은 화면에선 더 좁게 */
+  .mobile-menu {
+    width: 260px;
+    padding: 70px 24px 24px;
+  }
 }
