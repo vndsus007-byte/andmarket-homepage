@@ -1,3 +1,8 @@
+## 배포 가드레일 (최우선)
+- main 브랜치에 직접 git push 금지
+- git commit / push 는 반드시 사람의 명시적 승인 후에만 실행
+- 이 사이트는 push 시 GitHub Pages로 즉시 라이브 배포됨 — 신중히
+
 # CLAUDE.md
 
 # AND MARKET 프로젝트 운영 및 개선 가이드
