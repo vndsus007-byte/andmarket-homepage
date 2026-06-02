@@ -172,9 +172,13 @@ tailwind.config = {
     <a href="#cases" class="text-slate-700 hover:text-orange-600 transition-colors text-base font-bold">매장 사례</a>
     <a href="#assets" class="text-slate-700 hover:text-orange-600 transition-colors text-base font-bold">본사 자산</a>
     <a href="#synergy" class="text-slate-700 hover:text-orange-600 transition-colors text-base font-bold">시너지</a>
+    <a href="#early-partner" class="text-orange-600 hover:text-orange-700 transition-colors text-base font-extrabold flex items-center gap-1">
+      <iconify-icon icon="lucide:star" width="14"></iconify-icon>
+      초기 파트너
+    </a>
     <a href="#contact" class="mt-4 inline-flex items-center justify-center gap-2 text-white text-base font-bold px-6 py-3.5 rounded-lg transition-all hover:scale-105" style="background: linear-gradient(135deg, #F97316, #EA580C); box-shadow: 0 6px 18px rgba(249,115,22,0.4);">
       <iconify-icon icon="lucide:phone" width="18"></iconify-icon>
-      상담 신청
+      파트너 상담
     </a>
   </nav>
 </div>
@@ -194,6 +198,7 @@ tailwind.config = {
       <a href="#intro" class="hover:text-orange-600 transition-colors">사업 소개</a>
       <a href="#revenue" class="hover:text-orange-600 transition-colors">수익 구조</a>
       <a href="#types" class="hover:text-orange-600 transition-colors">가맹 유형</a>
+      <a href="#early-partner" class="hover:text-orange-600 transition-colors text-orange-500">초기 파트너</a>
       <a href="#contact" class="hover:text-orange-600 transition-colors">상담 신청</a>
     </nav>
     <!-- 우측: 상담 CTA(데스크탑만) + 햄버거 메뉴(모바일/데스크탑 공통) -->
@@ -236,7 +241,7 @@ tailwind.config = {
         <div class="max-w-3xl text-center md:text-left mx-auto md:mx-0">
           <!-- Empathy Message -->
           <p class="inline-flex items-center gap-2 text-sm md:text-base text-orange-100 font-extrabold mb-4 md:mb-5 leading-relaxed drop-shadow-lg px-4 py-2 rounded-full" style="animation: fade-in-up 0.7s ease-out; word-break: keep-all; background: rgba(249,115,22,0.28); border: 1px solid rgba(253,186,116,0.35);">
-            ☕ Cafe' andMarket 공동구매 가맹점 모집
+            ☕ 초기 파트너 선점 모집 중 — 지금이 가장 좋은 조건입니다
           </p>
 
           <!-- Main Slogan (이미지 위) -->
@@ -250,7 +255,7 @@ tailwind.config = {
           <div class="mt-5 flex flex-wrap justify-center md:justify-start gap-2" style="animation: fade-in-up 1.05s ease-out;">
             <span class="bg-white/90 text-slate-900 text-xs md:text-sm font-extrabold px-4 py-2 rounded-full shadow-lg">무자본 · 무점포</span>
             <span class="bg-orange-500 text-white text-xs md:text-sm font-extrabold px-4 py-2 rounded-full shadow-lg">추가 인건비 부담 없음</span>
-            <span class="bg-slate-900/80 text-white text-xs md:text-sm font-extrabold px-4 py-2 rounded-full shadow-lg">본사 운영 지원</span>
+            <span class="bg-slate-900/80 text-white text-xs md:text-sm font-extrabold px-4 py-2 rounded-full shadow-lg">초기 파트너 우선 조건</span>
           </div>
         </div>
       </div>
@@ -317,6 +322,10 @@ tailwind.config = {
         <iconify-icon icon="lucide:trending-up" width="14" class="text-white"></iconify-icon>
         <span class="text-xs md:text-sm font-bold text-white">공동구매 매출 10% 보장</span>
       </div>
+      <div class="bg-white rounded-full px-4 md:px-5 py-2 md:py-2.5 flex items-center gap-2 shadow-md border-2 border-orange-400">
+        <iconify-icon icon="lucide:star" width="14" class="text-orange-500"></iconify-icon>
+        <span class="text-xs md:text-sm font-bold text-orange-600">초기 파트너 선점 가능</span>
+      </div>
     </div>
 
     <!-- CTA -->
@@ -355,6 +364,10 @@ tailwind.config = {
       </div>
       <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-5 text-slate-900">Cafe' andMarket<br class="md:hidden"> 공동구매 가맹점이란?</h2>
       <p class="text-slate-600 text-base font-medium max-w-xl mx-auto">기존 카페 공간에 공동구매 픽업을 더해<br>커피 매출은 지키고, 새로운 매출을 만드는 상생형 가맹 모델입니다.</p>
+      <div class="mt-5 inline-flex items-center gap-2 bg-orange-50 border border-orange-200 rounded-full px-5 py-2.5">
+        <iconify-icon icon="lucide:sprout" width="16" class="text-orange-500"></iconify-icon>
+        <span class="text-sm font-bold text-orange-700">현재 초기 파트너와 함께 성장 중입니다 — 운영 3개월 차, 솔직하게 함께합니다</span>
+      </div>
     </div>
 
     <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -864,8 +877,8 @@ tailwind.config = {
         <span class="text-orange-600 text-sm font-bold tracking-widest uppercase">06 · 본사 자산</span>
         <div class="w-8 h-px bg-orange-400"></div>
       </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-5 text-slate-900">사업주는 받기만 하고,<br>본사는 책임집니다</h2>
-      <p class="text-slate-600 text-base font-medium">본사는 3가지 핵심 자산을 가맹점에 제공합니다.</p>
+      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-5 text-slate-900">파트너님이 집중할 것,<br>본사가 함께 맡을 것</h2>
+      <p class="text-slate-600 text-base font-medium">본사가 갖춘 3가지 운영 기반을 파트너와 공유합니다.</p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -878,7 +891,7 @@ tailwind.config = {
         <div class="space-y-3">
           <div class="flex items-start gap-2">
             <div class="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 flex-shrink-0"></div>
-            <p class="text-sm text-slate-700 font-medium"><span class="font-bold">AI 시스템</span>으로 고객 선호 상품 발굴</p>
+            <p class="text-sm text-slate-700 font-medium"><span class="font-bold">운영 데이터 기반</span> 고객 선호 상품 발굴</p>
           </div>
           <div class="flex items-start gap-2">
             <div class="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 flex-shrink-0"></div>
@@ -1006,7 +1019,7 @@ tailwind.config = {
         <div class="flex items-center gap-2 mb-6">
           <iconify-icon icon="lucide:zap" width="22" class="text-blue-500"></iconify-icon>
           <h3 class="text-base font-extrabold text-slate-900">시너지 효과</h3>
-          <span class="text-xs text-blue-700 bg-blue-100 rounded-full px-2.5 py-1 ml-1 border border-blue-200 font-bold">PROVEN</span>
+          <span class="text-xs text-blue-700 bg-blue-100 rounded-full px-2.5 py-1 ml-1 border border-blue-200 font-bold">ACTUAL</span>
         </div>
         <div class="space-y-5">
           <div class="synergy-item">
@@ -1031,7 +1044,64 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- Section 08: Contact -->
+<!-- Section 08: 초기 파트너 -->
+<section id="early-partner" class="relative py-24 md:py-32" style="background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);">
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-14 animate-on-scroll">
+      <div class="inline-flex items-center gap-2 mb-4">
+        <div class="w-8 h-px bg-orange-400"></div>
+        <span class="text-orange-400 text-sm font-bold tracking-widest uppercase">08 · 초기 파트너</span>
+        <div class="w-8 h-px bg-orange-400"></div>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 text-white">지금이 <span class="text-orange-400">가장 좋은 타이밍</span>입니다</h2>
+    </div>
+
+    <!-- Honest statement -->
+    <div class="max-w-3xl mx-auto mb-14 animate-on-scroll">
+      <div class="rounded-2xl p-8 md:p-10" style="background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.25);">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+            <iconify-icon icon="lucide:message-square-heart" width="20" class="text-orange-400"></iconify-icon>
+          </div>
+          <div>
+            <p class="text-base md:text-lg text-white/90 font-medium leading-relaxed" style="word-break: keep-all;">
+              솔직히 말씀드리겠습니다.<br><br>
+              <span class="text-white font-bold">저희는 운영 3개월 차입니다.</span> 화려한 통계나 수백 개의 가맹점은 아직 없습니다. 하지만 실제로 픽업이 이루어지고 있고, 카페 파트너와 함께 모델을 다듬고 있습니다.<br><br>
+              완성된 대형 프랜차이즈에 들어가면 조건은 이미 정해져 있습니다. 저희는 <span class="text-orange-300 font-bold">초기 파트너와 함께 조건을 만들어갑니다.</span> 그래서 지금이 가장 좋은 타이밍입니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits -->
+    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div class="rounded-2xl p-8 animate-on-scroll delay-1" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(249,115,22,0.2);">
+        <div class="w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center mb-6">
+          <iconify-icon icon="lucide:map-pin" width="28" class="text-orange-400"></iconify-icon>
+        </div>
+        <h3 class="text-lg font-extrabold mb-3 text-white">지역 우선권</h3>
+        <p class="text-sm text-white/70 font-medium leading-relaxed">원하는 지역을 먼저 선점할 수 있습니다. 파트너가 늘어나면 지역 중복을 막기 위해 구역이 배정됩니다. 지금이 원하는 지역을 고를 수 있는 마지막 타이밍입니다.</p>
+      </div>
+      <div class="rounded-2xl p-8 animate-on-scroll delay-2" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(249,115,22,0.2);">
+        <div class="w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center mb-6">
+          <iconify-icon icon="lucide:phone-call" width="28" class="text-orange-400"></iconify-icon>
+        </div>
+        <h3 class="text-lg font-extrabold mb-3 text-white">대표 직접 소통</h3>
+        <p class="text-sm text-white/70 font-medium leading-relaxed">초기 파트너는 담당 매니저가 아닌 대표와 직접 소통합니다. 운영 중 어려운 점이 생기면 빠르게 함께 해결합니다. 브랜드가 커지면 이런 소통은 어려워집니다.</p>
+      </div>
+      <div class="rounded-2xl p-8 animate-on-scroll delay-3" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(249,115,22,0.2);">
+        <div class="w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center mb-6">
+          <iconify-icon icon="lucide:handshake" width="28" class="text-orange-400"></iconify-icon>
+        </div>
+        <h3 class="text-lg font-extrabold mb-3 text-white">조건 협의 가능</h3>
+        <p class="text-sm text-white/70 font-medium leading-relaxed">가맹 유형·운영 방식을 상황에 맞게 함께 조율할 수 있습니다. 나중에 가맹 조건이 표준화되면 개별 협의 기회가 사라집니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 09: Contact -->
 <section id="contact" class="relative py-24 md:py-32" style="background: linear-gradient(180deg, #FFF7ED 0%, #FFEDD5 100%);">
   <div class="orange-blob" style="width: 600px; height: 600px; background: #FB923C; opacity: 0.06; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
 
@@ -1059,11 +1129,11 @@ tailwind.config = {
       <div class="text-center mb-12 animate-on-scroll">
         <div class="inline-flex items-center gap-2 mb-4">
           <div class="w-8 h-px bg-orange-400"></div>
-          <span class="text-orange-600 text-sm font-bold tracking-widest uppercase">CONTACT</span>
+          <span class="text-orange-600 text-sm font-bold tracking-widest uppercase">09 · 파트너 상담</span>
           <div class="w-8 h-px bg-orange-400"></div>
         </div>
-        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-5 text-slate-900">지금 시작하세요.<br><span class="text-transparent bg-clip-text" style="background: linear-gradient(135deg, #F97316, #EA580C); -webkit-background-clip: text;">희망은 가까이 있습니다.</span></h2>
-        <p class="text-slate-700 text-lg font-medium max-w-lg mx-auto">기존 카페 공간에 공동구매 픽업 매출을 더하는 상생형 가맹사업<br><span class="text-slate-900 font-bold">기존 매출은 100% 그대로, 추가 매출은 10% 보장.</span></p>
+        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-5 text-slate-900">함께 시작합시다.<br><span class="text-transparent bg-clip-text" style="background: linear-gradient(135deg, #F97316, #EA580C); -webkit-background-clip: text;">초기 파트너를 기다립니다.</span></h2>
+        <p class="text-slate-700 text-lg font-medium max-w-lg mx-auto">완성된 프랜차이즈가 아닙니다. <span class="text-slate-900 font-bold">함께 만들어갈 초기 파트너를 모집합니다.</span><br>기존 매출은 100% 그대로, 추가 매출은 10% 보장.</p>
       </div>
 
       <!-- Steps -->
@@ -1102,8 +1172,8 @@ tailwind.config = {
               <iconify-icon icon="ri:kakao-talk-fill" width="28" style="color: #3C1E1E;"></iconify-icon>
             </div>
             <div>
-              <h3 class="text-base font-semibold text-slate-800 mb-1">카카오톡으로 빠른 상담</h3>
-              <p class="text-xs text-slate-500 font-light">간단한 문의는 카카오톡 채널로! 영업시간 내 빠르게 답변드립니다.</p>
+              <h3 class="text-base font-semibold text-slate-800 mb-1">카카오톡으로 대표와 직접 상담</h3>
+              <p class="text-xs text-slate-500 font-light">초기 파트너 문의는 대표가 직접 응답합니다. 편하게 먼저 연락주세요.</p>
             </div>
           </div>
           <a href="http://pf.kakao.com/_pLxlsX/chat" target="_blank" rel="noopener noreferrer"
@@ -1172,8 +1242,8 @@ tailwind.config = {
   <div class="max-w-7xl mx-auto px-6">
     <!-- Top slogan -->
     <div class="text-center mb-12 pb-12 border-b border-slate-700">
-      <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-3">커피 매출에 추가 수익을 더하세요.</h3>
-      <p class="text-lg text-orange-400 font-bold">기존 카페 매출은 지키고, 공동구매 매출을 더합니다.</p>
+      <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-3">함께 만들어가는 공동구매 플랫폼</h3>
+      <p class="text-lg text-orange-400 font-bold">초기 파트너와 함께 성장합니다. 지금이 가장 좋은 조건입니다.</p>
     </div>
     
     <div class="flex flex-col md:flex-row items-center justify-between gap-6">
