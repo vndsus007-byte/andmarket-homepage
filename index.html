@@ -10,20 +10,23 @@
   <meta property="og:title" content="앤드마켓 | 우리동네 공동구매 픽업마켓" />
   <meta property="og:description" content="매일 달라지는 오늘의 공구상품을 가까운 매장에서 편하게 픽업하세요." />
   <meta property="og:url" content="https://andmarket09.com/" />
-  <meta property="og:image" content="/assets/images/hero/hero-main.jpg" />
+  <meta property="og:image" content="/logo.png" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="apple-touch-icon" href="/logo.png" />
   <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="#top" aria-label="앤드마켓 홈">
-        <span class="brand-mark">and</span>
+        <span class="brand-logo"><img src="/logo.png" alt="앤드마켓 로고" /></span>
         <span class="brand-text">앤드마켓</span>
       </a>
       <nav class="desktop-nav">
         <a href="#today">오늘의 공구상품</a>
         <a href="#how">이용방법</a>
         <a href="#stores">매장안내</a>
+        <a href="#faq">자주묻는 질문</a>
         <a href="#partner">가맹문의</a>
       </nav>
       <div class="header-actions">
@@ -35,6 +38,7 @@
       <a href="#today">오늘의 공구상품</a>
       <a href="#how">이용방법</a>
       <a href="#stores">매장안내</a>
+      <a href="#faq">자주묻는 질문</a>
       <a href="#partner">가맹문의</a>
       <a href="https://andmarket.net/" target="_blank" rel="noopener noreferrer">자사몰 바로가기</a>
     </nav>
@@ -148,30 +152,110 @@
       </div>
     </section>
 
-    <section id="stores" class="section soft-bg">
+    <section id="stores" class="section soft-bg store-showcase-section">
       <div class="section-head">
         <span class="section-label">PICKUP STORE</span>
-        <h2>매장안내</h2>
-        <p>가까운 앤드마켓 매장에서 공동구매 상품을 픽업하세요.</p>
+        <h2>실제 운영 중인 매장</h2>
+        <p>카페와 공동구매 픽업이 결합된 앤드마켓 매장 형태를 확인하세요.</p>
       </div>
-      <div class="store-grid">
-        <article class="store-card">
-          <span class="store-status">운영중</span>
-          <h3>동탄점</h3>
-          <p>운영시간과 픽업 가능시간을 등록해 주세요.</p>
-          <a href="#" aria-label="동탄점 지도 보기">지도 링크 준비중</a>
+
+      <div class="store-showcase-grid">
+        <article class="store-showcase-card">
+          <div class="store-image-wrap">
+            <img src="/assets/images/hero/hero-main.jpg" alt="카페와 마켓이 결합된 앤드마켓 매장" />
+            <span class="store-type-badge cafe">STORE TYPE 1 · 카페형</span>
+          </div>
+          <div class="store-showcase-body">
+            <h3>카페 + 마켓 결합</h3>
+            <p class="store-branch">여울점 · 망포점</p>
+            <div class="store-chip-list">
+              <span>카페</span>
+              <span>브런치</span>
+              <span>파스타</span>
+              <span>신선식품</span>
+              <span>공동구매 픽업</span>
+            </div>
+            <ul class="store-feature-list">
+              <li>다양한 매장 메뉴로 자체 매출원을 확보하고 픽업 고객에게 추가 구매 기회를 제공합니다.</li>
+              <li>카페 방문 고객이 공동구매 회원으로, 공동구매 픽업 고객이 카페 고객으로 이어집니다.</li>
+              <li>주변 소규모 픽업점의 허브 매장 역할까지 확장할 수 있습니다.</li>
+            </ul>
+          </div>
         </article>
-        <article class="store-card">
-          <span class="store-status">운영중</span>
-          <h3>영통점</h3>
-          <p>운영시간과 픽업 가능시간을 등록해 주세요.</p>
-          <a href="#" aria-label="영통점 지도 보기">지도 링크 준비중</a>
+
+        <article class="store-showcase-card">
+          <div class="store-illustration-wrap" aria-label="무인형 매장 일러스트">
+            <div class="store-illustration-bg"></div>
+            <div class="store-icon-row">
+              <span>🏪</span>
+              <span>☕</span>
+              <span>📦</span>
+            </div>
+            <span class="store-type-badge pickup">STORE TYPE 2 · 무인형</span>
+          </div>
+          <div class="store-showcase-body">
+            <h3>무인 + 셀프카페 + 마켓</h3>
+            <p class="store-branch">수지점 · 평택 서정점 <em>오픈 예정</em></p>
+            <div class="store-chip-list green">
+              <span>무인 운영</span>
+              <span>셀프 커피</span>
+              <span>신선 마켓</span>
+              <span>공동구매 픽업</span>
+              <span>저비용</span>
+            </div>
+            <ul class="store-feature-list">
+              <li>10평 내외 소공간이나 공실 상가도 픽업 거점으로 활용할 수 있습니다.</li>
+              <li>간이 커피기계와 간편 마켓 구성을 통해 낮은 초기 투자로 시작할 수 있습니다.</li>
+              <li>거점 카페형 매장의 위성 픽업점으로 빠르게 확장 가능합니다.</li>
+            </ul>
+          </div>
         </article>
-        <article class="store-card">
-          <span class="store-status muted">준비중</span>
-          <h3>서정점</h3>
-          <p>오픈 일정과 픽업 안내를 등록해 주세요.</p>
-          <a href="#" aria-label="서정점 지도 보기">지도 링크 준비중</a>
+      </div>
+
+      <div class="pickup-store-mini">
+        <article><strong>동탄점</strong><span>운영중</span><p>픽업 가능 시간과 지도 링크를 등록해 주세요.</p></article>
+        <article><strong>영통점</strong><span>운영중</span><p>픽업 가능 시간과 지도 링크를 등록해 주세요.</p></article>
+        <article><strong>서정점</strong><span class="muted">준비중</span><p>오픈 일정과 픽업 안내를 등록해 주세요.</p></article>
+      </div>
+    </section>
+
+
+    <section id="faq" class="section faq-section soft-bg">
+      <div class="section-head">
+        <span class="section-label">FAQ</span>
+        <h2>자주 묻는 질문</h2>
+        <p>가맹과 운영에 대해 자주 문의하시는 내용을 앤드마켓 기준으로 정리했습니다.</p>
+      </div>
+
+      <div class="faq-list">
+        <article class="faq-item">
+          <h3><span>Q.</span> 정말 가맹비가 0원인가요?</h3>
+          <p>초기 파트너 모집 기간에는 가맹비 없이 시작할 수 있습니다. 기존 카페 매출은 100% 점주님께 귀속되고, 공동구매 픽업 매출은 상담 시 안내되는 기준에 따라 정산합니다. POS, 냉장고 등 기본 집기는 점포 상황에 따라 별도 협의가 필요합니다.</p>
+        </article>
+
+        <article class="faq-item">
+          <h3><span>Q.</span> 카페를 이미 운영 중인데 같이 할 수 있나요?</h3>
+          <p>네, 가장 잘 맞는 형태입니다. 기존 카페 운영은 그대로 두고 유휴공간에 공동구매 픽업존을 더하는 방식입니다. 픽업 고객이 음료나 디저트를 함께 구매하는 추가 매출 효과도 기대할 수 있습니다.</p>
+        </article>
+
+        <article class="faq-item">
+          <h3><span>Q.</span> 직원을 더 뽑아야 하나요?</h3>
+          <p>전담 직원을 반드시 둘 필요는 없습니다. 앤드마켓은 단순 픽업 구조를 기본으로 하며, 상품 소싱·주문 안내·배송 관리는 본사와 시스템이 지원합니다. 점주님은 상품 수령, 간단한 분류, 현장 픽업 응대에 집중하시면 됩니다.</p>
+        </article>
+
+        <article class="faq-item">
+          <h3><span>Q.</span> 무인 매장이나 공실 상가도 가능한가요?</h3>
+          <p>가능합니다. 10평 내외의 소공간이나 공실 상가도 픽업 거점으로 활용할 수 있습니다. 다만 냉장·냉동 상품 보관, 고객 픽업 동선, 운영 인력 여부에 따라 적합한 형태를 상담 후 결정하는 것이 좋습니다.</p>
+        </article>
+
+        <article class="faq-item">
+          <h3><span>Q.</span> 본사는 어떤 것을 지원하나요?</h3>
+          <p>상품 소싱, 공동구매 상품 구성, 자사몰 및 카카오톡 안내, 배송 관리, 주문조회 시스템, 운영 가이드 등을 지원합니다. 매장에서는 지역 고객 관리와 픽업 응대에 집중할 수 있도록 운영 부담을 줄이는 방향으로 설계합니다.</p>
+        </article>
+
+        <article class="faq-item">
+          <h3><span>Q.</span> 수익 정산은 어떻게 되나요?</h3>
+          <p>기존 카페 매출은 점주님 매출로 그대로 유지됩니다. 공동구매 픽업 매출에 대한 정산 방식, 수익률, 정산 주기는 매장 형태와 운영 조건에 따라 상담 시 구체적으로 안내드립니다.</p>
         </article>
       </div>
     </section>
@@ -204,7 +288,10 @@
   <a class="floating-kakao" href="https://pf.kakao.com/_pLxlsX/chat" target="_blank" rel="noopener noreferrer">카톡상담</a>
 
   <footer class="footer">
-    <strong>앤드마켓</strong>
+    <div class="footer-brand">
+      <img src="/logo.png" alt="앤드마켓 로고" />
+      <strong>앤드마켓</strong>
+    </div>
     <p>우리동네 공동구매 픽업마켓 · Cafe & Market</p>
     <div>
       <a href="https://andmarket.net/" target="_blank" rel="noopener noreferrer">자사몰</a>
