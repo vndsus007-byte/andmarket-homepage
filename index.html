@@ -1,1281 +1,217 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>앤드마켓공구 | 앤드마켓 공동구매 픽업마켓</title>
-
-<!-- SEO Meta Tags -->
-<meta name="description" content="앤드마켓공구는 앤드마켓이 운영하는 공동구매 픽업마켓입니다. 기존 카페 매출은 100% 점주 귀속, 공동구매 픽업 매출은 10% 수익 보장. 무자본·무점포로 카페 유휴공간에 추가 수익을 더하세요.">
-<meta name="keywords" content="앤드마켓공구, 앤드마켓, andMarket, 공동구매 픽업마켓, 공구마켓, 카페 공동구매 가맹점, 공동구매 픽업, 카페 부가수익, 카페 매출, 무자본 창업, 무점포 창업, 카페 가맹">
-<meta name="author" content="앤드마켓">
-<meta name="subject" content="Cafe' andMarket 공동구매 가맹점 모집">
-<meta name="classification" content="비즈니스">
-<meta name="rating" content="general">
-<meta name="distribution" content="global">
-
-<!-- 검색 로봇 -->
-<meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
-<meta name="yeti" content="index, follow">
-<meta name="naverbot" content="index, follow">
-
-<!-- 표준 URL -->
-<link rel="canonical" href="https://andmarket09.com/">
-
-<!-- 언어 설정 -->
-<meta http-equiv="Content-Language" content="ko">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-<!-- Open Graph (카카오톡/페이스북/네이버 공유용) -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="앤드마켓공구 | 앤드마켓 공동구매 픽업마켓">
-<meta property="og:description" content="기존 카페 매출은 100% 그대로, 공동구매 픽업 매출은 10% 수익 보장. 무자본·무점포로 추가 매출을 만드는 카페 공동구매 가맹 모델.">
-<meta property="og:url" content="https://andmarket09.com/">
-<meta property="og:site_name" content="앤드마켓">
-<meta property="og:locale" content="ko_KR">
-<meta property="og:image" content="https://andmarket09.com/logo.png">
-<meta property="og:image:width" content="1080">
-<meta property="og:image:height" content="1080">
-<meta property="og:image:alt" content="앤드마켓공구 공동구매 픽업마켓">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="앤드마켓공구 | 앤드마켓 공동구매 픽업마켓">
-<meta name="twitter:description" content="기존 카페 매출 100% 점주 귀속, 공동구매 픽업 매출 10% 수익 보장.">
-<meta name="twitter:image" content="https://andmarket09.com/logo.png">
-
-<!-- 네이버 사이트 소유 확인 -->
-<meta name="naver-site-verification" content="60548215441ac3ced8c85749d7e73ea58a7066e9" />
-<meta name="naver-site-verification" content="d026ff17913ac5bfba2b3fb63532f9bb4e009317" />
-<meta name="naver-site-verification" content="5d87c0d841772a31cb19c55d480622b621bd8e92" />
-
-<!-- 구글 사이트 소유 확인 (선택 - 서치 콘솔 등록 시 추가) -->
-<!-- <meta name="google-site-verification" content="여기에_인증코드_입력" /> -->
-
-<!-- 구조화된 데이터 (JSON-LD) - 네이버/구글 검색 결과 풍부한 표시 -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "앤드마켓",
-  "alternateName": "앤드마켓공구",
-  "url": "https://andmarket09.com",
-  "logo": "https://andmarket09.com/logo.png",
-  "description": "Cafe' andMarket은 기존 카페의 유휴공간에 공동구매 픽업 매출을 더하는 상생형 가맹 모델입니다. 기존 카페 매출은 점주님께 100%, 공동구매 픽업 매출은 10% 수익을 보장합니다.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "KR"
-  },
-  "sameAs": [
-    "https://pf.kakao.com/_pLxlsX"
-  ]
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "앤드마켓",
-  "url": "https://andmarket09.com",
-  "inLanguage": "ko-KR",
-  "publisher": {
-    "@type": "Organization",
-    "name": "앤드마켓"
-  }
-}
-</script>
-
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="/logo.png">
-<link rel="apple-touch-icon" href="/logo.png">
-
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      fontFamily: { sans: ['Inter', 'sans-serif'] },
-      colors: {
-        brand: {
-          50: '#FFF7ED',
-          100: '#FFEDD5',
-          200: '#FED7AA',
-          300: '#FDBA74',
-          400: '#FB923C',
-          500: '#F97316',
-          600: '#EA580C',
-          700: '#C2410C',
-        },
-        accent: {
-          400: '#60A5FA',
-          500: '#3B82F6',
-          600: '#2563EB',
-        }
-      }
-    }
-  }
-}
-</script>
-<link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/animation.css">
-<link rel="stylesheet" href="/assets/css/responsive.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>앤드마켓 | 우리동네 공동구매 픽업마켓</title>
+  <meta name="description" content="앤드마켓은 신선식품부터 냉동·냉장 간편식까지 공동구매로 합리적인 가격에 제공하는 우리동네 픽업마켓입니다." />
+  <meta name="keywords" content="앤드마켓, 공동구매, 공구상품, 오늘의 공구특가, 픽업마켓, 카페앤드마켓" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="앤드마켓 | 우리동네 공동구매 픽업마켓" />
+  <meta property="og:description" content="매일 달라지는 오늘의 공구상품을 가까운 매장에서 편하게 픽업하세요." />
+  <meta property="og:url" content="https://andmarket09.com/" />
+  <meta property="og:image" content="/assets/images/hero/hero-main.jpg" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
-
-<!-- 플로팅 카카오톡 상담 버튼 -->
-<a href="https://pf.kakao.com/_pLxlsX/chat" target="_blank" rel="noopener noreferrer"
-  id="floating-kakao"
-  class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-yellow-300 hover:bg-yellow-400 text-slate-800 text-sm font-medium px-5 py-3.5 rounded-full transition-all duration-300 hover:scale-105"
-  style="box-shadow: 0 8px 24px rgba(254,204,2,0.5);"
-  aria-label="카카오톡 상담">
-  <iconify-icon icon="ri:kakao-talk-fill" width="22"></iconify-icon>
-  <span class="hidden sm:inline">카톡상담</span>
-</a>
-
-<!-- Toast -->
-<div id="toast" class="toast">
-  <iconify-icon icon="lucide:check-circle" class="mr-2 align-middle"></iconify-icon>
-  <span id="toast-msg">상담 신청이 완료되었습니다.</span>
-</div>
-
-<!-- Mobile Overlay -->
-<div id="mobile-overlay" class="mobile-overlay"></div>
-
-<!-- Mobile Menu -->
-<div id="mobile-menu" class="mobile-menu">
-  <button id="menu-close-btn" class="absolute top-6 right-6 text-slate-700 hover:text-slate-900 transition-colors">
-    <iconify-icon icon="lucide:x" width="24"></iconify-icon>
-  </button>
-  <div class="flex items-center gap-3 mb-8">
-    <a href="#" class="cursor-pointer">
-      <div class="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center" style="box-shadow: 0 4px 14px rgba(249,115,22,0.3);">
-        <img src="/logo.png" alt="앤드마켓 로고 - 홈으로" class="w-full h-full object-cover">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="앤드마켓 홈">
+        <span class="brand-mark">and</span>
+        <span class="brand-text">앤드마켓</span>
+      </a>
+      <nav class="desktop-nav">
+        <a href="#today">오늘의 공구상품</a>
+        <a href="#how">이용방법</a>
+        <a href="#stores">매장안내</a>
+        <a href="#partner">가맹문의</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-light" href="https://andmarket.net/" target="_blank" rel="noopener noreferrer">자사몰 바로가기</a>
+        <button class="menu-button" type="button" aria-label="메뉴 열기">☰</button>
       </div>
-    </a>
-    <a href="https://open.kakao.com/o/gaC9N17h" target="_blank" rel="noopener noreferrer" class="cursor-pointer group">
-      <div class="flex flex-col">
-        <span class="text-slate-900 font-extrabold text-base tracking-tight leading-tight group-hover:text-orange-600 transition-colors">Cafe' andMarket</span>
-        <span class="text-orange-600 font-bold text-[10px] tracking-wider flex items-center gap-1">
-          <iconify-icon icon="ri:kakao-talk-fill" width="10"></iconify-icon>
-          입장하기 →
-        </span>
-      </div>
-    </a>
-  </div>
-  <nav class="flex flex-col gap-5">
-    <a href="#intro" class="text-slate-700 hover:text-orange-600 transition-colors text-base font-bold">사업 소개</a>
-    <a href="#roles" class="text-slate-700 hover:text-orange-600 transition-colors text-base font-bold">역할 분담</a>
-    <a href="#revenue" class="text-slate-700 hover:text-orange-600 transition-colors text-base font-bold">수익 구조</a>
-    <a href="#types" class="text-slate-700 hover:text-orange-600 transition-colors text-base font-bold">가맹 유형</a>
-    <a href="#cases" class="text-slate-700 hover:text-orange-600 transition-colors text-base font-bold">매장 사례</a>
-    <a href="#assets" class="text-slate-700 hover:text-orange-600 transition-colors text-base font-bold">본사 자산</a>
-    <a href="#synergy" class="text-slate-700 hover:text-orange-600 transition-colors text-base font-bold">시너지</a>
-    <a href="#early-partner" class="text-orange-600 hover:text-orange-700 transition-colors text-base font-extrabold flex items-center gap-1">
-      <iconify-icon icon="lucide:star" width="14"></iconify-icon>
-      초기 파트너
-    </a>
-    <a href="#contact" class="mt-4 inline-flex items-center justify-center gap-2 text-white text-base font-bold px-6 py-3.5 rounded-lg transition-all hover:scale-105" style="background: linear-gradient(135deg, #F97316, #EA580C); box-shadow: 0 6px 18px rgba(249,115,22,0.4);">
-      <iconify-icon icon="lucide:phone" width="18"></iconify-icon>
-      파트너 상담
-    </a>
-  </nav>
-</div>
-
-<!-- Navigation -->
-<div class="fixed top-0 left-0 right-0 h-16 z-50" style="background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(15,23,42,0.1); box-shadow: 0 2px 20px rgba(15,23,42,0.05);">
-  <div class="h-full px-4 md:px-6 flex items-center justify-between max-w-7xl mx-auto">
-    <a href="#" class="flex items-center gap-3 group" aria-label="Cafe' andMarket 홈">
-      <div class="w-9 h-9 rounded-xl overflow-hidden flex items-center justify-center" style="box-shadow: 0 4px 14px rgba(249,115,22,0.25);">
-        <img src="/logo.png" alt="앤드마켓 로고" class="w-full h-full object-cover">
-      </div>
-      <div class="hidden sm:block leading-tight">
-        <div class="text-slate-900 font-extrabold text-sm group-hover:text-orange-600 transition-colors">Cafe' andMarket</div>
-      </div>
-    </a>
-    <nav class="hidden lg:flex items-center gap-7 text-sm font-bold text-slate-700">
-      <a href="#intro" class="hover:text-orange-600 transition-colors">사업 소개</a>
-      <a href="#revenue" class="hover:text-orange-600 transition-colors">수익 구조</a>
-      <a href="#types" class="hover:text-orange-600 transition-colors">가맹 유형</a>
-      <a href="#early-partner" class="hover:text-orange-600 transition-colors text-orange-500">초기 파트너</a>
-      <a href="#contact" class="hover:text-orange-600 transition-colors">상담 신청</a>
+    </div>
+    <nav class="mobile-nav" aria-label="모바일 메뉴">
+      <a href="#today">오늘의 공구상품</a>
+      <a href="#how">이용방법</a>
+      <a href="#stores">매장안내</a>
+      <a href="#partner">가맹문의</a>
+      <a href="https://andmarket.net/" target="_blank" rel="noopener noreferrer">자사몰 바로가기</a>
     </nav>
-    <!-- 우측: 상담 CTA(데스크탑만) + 햄버거 메뉴(모바일/데스크탑 공통) -->
-    <div class="flex items-center gap-3">
-      <a href="#contact" class="hidden md:inline-flex text-white text-sm font-bold px-5 py-2.5 rounded-lg transition-all hover:scale-105 items-center gap-2" style="background: linear-gradient(135deg, #F97316, #EA580C); box-shadow: 0 6px 18px rgba(249,115,22,0.4);">
-        <iconify-icon icon="lucide:phone" width="14"></iconify-icon>
-        상담 신청
-      </a>
-      <button id="menu-btn" class="text-slate-700 hover:text-orange-600 transition-colors p-2 rounded-lg hover:bg-orange-50" aria-label="메뉴 열기">
-        <iconify-icon icon="lucide:menu" width="26"></iconify-icon>
-      </button>
-    </div>
-  </div>
-</div>
+  </header>
 
-<!-- Hero Section -->
-<section class="relative pt-16 overflow-hidden" style="background: linear-gradient(180deg, #FFF7ED 0%, #FFFAF5 40%, #FFFFFF 100%);">
-
-  <!-- ====== Hero Image (Full-bleed) ====== -->
-  <div class="hero-image relative w-full overflow-hidden">
-    <!-- 카페 이미지 (자체 제작) -->
-    <img src="/assets/images/hero/hero-main.jpg"
-         alt="카페앤드마켓 - 따뜻한 카페와 공동구매 픽업이 함께하는 공간"
-         class="w-full h-full object-cover"
-         loading="eager"
-         fetchpriority="high">
-
-    <!-- 다크 그라데이션 오버레이 (모바일: 균일, 데스크탑: 좌측 진하게) -->
-    <div class="hero-overlay-mobile md:hidden absolute inset-0" style="background: rgba(15,23,42,0.62);"></div>
-    <div class="hero-overlay-desktop hidden md:block absolute inset-0" style="background: linear-gradient(135deg, rgba(15,23,42,0.78) 0%, rgba(15,23,42,0.55) 45%, rgba(30,41,59,0.45) 100%);"></div>
-    <div class="absolute inset-0" style="background: linear-gradient(180deg, transparent 50%, rgba(15,23,42,0.6) 100%);"></div>
-
-    <!-- 오렌지 글로우 액센트 -->
-    <div class="absolute pointer-events-none" style="width:520px;height:520px;border-radius:50%;filter:blur(120px);background:#F97316;opacity:0.25;bottom:-10%;right:-8%;"></div>
-    <div class="absolute pointer-events-none" style="width:380px;height:380px;border-radius:50%;filter:blur(100px);background:#EA580C;opacity:0.18;top:10%;left:-5%;"></div>
-
-    <!-- 이미지 위 텍스트 컨테이너 -->
-    <div class="absolute inset-0 flex items-center">
-      <div class="max-w-7xl mx-auto w-full px-5 md:px-10">
-        <div class="max-w-3xl text-center md:text-left mx-auto md:mx-0">
-          <!-- Empathy Message -->
-          <p class="inline-flex items-center gap-2 text-sm md:text-base text-orange-100 font-extrabold mb-4 md:mb-5 leading-relaxed drop-shadow-lg px-4 py-2 rounded-full" style="animation: fade-in-up 0.7s ease-out; word-break: keep-all; background: rgba(249,115,22,0.28); border: 1px solid rgba(253,186,116,0.35);">
-            ☕ 앤드마켓공구 초기 파트너 선점 모집 중 — 지금이 가장 좋은 조건입니다
-          </p>
-
-          <!-- Main Slogan (이미지 위) -->
-          <h1 class="text-[1.75rem] sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.2] tracking-tight text-white drop-shadow-2xl" style="animation: fade-in-up 0.8s ease-out; text-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-            커피 매출에<br>
-            <span class="text-transparent bg-clip-text" style="background: linear-gradient(135deg, #FDE68A, #FBBF24, #F97316); -webkit-background-clip: text; filter: drop-shadow(0 2px 8px rgba(249,115,22,0.4));">추가 수익</span>을 더하세요!
-          </h1>
-          <p class="mt-4 md:mt-5 text-sm md:text-lg text-white/90 font-semibold drop-shadow-lg" style="animation: fade-in-up 0.95s ease-out; word-break: keep-all;">
-            기존 카페 매출은 <span class="text-orange-300 font-extrabold">100% 점주 귀속</span>, 공동구매 픽업 매출은 <span class="text-orange-300 font-extrabold">10% 수익 보장</span>
-          </p>
-          <div class="mt-5 flex flex-wrap justify-center md:justify-start gap-2" style="animation: fade-in-up 1.05s ease-out;">
-            <span class="bg-white/90 text-slate-900 text-xs md:text-sm font-extrabold px-4 py-2 rounded-full shadow-lg">무자본 · 무점포</span>
-            <span class="bg-orange-500 text-white text-xs md:text-sm font-extrabold px-4 py-2 rounded-full shadow-lg">추가 인건비 부담 없음</span>
-            <span class="bg-slate-900/80 text-white text-xs md:text-sm font-extrabold px-4 py-2 rounded-full shadow-lg">초기 파트너 우선 조건</span>
-          </div>
+  <main id="top">
+    <section class="hero">
+      <img class="hero-bg" src="/assets/images/hero/hero-main.jpg" alt="카페앤드마켓 매장 내부와 공동구매 픽업 냉장고" />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="eyebrow">Cafe & Market · 우리동네 공동구매 픽업마켓</span>
+        <h1>우리동네 공동구매 마켓,<br />앤드마켓</h1>
+        <p>신선식품부터 냉동·냉장 간편식까지<br />공동구매로 더 합리적인 가격에 만나보세요.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="https://andmarket.net/" target="_blank" rel="noopener noreferrer">오늘의 공구상품 보기</a>
+          <a class="btn btn-kakao" href="https://open.kakao.com/o/gaC9N17h" target="_blank" rel="noopener noreferrer">카카오톡 입장하기</a>
+          <a class="btn btn-outline-white" href="#partner">가맹 상담하기</a>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Scroll Indicator (이미지 하단) -->
-    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
-      <span class="text-xs font-bold text-white/70 tracking-widest">SCROLL</span>
-      <div class="w-5 h-8 rounded-full border border-white/50 flex items-start justify-center p-1">
-        <div class="w-1 h-2 rounded-full bg-white/90 animate-bounce"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ====== Hero Below: 보조 정보 영역 ====== -->
-  <div class="relative py-12 md:py-20">
-    <!-- Orange blobs (보조 영역 배경) -->
-    <div class="orange-blob" style="width: 400px; height: 400px; background: #FDBA74; opacity: 0.15; top: 10%; left: -10%;"></div>
-    <div class="orange-blob" style="width: 350px; height: 350px; background: #FB923C; opacity: 0.1; bottom: 10%; right: -8%;"></div>
-
-    <!-- Blue dot patterns -->
-    <div class="dot-pattern" style="top: 15%; left: 8%;">
-      <div class="blue-dot lg pulse" style="left: 0; top: 0;"></div>
-      <div class="blue-dot" style="left: 0; top: 28px;"></div>
-      <div class="blue-dot sm" style="left: 0; top: 50px;"></div>
-    </div>
-    <div class="dot-pattern" style="top: 10%; right: 12%;">
-      <div class="blue-dot" style="left: 0; top: 0;"></div>
-      <div class="blue-dot sm pulse" style="left: 20px; top: 0;"></div>
-      <div class="blue-dot lg" style="left: 38px; top: 0;"></div>
-      <div class="blue-dot" style="left: 60px; top: 0;"></div>
-    </div>
-    <div class="dot-pattern" style="bottom: 20%; left: 5%;">
-      <div class="blue-dot sm drift" style="left: 0; top: 0;"></div>
-      <div class="blue-dot" style="left: 18px; top: 0;"></div>
-      <div class="blue-dot sm" style="left: 36px; top: 0;"></div>
-      <div class="blue-dot lg pulse" style="left: 54px; top: 0;"></div>
-    </div>
-
-    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-
-    <!-- Sub Message -->
-    <p class="text-base md:text-xl text-slate-700 font-medium leading-relaxed max-w-2xl mx-auto mb-3 md:mb-4 px-4" style="animation: fade-in-up 1s ease-out; word-break: keep-all;">
-      기존 카페는 그대로 운영하고,<br class="sm:hidden"> <span class="text-orange-600 font-bold">공동구매 픽업 매출만 더합니다.</span>
-    </p>
-
-    <!-- Detail Description -->
-    <p class="text-sm md:text-base text-slate-500 font-light leading-relaxed max-w-2xl mx-auto mb-8 md:mb-10 px-4" style="animation: fade-in-up 1.1s ease-out; word-break: keep-all;">
-      기존 커피·디저트 매출은 점주님께 100%,<br class="hidden md:block">
-      <span class="text-slate-700 font-semibold">공동구매 픽업 매출은 10% 수익 보장</span>으로 추가 매출을 만드는 모델입니다.
-    </p>
-
-    <!-- Key points -->
-    <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-10 md:mb-12" style="animation: fade-in-up 1.2s ease-out;">
-      <div class="bg-white rounded-full px-4 md:px-5 py-2 md:py-2.5 flex items-center gap-2 shadow-md border border-slate-200">
-        <iconify-icon icon="lucide:wallet" width="14" class="text-orange-500"></iconify-icon>
-        <span class="text-xs md:text-sm font-bold text-slate-800">무자본·무점포</span>
-      </div>
-      <div class="bg-white rounded-full px-4 md:px-5 py-2 md:py-2.5 flex items-center gap-2 shadow-md border border-slate-200">
-        <iconify-icon icon="lucide:store" width="14" class="text-orange-500"></iconify-icon>
-        <span class="text-xs md:text-sm font-bold text-slate-800">기존 카페 그대로</span>
-      </div>
-      <div class="rounded-full px-4 md:px-5 py-2 md:py-2.5 flex items-center gap-2 shadow-md" style="background: linear-gradient(135deg, #F97316, #EA580C); border: 1px solid #EA580C;">
-        <iconify-icon icon="lucide:trending-up" width="14" class="text-white"></iconify-icon>
-        <span class="text-xs md:text-sm font-bold text-white">공동구매 매출 10% 보장</span>
-      </div>
-      <div class="bg-white rounded-full px-4 md:px-5 py-2 md:py-2.5 flex items-center gap-2 shadow-md border-2 border-orange-400">
-        <iconify-icon icon="lucide:star" width="14" class="text-orange-500"></iconify-icon>
-        <span class="text-xs md:text-sm font-bold text-orange-600">초기 파트너 선점 가능</span>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 px-2" style="animation: fade-in-up 1.4s ease-out;">
-      <a href="#contact" class="group text-white text-base font-bold px-8 md:px-10 py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105" style="background: linear-gradient(135deg, #F97316, #EA580C); box-shadow: 0 10px 30px rgba(249,115,22,0.4);">
-        지금 상담 신청하기
-        <iconify-icon icon="lucide:arrow-right" width="18" class="group-hover:translate-x-1 transition-transform"></iconify-icon>
-      </a>
-      <a href="#intro" class="text-base font-semibold text-slate-700 hover:text-orange-600 px-8 md:px-10 py-4 rounded-xl border-2 border-slate-300 hover:border-orange-500 transition-all duration-300 flex items-center justify-center gap-2 bg-white">
-        사업 자세히 보기
-        <iconify-icon icon="lucide:chevron-down" width="18" class="animate-bounce"></iconify-icon>
-      </a>
-    </div>
-    </div><!-- /text container -->
-  </div><!-- /hero-below -->
-</section>
-
-<!-- Section 01: 사업 소개 -->
-<section id="intro" class="relative py-24 md:py-32 bg-white">
-  <div class="orange-blob" style="width: 400px; height: 400px; background: #FED7AA; opacity: 0.15; top: -10%; left: 50%; transform: translateX(-50%);"></div>
-  <!-- Dots -->
-  <div class="dot-pattern" style="top: 10%; right: 5%;">
-    <div class="blue-dot sm pulse" style="left:0;top:0;"></div>
-    <div class="blue-dot" style="left:16px;top:0;"></div>
-    <div class="blue-dot sm" style="left:32px;top:0;"></div>
-    <div class="blue-dot" style="left:48px;top:0;"></div>
-    <div class="blue-dot sm" style="left:64px;top:0;"></div>
-  </div>
-
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="text-center mb-16 animate-on-scroll">
-      <div class="inline-flex items-center gap-2 mb-4">
-        <div class="w-8 h-px bg-orange-400"></div>
-        <span class="text-orange-600 text-sm font-bold tracking-widest uppercase">01 · 사업 소개</span>
-        <div class="w-8 h-px bg-orange-400"></div>
-      </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-5 text-slate-900">Cafe' andMarket<br class="md:hidden"> 공동구매 가맹점이란?</h2>
-      <p class="text-slate-600 text-base font-medium max-w-xl mx-auto">기존 카페 공간에 공동구매 픽업을 더해<br>커피 매출은 지키고, 새로운 매출을 만드는 상생형 가맹 모델입니다.</p>
-      <div class="mt-5 inline-flex items-center gap-2 bg-orange-50 border border-orange-200 rounded-full px-5 py-2.5">
-        <iconify-icon icon="lucide:sprout" width="16" class="text-orange-500"></iconify-icon>
-        <span class="text-sm font-bold text-orange-700">현재 초기 파트너와 함께 성장 중입니다 — 운영 3개월 차, 솔직하게 함께합니다</span>
-      </div>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-      <div class="glass-card rounded-xl p-6 card-hover animate-on-scroll delay-1">
-        <div class="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center mb-5">
-          <iconify-icon icon="lucide:building-2" width="20" class="text-orange-500"></iconify-icon>
-        </div>
-        <div class="text-xs text-orange-600 font-bold mb-2 tracking-widest">01</div>
-        <h3 class="text-lg font-bold mb-3 text-slate-900">본사 운영 지원</h3>
-        <p class="text-sm text-slate-700 font-medium leading-relaxed">상품 소싱·주문 시스템·CS·배송 관리는 <span class="font-bold text-slate-900">본사가 지원</span>합니다. 점주님은 기존 카페 운영과 픽업 응대에만 집중하세요.</p>
-      </div>
-      <div class="glass-card rounded-xl p-6 card-hover animate-on-scroll delay-2">
-        <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-5">
-          <iconify-icon icon="lucide:user-check" width="20" class="text-blue-500"></iconify-icon>
-        </div>
-        <div class="text-xs text-blue-600 font-bold mb-2 tracking-widest">02</div>
-        <h3 class="text-lg font-bold mb-3 text-slate-900">카페 점주님</h3>
-        <p class="text-sm text-slate-700 font-medium leading-relaxed">기존 카페 공간으로 운영합니다. <span class="font-bold text-blue-700">무자본·무점포</span>로 시작하고, 카페 매출은 <span class="font-bold text-orange-600">100% 점주 귀속</span>입니다.</p>
-      </div>
-      <div class="glass-card rounded-xl p-6 card-hover animate-on-scroll delay-3">
-        <div class="w-10 h-10 rounded-lg bg-orange-50 flex items-center justify-center mb-5">
-          <iconify-icon icon="lucide:badge-check" width="20" class="text-orange-500"></iconify-icon>
-        </div>
-        <div class="text-xs text-orange-600 font-bold mb-2 tracking-widest">03</div>
-        <h3 class="text-lg font-bold mb-3 text-slate-900">100% + 10% 수익 구조</h3>
-        <p class="text-sm text-slate-700 font-medium leading-relaxed">기존 카페 매출은 <span class="font-bold text-orange-600">100% 점주 귀속</span>, 공동구매 픽업 매출은 <span class="font-bold text-orange-600">10% 수익 보장</span>. 오해 없는 명확한 추가 수익 구조입니다.</p>
-      </div>
-    </div>
-
-    <!-- Flow -->
-    <div class="mt-16 max-w-4xl mx-auto animate-on-scroll">
-      <div class="glass-card rounded-xl p-8 md:p-10">
-        <h3 class="text-center text-sm font-medium text-slate-600 mb-8">사업 흐름</h3>
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
-          <div class="flex-1 text-center">
-            <div class="w-14 h-14 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center mx-auto mb-3">
-              <iconify-icon icon="lucide:tractor" width="22" class="text-orange-500"></iconify-icon>
-            </div>
-            <div class="text-xs font-medium text-slate-700 mb-1">생산지 소싱</div>
-            <div class="text-[11px] text-slate-400">직거래 네트워크</div>
-          </div>
-          <iconify-icon icon="lucide:chevron-right" width="20" class="text-orange-300 hidden md:block"></iconify-icon>
-          <iconify-icon icon="lucide:chevron-down" width="20" class="text-orange-300 md:hidden"></iconify-icon>
-          <div class="flex-1 text-center">
-            <div class="w-14 h-14 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center mx-auto mb-3">
-              <iconify-icon icon="lucide:truck" width="22" class="text-blue-500"></iconify-icon>
-            </div>
-            <div class="text-xs font-medium text-slate-700 mb-1">자체 물류</div>
-            <div class="text-[11px] text-slate-400">매일 신선 배송</div>
-          </div>
-          <iconify-icon icon="lucide:chevron-right" width="20" class="text-orange-300 hidden md:block"></iconify-icon>
-          <iconify-icon icon="lucide:chevron-down" width="20" class="text-orange-300 md:hidden"></iconify-icon>
-          <div class="flex-1 text-center">
-            <div class="w-14 h-14 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center mx-auto mb-3">
-              <iconify-icon icon="lucide:smartphone" width="22" class="text-orange-500"></iconify-icon>
-            </div>
-            <div class="text-xs font-medium text-slate-700 mb-1">온라인 주문</div>
-            <div class="text-[11px] text-slate-400">오픈채팅 기반</div>
-          </div>
-          <iconify-icon icon="lucide:chevron-right" width="20" class="text-orange-300 hidden md:block"></iconify-icon>
-          <iconify-icon icon="lucide:chevron-down" width="20" class="text-orange-300 md:hidden"></iconify-icon>
-          <div class="flex-1 text-center">
-            <div class="w-14 h-14 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center mx-auto mb-3">
-              <iconify-icon icon="lucide:map-pin" width="22" class="text-blue-500"></iconify-icon>
-            </div>
-            <div class="text-xs font-medium text-slate-700 mb-1">지역 픽업</div>
-            <div class="text-[11px] text-slate-400">사업주 운영</div>
-          </div>
-          <iconify-icon icon="lucide:chevron-right" width="20" class="text-orange-300 hidden md:block"></iconify-icon>
-          <iconify-icon icon="lucide:chevron-down" width="20" class="text-orange-300 md:hidden"></iconify-icon>
-          <div class="flex-1 text-center">
-            <div class="w-14 h-14 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center mx-auto mb-3">
-              <iconify-icon icon="lucide:heart-handshake" width="22" class="text-orange-500"></iconify-icon>
-            </div>
-            <div class="text-xs font-medium text-slate-700 mb-1">소비자</div>
-            <div class="text-[11px] text-slate-400">저렴하고 신선하게</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 02: 역할 분담 -->
-<section id="roles" class="relative py-24 md:py-32" style="background: linear-gradient(180deg, #FFF7ED 0%, #FFFFFF 100%);">
-  <div class="dot-pattern" style="top: 15%; left: 4%;">
-    <div class="blue-dot" style="left:0;top:0;"></div>
-    <div class="blue-dot sm" style="left:0;top:22px;"></div>
-    <div class="blue-dot lg pulse" style="left:0;top:40px;"></div>
-  </div>
-  <div class="dot-pattern" style="bottom: 10%; right: 6%;">
-    <div class="blue-dot sm drift" style="left:0;top:0;"></div>
-    <div class="blue-dot" style="left:18px;top:0;"></div>
-    <div class="blue-dot sm" style="left:36px;top:0;"></div>
-    <div class="blue-dot" style="left:54px;top:0;"></div>
-    <div class="blue-dot lg" style="left:72px;top:0;"></div>
-  </div>
-
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="text-center mb-16 animate-on-scroll">
-      <div class="inline-flex items-center gap-2 mb-4">
-        <div class="w-8 h-px bg-orange-400"></div>
-        <span class="text-orange-600 text-sm font-bold tracking-widest uppercase">02 · 역할 분담</span>
-        <div class="w-8 h-px bg-orange-400"></div>
-      </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-5 text-slate-900">본사가 하는 것<br class="md:hidden"> <span class="text-orange-500">vs</span><br class="md:hidden"> 사업주가 하는 것</h2>
-      <p class="text-slate-600 text-base font-medium">명확한 역할 분담으로 사업주의 운영 부담을 최소화합니다.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-      <!-- HQ -->
-      <div class="glass-card rounded-2xl p-8 card-hover animate-on-scroll delay-1" style="border-top: 4px solid #F97316;">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center">
-            <iconify-icon icon="lucide:building-2" width="24" class="text-orange-500"></iconify-icon>
-          </div>
-          <div>
-            <h3 class="text-lg font-extrabold text-slate-900">본사 (HQ)</h3>
-            <p class="text-sm text-orange-600 font-bold">모든 운영을 책임집니다</p>
-          </div>
-        </div>
-        <div class="space-y-3">
-          <div class="flex items-start gap-3">
-            <iconify-icon icon="lucide:check-circle-2" width="18" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
-            <div>
-              <div class="text-sm font-bold text-slate-900">상품 소싱</div>
-              <div class="text-xs text-slate-600 font-medium">생산지 관리 · 자체 물류</div>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <iconify-icon icon="lucide:check-circle-2" width="18" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
-            <div>
-              <div class="text-sm font-bold text-slate-900">오픈채팅방 운영</div>
-              <div class="text-xs text-slate-600 font-medium">콘텐츠 · 고객 소통</div>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <iconify-icon icon="lucide:check-circle-2" width="18" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
-            <div>
-              <div class="text-sm font-bold text-slate-900">CS 관리</div>
-              <div class="text-xs text-slate-600 font-medium">전체 회원 응대</div>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <iconify-icon icon="lucide:check-circle-2" width="18" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
-            <div>
-              <div class="text-sm font-bold text-slate-900">배송 관리</div>
-              <div class="text-xs text-slate-600 font-medium">지역별 픽업 장소</div>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <iconify-icon icon="lucide:check-circle-2" width="18" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
-            <div>
-              <div class="text-sm font-bold text-slate-900">사이트 운영</div>
-              <div class="text-xs text-slate-600 font-medium">주문조회 · 자동 안내</div>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <iconify-icon icon="lucide:check-circle-2" width="18" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
-            <div>
-              <div class="text-sm font-bold text-slate-900">사인물·간판 제작</div>
-              <div class="text-xs text-slate-600 font-medium">제작 및 부착 비용 본사 부담</div>
-            </div>
-          </div>
-        </div>
+    <section id="today" class="section today-section">
+      <div class="section-head">
+        <span class="section-label">TODAY DEAL</span>
+        <h2>오늘의 공구특가</h2>
+        <p>현재 진행 중인 상품은 자사몰에서 바로 확인할 수 있습니다.</p>
       </div>
 
-      <!-- Partner -->
-      <div class="glass-card rounded-2xl p-8 card-hover animate-on-scroll delay-2" style="border-top: 4px solid #3B82F6;">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center">
-            <iconify-icon icon="lucide:user-check" width="24" class="text-blue-500"></iconify-icon>
-          </div>
-          <div>
-            <h3 class="text-lg font-extrabold text-slate-900">사업주 (가맹점)</h3>
-            <p class="text-sm text-blue-600 font-bold">핵심만 집중합니다</p>
+      <div class="deal-panel">
+        <div class="deal-copy">
+          <span class="tag">매일 업데이트</span>
+          <h3>앤드마켓 자사몰에서<br />오늘의 공동구매 상품을 확인하세요.</h3>
+          <p>신선식품, 냉동·냉장 간편식, 간식, 생활상품까지 매일 다른 특가를 준비합니다. 상품 상세, 결제, 주문조회는 자사몰에서 진행합니다.</p>
+          <div class="deal-actions">
+            <a class="btn btn-primary" href="https://andmarket.net/" target="_blank" rel="noopener noreferrer">전체 상품 보러가기</a>
+            <a class="btn btn-subtle" href="https://andmarket.net/" target="_blank" rel="noopener noreferrer">오늘의 공구특가 이동</a>
           </div>
         </div>
-        <div class="space-y-3">
-          <div class="flex items-start gap-3">
-            <iconify-icon icon="lucide:check-circle-2" width="18" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
-            <div>
-              <div class="text-sm font-bold text-slate-900">지역 회원 관리</div>
-              <div class="text-xs text-slate-600 font-medium">오픈채팅 가입 관리</div>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <iconify-icon icon="lucide:check-circle-2" width="18" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
-            <div>
-              <div class="text-sm font-bold text-slate-900">지역 고객 소통</div>
-              <div class="text-xs text-slate-600 font-medium">단골 관계 형성</div>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <iconify-icon icon="lucide:check-circle-2" width="18" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
-            <div>
-              <div class="text-sm font-bold text-slate-900">픽업 상품 수령·분출</div>
-              <div class="text-xs text-slate-600 font-medium">간단한 분류 작업</div>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <iconify-icon icon="lucide:check-circle-2" width="18" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
-            <div>
-              <div class="text-sm font-bold text-slate-900">현장 CS</div>
-              <div class="text-xs text-slate-600 font-medium">간단한 응대</div>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <iconify-icon icon="lucide:check-circle-2" width="18" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
-            <div>
-              <div class="text-sm font-bold text-slate-900">본사와 소통</div>
-              <div class="text-xs text-slate-600 font-medium">운영 관련 협의</div>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <iconify-icon icon="lucide:check-circle-2" width="18" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
-            <div>
-              <div class="text-sm font-bold text-slate-900">기본 집기 준비</div>
-              <div class="text-xs text-slate-600 font-medium">POS · 냉장고 등 (점포 자산)</div>
-            </div>
-          </div>
+        <div class="preview-grid" aria-label="상품 미리보기 예시">
+          <article class="product-card">
+            <div class="product-thumb product-thumb-1">공구</div>
+            <h4>냉동·냉장 간편식</h4>
+            <p>식사 준비를 줄여주는 실속 상품</p>
+          </article>
+          <article class="product-card">
+            <div class="product-thumb product-thumb-2">신선</div>
+            <h4>신선식품</h4>
+            <p>시즌별 산지·특가 상품</p>
+          </article>
+          <article class="product-card">
+            <div class="product-thumb product-thumb-3">간식</div>
+            <h4>간식·디저트</h4>
+            <p>가족이 함께 즐기는 인기 상품</p>
+          </article>
+          <article class="product-card">
+            <div class="product-thumb product-thumb-4">픽업</div>
+            <h4>매장 픽업</h4>
+            <p>가까운 앤드마켓에서 편하게 수령</p>
+          </article>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Section 03: 수익 구조 -->
-<section id="revenue" class="relative py-24 md:py-32 bg-white">
-  <div class="orange-blob" style="width: 500px; height: 500px; background: #FDBA74; opacity: 0.1; bottom: 0; left: -10%;"></div>
-  <div class="dot-pattern" style="top: 20%; right: 8%;">
-    <div class="blue-dot lg drift" style="left:0;top:0;"></div>
-    <div class="blue-dot sm" style="left:20px;top:0;"></div>
-    <div class="blue-dot" style="left:34px;top:0;"></div>
-  </div>
-
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="text-center mb-16 animate-on-scroll">
-      <div class="inline-flex items-center gap-2 mb-4">
-        <div class="w-8 h-px bg-orange-400"></div>
-        <span class="text-orange-600 text-sm font-bold tracking-widest uppercase">03 · 수익 구조</span>
-        <div class="w-8 h-px bg-orange-400"></div>
+    <section id="how" class="section soft-bg">
+      <div class="section-head">
+        <span class="section-label">HOW TO USE</span>
+        <h2>이용방법은 간단합니다</h2>
+        <p>복잡한 절차 없이 상품 확인 후 가까운 매장에서 픽업하세요.</p>
       </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-5 text-slate-900">오해 없는 100% + 10% 수익 구조</h2>
-      <p class="text-slate-600 text-base font-medium">기존 카페 매출은 그대로 지키고, 공동구매 픽업 매출만 추가 수익으로 더합니다.</p>
-    </div>
-
-    <!-- Main Revenue Card -->
-    <div class="max-w-5xl mx-auto mb-10 animate-on-scroll px-4">
-      <div class="rounded-3xl p-6 md:p-10 relative overflow-hidden" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); box-shadow: 0 20px 60px rgba(15,23,42,0.3);">
-        <div class="absolute top-0 right-0 w-64 h-64 rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(249,115,22,0.35) 0%, transparent 70%); transform: translate(30%, -30%);"></div>
-        <div class="relative z-10 text-center">
-          <div class="inline-flex items-center gap-2 rounded-full px-5 py-2 mb-6" style="background: rgba(249,115,22,0.15); border: 1px solid rgba(249,115,22,0.3);">
-            <iconify-icon icon="lucide:shield-check" width="16" class="text-orange-400"></iconify-icon>
-            <span class="text-sm font-bold text-orange-400 tracking-widest">REVENUE STRUCTURE</span>
-          </div>
-          <h3 class="text-2xl md:text-4xl font-extrabold text-white mb-3">기존 매출은 그대로, 추가 매출은 <span class="text-orange-400">10% 보장</span></h3>
-          <p class="text-sm md:text-base text-slate-300 font-semibold mb-8">기존 카페 매출은 점주님께 100%, 공동구매 픽업 매출은 10% 수익 보장</p>
-          <div class="grid md:grid-cols-[1fr_auto_1fr] items-center gap-5">
-            <div class="bg-white rounded-2xl p-6 shadow-xl">
-              <iconify-icon icon="lucide:store" width="42" class="text-slate-800 mb-3"></iconify-icon>
-              <div class="text-sm font-extrabold text-slate-900 mb-1">기존 카페 매출</div>
-              <div class="text-5xl md:text-6xl font-extrabold text-orange-600 leading-none">100%</div>
-              <div class="text-lg font-extrabold text-slate-900 mt-2">점주 귀속</div>
-            </div>
-            <div class="w-12 h-12 rounded-full bg-orange-500 text-white flex items-center justify-center text-3xl font-extrabold mx-auto">+</div>
-            <div class="bg-white rounded-2xl p-6 shadow-xl">
-              <iconify-icon icon="lucide:package" width="42" class="text-slate-800 mb-3"></iconify-icon>
-              <div class="text-sm font-extrabold text-slate-900 mb-1">공동구매 픽업 매출</div>
-              <div class="text-5xl md:text-6xl font-extrabold text-orange-600 leading-none">10%</div>
-              <div class="text-lg font-extrabold text-slate-900 mt-2">수익 보장</div>
-            </div>
-          </div>
-        </div>
+      <div class="step-grid">
+        <article class="step-card">
+          <span>01</span>
+          <h3>공구상품 확인</h3>
+          <p>자사몰 또는 카카오톡 공지에서 오늘의 상품과 가격을 확인합니다.</p>
+        </article>
+        <article class="step-card">
+          <span>02</span>
+          <h3>상품 예약·주문</h3>
+          <p>상품명과 수량을 확인하고 안내된 방식으로 주문합니다.</p>
+        </article>
+        <article class="step-card">
+          <span>03</span>
+          <h3>매장 픽업</h3>
+          <p>픽업 시작일 이후 가까운 매장에서 상품을 수령합니다.</p>
+        </article>
       </div>
-    </div>
+    </section>
 
-    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-      <div class="glass-card rounded-xl p-6 card-hover animate-on-scroll delay-1">
-        <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center mb-4">
-          <iconify-icon icon="lucide:handshake" width="24" class="text-blue-500"></iconify-icon>
-        </div>
-        <h3 class="text-base font-bold mb-2 text-slate-900">무자본·무점포 시작</h3>
-        <p class="text-sm text-slate-700 font-medium leading-relaxed">기존 카페 공간을 활용하므로 별도 점포 없이 시작할 수 있습니다. <span class="font-bold text-orange-600">가맹비 0원</span>으로 초기 부담을 낮춥니다.</p>
+    <section class="section">
+      <div class="section-head">
+        <span class="section-label">WHY ANDMARKET</span>
+        <h2>앤드마켓이 좋은 이유</h2>
       </div>
-      <div class="glass-card rounded-xl p-6 card-hover animate-on-scroll delay-2">
-        <div class="w-12 h-12 rounded-lg bg-orange-50 flex items-center justify-center mb-4">
-          <iconify-icon icon="lucide:sign-post" width="24" class="text-orange-500"></iconify-icon>
-        </div>
-        <h3 class="text-base font-bold mb-2 text-slate-900">본사 운영 지원</h3>
-        <p class="text-sm text-slate-700 font-medium leading-relaxed">상품 소싱·배송·시스템·CS를 본사가 지원합니다. 점주님은 기존 카페 운영과 픽업 응대 중심으로 운영하면 됩니다.</p>
+      <div class="benefit-grid">
+        <article>
+          <strong>매일 다른 특가</strong>
+          <p>공동구매 방식으로 합리적인 가격의 상품을 제안합니다.</p>
+        </article>
+        <article>
+          <strong>가까운 픽업</strong>
+          <p>배송 대기 없이 우리동네 매장에서 편하게 수령합니다.</p>
+        </article>
+        <article>
+          <strong>간편식 중심</strong>
+          <p>냉동·냉장 간편식과 신선식품을 중심으로 운영합니다.</p>
+        </article>
+        <article>
+          <strong>카카오톡 안내</strong>
+          <p>오픈채팅방에서 상품 공지와 픽업 안내를 빠르게 확인합니다.</p>
+        </article>
       </div>
-      <div class="glass-card rounded-xl p-6 card-hover animate-on-scroll delay-3">
-        <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center mb-4">
-          <iconify-icon icon="lucide:bar-chart-3" width="24" class="text-blue-500"></iconify-icon>
-        </div>
-        <h3 class="text-base font-bold mb-2 text-slate-900">추가 인건비 부담 없음</h3>
-        <p class="text-sm text-slate-700 font-medium leading-relaxed">별도 전담 직원을 두지 않아도 되는 단순 픽업 구조입니다. 방문 고객 유입으로 음료·디저트 추가 구매까지 기대할 수 있습니다.</p>
+    </section>
+
+    <section id="stores" class="section soft-bg">
+      <div class="section-head">
+        <span class="section-label">PICKUP STORE</span>
+        <h2>매장안내</h2>
+        <p>가까운 앤드마켓 매장에서 공동구매 상품을 픽업하세요.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 04: 3가지 유형 -->
-<section id="types" class="relative py-24 md:py-32" style="background: linear-gradient(180deg, #FFF7ED 0%, #FFFFFF 100%);">
-  <div class="dot-pattern" style="top: 8%; left: 6%;">
-    <div class="blue-dot" style="left:0;top:0;"></div>
-    <div class="blue-dot sm" style="left:0;top:22px;"></div>
-    <div class="blue-dot lg pulse" style="left:0;top:40px;"></div>
-  </div>
-  <div class="dot-pattern" style="bottom: 12%; right: 5%;">
-    <div class="blue-dot sm drift" style="left:0;top:0;"></div>
-    <div class="blue-dot" style="left:16px;top:0;"></div>
-    <div class="blue-dot sm" style="left:32px;top:0;"></div>
-    <div class="blue-dot" style="left:48px;top:0;"></div>
-    <div class="blue-dot lg" style="left:64px;top:0;"></div>
-  </div>
-
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="text-center mb-16 animate-on-scroll">
-      <div class="inline-flex items-center gap-2 mb-4">
-        <div class="w-8 h-px bg-orange-400"></div>
-        <span class="text-orange-600 text-sm font-bold tracking-widest uppercase">04 · 가맹 유형</span>
-        <div class="w-8 h-px bg-orange-400"></div>
+      <div class="store-grid">
+        <article class="store-card">
+          <span class="store-status">운영중</span>
+          <h3>동탄점</h3>
+          <p>운영시간과 픽업 가능시간을 등록해 주세요.</p>
+          <a href="#" aria-label="동탄점 지도 보기">지도 링크 준비중</a>
+        </article>
+        <article class="store-card">
+          <span class="store-status">운영중</span>
+          <h3>영통점</h3>
+          <p>운영시간과 픽업 가능시간을 등록해 주세요.</p>
+          <a href="#" aria-label="영통점 지도 보기">지도 링크 준비중</a>
+        </article>
+        <article class="store-card">
+          <span class="store-status muted">준비중</span>
+          <h3>서정점</h3>
+          <p>오픈 일정과 픽업 안내를 등록해 주세요.</p>
+          <a href="#" aria-label="서정점 지도 보기">지도 링크 준비중</a>
+        </article>
       </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-5 text-slate-900">기존 카페에 맞는 공동구매 결합 방식</h2>
-      <p class="text-slate-700 text-lg font-medium">카페 규모와 공간에 맞춰 <span class="font-bold text-slate-900">픽업형·결합형·확장형</span>으로 운영할 수 있습니다.</p>
-    </div>
+    </section>
 
-    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      <!-- Type 1: 함께하는 -->
-      <div class="type-card glass-card rounded-2xl p-8 card-hover animate-on-scroll delay-1" style="--accent-c: #3B82F6; border-top: 4px solid #3B82F6;">
-        <div class="text-6xl font-extrabold text-blue-100 mb-4" style="font-family: ui-monospace, monospace;">01</div>
-        <div class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 mb-4 bg-blue-50 border border-blue-200">
-          <iconify-icon icon="lucide:users" width="14" class="text-blue-600"></iconify-icon>
-          <span class="text-xs font-bold text-blue-700">함께하는</span>
+    <section id="partner" class="section partner-section">
+      <div class="partner-box">
+        <div class="partner-copy">
+          <span class="section-label">PARTNER</span>
+          <h2>카페·소형매장에<br />공동구매 픽업 매출을 더하세요.</h2>
+          <p>기존 공간을 활용해 앤드마켓 공동구매 픽업 거점으로 운영할 수 있습니다. 본사는 상품 소싱, 주문 안내, 배송 관리, 운영 시스템을 지원합니다.</p>
+          <ul>
+            <li>기존 카페 운영은 그대로 유지</li>
+            <li>공동구매 상품 픽업 고객 유입</li>
+            <li>본사 상품 소싱 및 운영 지원</li>
+          </ul>
         </div>
-        <h3 class="text-xl font-extrabold mb-2 text-slate-900">기존 카페 결합형</h3>
-        <p class="text-sm text-slate-600 font-medium mb-3">현재 카페를 운영 중인 점주님께</p>
-        <p class="text-sm text-slate-700 font-medium leading-relaxed mb-5">기존 카페 운영은 그대로 유지하면서 <span class="font-bold text-blue-700">공동구매 픽업 매출을 추가</span>합니다. 픽업 고객 유입으로 커피·디저트 추가 구매까지 기대할 수 있습니다.</p>
-        <div class="flex items-center gap-2 pt-4 border-t-2 border-blue-100">
-          <iconify-icon icon="lucide:target" width="16" class="text-blue-500"></iconify-icon>
-          <span class="text-sm font-bold text-slate-700">기존 카페 운영자</span>
-        </div>
-      </div>
-
-      <!-- Type 2: 부가되는 -->
-      <div class="type-card glass-card rounded-2xl p-8 card-hover animate-on-scroll delay-2" style="--accent-c: #F97316; border-top: 4px solid #F97316;">
-        <div class="text-6xl font-extrabold text-orange-100 mb-4" style="font-family: ui-monospace, monospace;">02</div>
-        <div class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 mb-4 bg-orange-50 border border-orange-200">
-          <iconify-icon icon="lucide:plus-circle" width="14" class="text-orange-600"></iconify-icon>
-          <span class="text-xs font-bold text-orange-700">부가되는</span>
-        </div>
-        <h3 class="text-xl font-extrabold mb-2 text-slate-900">카페 부가수익형</h3>
-        <p class="text-sm text-slate-600 font-medium mb-3">이미 운영 중인 자영업자에게</p>
-        <p class="text-sm text-slate-700 font-medium leading-relaxed mb-5">카페 유휴공간에 <span class="font-bold text-orange-700">공동구매 픽업존</span>을 더합니다. <span class="font-bold">무자본·무점포</span>로 시작하고 기존 매출 100%는 점주님께 귀속됩니다.</p>
-        <div class="flex items-center gap-2 pt-4 border-t-2 border-orange-100">
-          <iconify-icon icon="lucide:target" width="16" class="text-orange-500"></iconify-icon>
-          <span class="text-sm font-bold text-slate-700">기존 자영업자</span>
-        </div>
-      </div>
-
-      <!-- Type 3: 살려내는 -->
-      <div class="type-card glass-card rounded-2xl p-8 card-hover animate-on-scroll delay-3" style="--accent-c: #10B981; border-top: 4px solid #10B981;">
-        <div class="text-6xl font-extrabold text-emerald-100 mb-4" style="font-family: ui-monospace, monospace;">03</div>
-        <div class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 mb-4 bg-emerald-50 border border-emerald-200">
-          <iconify-icon icon="lucide:heart-pulse" width="14" class="text-emerald-600"></iconify-icon>
-          <span class="text-xs font-bold text-emerald-700">살려내는</span>
-        </div>
-        <h3 class="text-xl font-extrabold mb-2 text-slate-900">공실 상가 활용</h3>
-        <p class="text-sm text-slate-600 font-medium mb-3">공실 상가 소유주 및 신규 창업자에게</p>
-        <p class="text-sm text-slate-700 font-medium leading-relaxed mb-5">공실을 픽업 공간으로 활용. <span class="font-bold text-emerald-700">매출 셰어와 죽어가는 상권 활성화</span>로 매출 대비 임대료 상승효과 발생. <span class="font-bold">임대 공실 부담 최소화</span>.</p>
-        <div class="flex items-center gap-2 pt-4 border-t-2 border-emerald-100">
-          <iconify-icon icon="lucide:target" width="16" class="text-emerald-500"></iconify-icon>
-          <span class="text-sm font-bold text-slate-700">공실 상가 · 신규 창업자</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 05: 매장 사례 -->
-<section id="cases" class="relative py-24 md:py-32 bg-white">
-  <div class="orange-blob" style="width: 350px; height: 350px; background: #FED7AA; opacity: 0.12; top: 10%; right: -5%;"></div>
-  <div class="dot-pattern" style="bottom: 15%; left: 4%;">
-    <div class="blue-dot sm pulse" style="left:0;top:0;"></div>
-    <div class="blue-dot" style="left:18px;top:0;"></div>
-    <div class="blue-dot sm" style="left:36px;top:0;"></div>
-  </div>
-
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="text-center mb-16 animate-on-scroll">
-      <div class="inline-flex items-center gap-2 mb-4">
-        <div class="w-8 h-px bg-orange-400"></div>
-        <span class="text-orange-600 text-sm font-bold tracking-widest uppercase">05 · 매장 사례</span>
-        <div class="w-8 h-px bg-orange-400"></div>
-      </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-5 text-slate-900">실제 운영 중인 매장</h2>
-      <p class="text-slate-600 text-base font-medium">두 가지 유형의 매장이 각기 다른 방식으로 시너지를 입증합니다.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-      <!-- Cafe Type -->
-      <div class="glass-card rounded-2xl overflow-hidden card-hover animate-on-scroll delay-1">
-        <div class="relative h-48 overflow-hidden">
-          <img src="/assets/images/stores/cafe-store.jpg" alt="카페 앤드마켓 - 카페와 마켓이 결합된 매장" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent"></div>
-          <div class="absolute bottom-4 left-6 right-6">
-            <div class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 mb-2 bg-white/90 border border-orange-300">
-              <iconify-icon icon="lucide:coffee" width="14" class="text-orange-600"></iconify-icon>
-              <span class="text-xs font-bold text-orange-700">STORE TYPE 1 · 카페형</span>
-            </div>
-            <h3 class="text-xl font-extrabold text-slate-900">카페 + 마켓 결합</h3>
-            <p class="text-sm font-bold text-slate-700">여울점 · 망포점</p>
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="text-xs font-semibold text-orange-700 bg-orange-50 rounded-full px-3 py-1.5 border border-orange-200">☕ 카페</span>
-            <span class="text-xs font-semibold text-orange-700 bg-orange-50 rounded-full px-3 py-1.5 border border-orange-200">🥪 브런치</span>
-            <span class="text-xs font-semibold text-orange-700 bg-orange-50 rounded-full px-3 py-1.5 border border-orange-200">🍝 파스타</span>
-            <span class="text-xs font-semibold text-green-700 bg-green-50 rounded-full px-3 py-1.5 border border-green-200">🍎 신선 과일</span>
-            <span class="text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1.5 border border-blue-200">📦 공동구매 픽업</span>
-          </div>
-          <div class="space-y-3">
-            <div class="flex items-start gap-3">
-              <iconify-icon icon="lucide:check-circle-2" width="18" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
-              <p class="text-sm text-slate-700 font-medium"><span class="font-bold text-slate-900">다양한 매장 메뉴</span>로 자체 매출원 확보. 픽업 고객에게 구매 기회 제공으로 매출 극대화</p>
-            </div>
-            <div class="flex items-start gap-3">
-              <iconify-icon icon="lucide:check-circle-2" width="18" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
-              <p class="text-sm text-slate-700 font-medium"><span class="font-bold">2~3인 근무</span>로 안정적 운영, 배달 등 추가 서비스 영역 확대 가능</p>
-            </div>
-            <div class="flex items-start gap-3">
-              <iconify-icon icon="lucide:check-circle-2" width="18" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
-              <p class="text-sm text-slate-700 font-medium">주변 소규모 픽업점의 <span class="text-orange-600 font-bold">허브 매장</span> 역할 (재고 보충, 체화 재고 소비)</p>
-            </div>
-            <div class="flex items-start gap-3">
-              <iconify-icon icon="lucide:trending-up" width="18" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
-              <p class="text-sm text-slate-700 font-medium">파스타·샌드위치·음료 사전주문 예약 매출 <span class="text-orange-600 font-bold">(사이렌 오더 효과)</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Pickup Type -->
-      <div class="glass-card rounded-2xl overflow-hidden card-hover animate-on-scroll delay-2">
-        <div class="relative h-48 overflow-hidden">
-          <img src="/assets/images/stores/pickup-store.jpg" alt="앤드마켓 - 무인 픽업점 + 커피머신 + 간편 마켓" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent"></div>
-          <div class="absolute bottom-4 left-6 right-6">
-            <div class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 mb-2 bg-white/90 border border-blue-300">
-              <iconify-icon icon="lucide:zap" width="14" class="text-blue-600"></iconify-icon>
-              <span class="text-xs font-bold text-blue-700">STORE TYPE 2 · 무인형</span>
-            </div>
-            <h3 class="text-xl font-extrabold text-slate-900">무인 + 셀프카페 + 마켓</h3>
-            <p class="text-sm font-bold text-slate-700">수지점 · <span class="text-blue-600">평택 서정점 <span class="text-[10px] font-extrabold bg-blue-600 text-white px-2 py-0.5 rounded-full ml-1">6월 중순 오픈 예정</span></span></p>
-          </div>
-        </div>
-        <div class="p-6">
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="text-xs font-semibold text-purple-700 bg-purple-50 rounded-full px-3 py-1.5 border border-purple-200">🤖 무인 운영</span>
-            <span class="text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1.5 border border-blue-200">☕ 셀프 커피</span>
-            <span class="text-xs font-semibold text-cyan-700 bg-cyan-50 rounded-full px-3 py-1.5 border border-cyan-200">🥬 신선 마켓</span>
-            <span class="text-xs font-semibold text-orange-700 bg-orange-50 rounded-full px-3 py-1.5 border border-orange-200">📦 공동구매 픽업</span>
-            <span class="text-xs font-semibold text-slate-700 bg-slate-100 rounded-full px-3 py-1.5 border border-slate-200">💰 저비용</span>
-          </div>
-          <div class="space-y-3">
-            <div class="flex items-start gap-3">
-              <iconify-icon icon="lucide:check-circle-2" width="18" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
-              <p class="text-sm text-slate-700 font-medium"><span class="text-blue-600 font-bold">파트타임 또는 템포로리</span> 운영 (주부사원·슈퍼바이저 관리)</p>
-            </div>
-            <div class="flex items-start gap-3">
-              <iconify-icon icon="lucide:check-circle-2" width="18" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
-              <p class="text-sm text-slate-700 font-medium">간이 커피기계 테이크아웃 위주, <span class="font-bold">낮은 초기 투자</span> 가능</p>
-            </div>
-            <div class="flex items-start gap-3">
-              <iconify-icon icon="lucide:check-circle-2" width="18" class="text-blue-500 mt-0.5 flex-shrink-0"></iconify-icon>
-              <p class="text-sm text-slate-700 font-medium"><span class="font-bold">10평 내외 소공간</span>으로도 픽업 거점 기능 충분, 공실 활용 적합</p>
-            </div>
-            <div class="flex items-start gap-3">
-              <iconify-icon icon="lucide:trending-up" width="18" class="text-orange-500 mt-0.5 flex-shrink-0"></iconify-icon>
-              <p class="text-sm text-slate-700 font-medium">거점 카페형 매장의 위성 픽업점으로 <span class="text-orange-600 font-bold">빠른 확장</span> 가능</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 06: 본사 자산 -->
-<section id="assets" class="relative py-24 md:py-32" style="background: linear-gradient(180deg, #FFF7ED 0%, #FFFFFF 100%);">
-  <div class="orange-blob" style="width: 400px; height: 400px; background: #FB923C; opacity: 0.08; top: 10%; left: 50%; transform: translateX(-50%);"></div>
-  <div class="dot-pattern" style="top: 5%; left: 10%;">
-    <div class="blue-dot drift" style="left:0;top:0;opacity:0.15;"></div>
-    <div class="blue-dot sm" style="left:20px;top:0;opacity:0.1;"></div>
-    <div class="blue-dot" style="left:36px;top:0;opacity:0.12;"></div>
-    <div class="blue-dot sm" style="left:54px;top:0;opacity:0.08;"></div>
-    <div class="blue-dot lg" style="left:70px;top:0;opacity:0.15;"></div>
-  </div>
-
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="text-center mb-16 animate-on-scroll">
-      <div class="inline-flex items-center gap-2 mb-4">
-        <div class="w-8 h-px bg-orange-400"></div>
-        <span class="text-orange-600 text-sm font-bold tracking-widest uppercase">06 · 본사 자산</span>
-        <div class="w-8 h-px bg-orange-400"></div>
-      </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-5 text-slate-900">파트너님이 집중할 것,<br>본사가 함께 맡을 것</h2>
-      <p class="text-slate-600 text-base font-medium">본사가 갖춘 3가지 운영 기반을 파트너와 공유합니다.</p>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-      <div class="glass-card rounded-xl p-8 card-hover animate-on-scroll delay-1 group">
-        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-100 to-orange-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-          <iconify-icon icon="lucide:sparkles" width="28" class="text-orange-500"></iconify-icon>
-        </div>
-        <h3 class="text-lg font-extrabold mb-1 text-slate-900">상품 소싱력</h3>
-        <p class="text-sm text-orange-600 font-bold mb-4">산지직송 + AI 큐레이션</p>
-        <div class="space-y-3">
-          <div class="flex items-start gap-2">
-            <div class="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 flex-shrink-0"></div>
-            <p class="text-sm text-slate-700 font-medium"><span class="font-bold">운영 데이터 기반</span> 고객 선호 상품 발굴</p>
-          </div>
-          <div class="flex items-start gap-2">
-            <div class="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 flex-shrink-0"></div>
-            <p class="text-sm text-slate-700 font-medium">자체 상품이 아닌 <span class="font-bold">다양한 브랜드 상품</span> 제공</p>
-          </div>
-          <div class="flex items-start gap-2">
-            <div class="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 flex-shrink-0"></div>
-            <p class="text-sm text-slate-700 font-medium">매일 달라지는 <span class="font-bold">신선 상품</span> 공급</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="glass-card rounded-xl p-8 card-hover animate-on-scroll delay-2 group">
-        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-          <iconify-icon icon="lucide:monitor-smartphone" width="28" class="text-blue-500"></iconify-icon>
-        </div>
-        <h3 class="text-lg font-extrabold mb-1 text-slate-900">운영 시스템</h3>
-        <p class="text-sm text-blue-600 font-bold mb-4">자체 주문조회 플랫폼</p>
-        <div class="space-y-3">
-          <div class="flex items-start gap-2">
-            <div class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-            <p class="text-sm text-slate-700 font-medium"><span class="font-bold font-mono text-blue-700">andmarket09.com/customer</span></p>
-          </div>
-          <div class="flex items-start gap-2">
-            <div class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-            <p class="text-sm text-slate-700 font-medium"><span class="font-bold">자동 환영 안내봇</span> 시스템</p>
-          </div>
-          <div class="flex items-start gap-2">
-            <div class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0"></div>
-            <p class="text-sm text-slate-700 font-medium">키오스크·정산 시스템 통합</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="glass-card rounded-xl p-8 card-hover animate-on-scroll delay-3 group">
-        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-100 to-blue-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-          <iconify-icon icon="lucide:book-open" width="28" class="text-orange-500"></iconify-icon>
-        </div>
-        <h3 class="text-lg font-extrabold mb-1 text-slate-900">운영 노하우</h3>
-        <p class="text-sm text-orange-600 font-bold mb-4">콘텐츠 + 매뉴얼</p>
-        <div class="space-y-3">
-          <div class="flex items-start gap-2">
-            <div class="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 flex-shrink-0"></div>
-            <p class="text-sm text-slate-700 font-medium">오픈채팅 운영 <span class="font-bold">표준 가이드</span></p>
-          </div>
-          <div class="flex items-start gap-2">
-            <div class="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 flex-shrink-0"></div>
-            <p class="text-sm text-slate-700 font-medium">위기 대응·재고 관리·CS 매뉴얼</p>
-          </div>
-          <div class="flex items-start gap-2">
-            <div class="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 flex-shrink-0"></div>
-            <p class="text-sm text-slate-700 font-medium"><span class="font-bold">친구추천 이벤트</span> 등 회원 확장 시스템</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 07: 시너지 -->
-<section id="synergy" class="relative py-24 md:py-32 bg-white">
-  <div class="orange-blob" style="width: 450px; height: 450px; background: #FED7AA; opacity: 0.1; top: 30%; left: 50%; transform: translateX(-50%);"></div>
-  <div class="dot-pattern" style="top: 10%; right: 6%;">
-    <div class="blue-dot" style="left:0;top:0;"></div>
-    <div class="blue-dot sm drift" style="left:0;top:24px;"></div>
-    <div class="blue-dot lg pulse" style="left:0;top:44px;"></div>
-  </div>
-  <div class="dot-pattern" style="bottom: 8%; left: 8%;">
-    <div class="blue-dot sm" style="left:0;top:0;"></div>
-    <div class="blue-dot" style="left:18px;top:0;"></div>
-    <div class="blue-dot sm" style="left:36px;top:0;"></div>
-    <div class="blue-dot" style="left:54px;top:0;"></div>
-    <div class="blue-dot sm drift" style="left:72px;top:0;"></div>
-  </div>
-
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="text-center mb-16 animate-on-scroll">
-      <div class="inline-flex items-center gap-2 mb-4">
-        <div class="w-8 h-px bg-orange-400"></div>
-        <span class="text-orange-600 text-sm font-bold tracking-widest uppercase">07 · 시너지 효과</span>
-        <div class="w-8 h-px bg-orange-400"></div>
-      </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-5 text-slate-900">카페 + 공동구매 결합 시너지</h2>
-      <p class="text-slate-600 text-base font-medium">이미 실증된 두 매출원의 결합 효과</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      <!-- Actual patterns -->
-      <div class="glass-card rounded-2xl p-8 card-hover animate-on-scroll delay-1" style="border-top: 4px solid #F97316;">
-        <div class="flex items-center gap-2 mb-6">
-          <iconify-icon icon="lucide:receipt-text" width="22" class="text-orange-500"></iconify-icon>
-          <h3 class="text-base font-extrabold text-slate-900">실제 발생 패턴</h3>
-          <span class="text-xs text-orange-700 bg-orange-100 rounded-full px-2.5 py-1 ml-1 border border-orange-200 font-bold">REAL</span>
-        </div>
-        <div class="space-y-3">
-          <div class="flex items-center gap-3 p-3.5 rounded-xl bg-orange-50 border border-orange-200">
-            <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center flex-shrink-0 border border-orange-300">
-              <span class="text-sm font-extrabold text-orange-600">1</span>
-            </div>
-            <p class="text-sm text-slate-800 font-semibold">샌드위치 + 아메리카노 + 공동구매 픽업 <span class="text-xs text-slate-500 font-normal">(매장 픽업)</span></p>
-          </div>
-          <div class="flex items-center gap-3 p-3.5 rounded-xl bg-orange-50 border border-orange-200">
-            <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center flex-shrink-0 border border-orange-300">
-              <span class="text-sm font-extrabold text-orange-600">2</span>
-            </div>
-            <p class="text-sm text-slate-800 font-semibold">크림 파스타 + 크랩샌드위치 + 아메리카노 + 공동구매 <span class="text-xs text-slate-500 font-normal">(DT 픽업)</span></p>
-          </div>
-          <div class="flex items-center gap-3 p-3.5 rounded-xl bg-orange-50 border border-orange-200">
-            <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center flex-shrink-0 border border-orange-300">
-              <span class="text-sm font-extrabold text-orange-600">3</span>
-            </div>
-            <p class="text-sm text-slate-800 font-semibold">샌드위치 4개 + 커피 다수 + 공동구매 <span class="text-xs text-slate-500 font-normal">(단체 주문)</span></p>
-          </div>
-          <div class="flex items-center gap-3 p-3.5 rounded-xl bg-orange-50 border border-orange-200">
-            <div class="w-9 h-9 rounded-lg bg-white flex items-center justify-center flex-shrink-0 border border-orange-300">
-              <span class="text-sm font-extrabold text-orange-600">4</span>
-            </div>
-            <p class="text-sm text-slate-800 font-semibold">토마토 파스타 + 샌드위치 + 공동구매 <span class="text-xs text-slate-500 font-normal">(점심 + 픽업)</span></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Synergy effects -->
-      <div class="glass-card rounded-2xl p-8 card-hover animate-on-scroll delay-2" style="border-top: 4px solid #3B82F6;">
-        <div class="flex items-center gap-2 mb-6">
-          <iconify-icon icon="lucide:zap" width="22" class="text-blue-500"></iconify-icon>
-          <h3 class="text-base font-extrabold text-slate-900">시너지 효과</h3>
-          <span class="text-xs text-blue-700 bg-blue-100 rounded-full px-2.5 py-1 ml-1 border border-blue-200 font-bold">ACTUAL</span>
-        </div>
-        <div class="space-y-5">
-          <div class="synergy-item">
-            <div class="text-base font-extrabold text-slate-900 mb-1">📦 공동구매 픽업 → 카페 추가 매출</div>
-            <p class="text-sm text-slate-700 font-medium">픽업 온 고객이 자연스럽게 카페 메뉴를 함께 주문합니다.</p>
-          </div>
-          <div class="synergy-item">
-            <div class="text-base font-extrabold text-slate-900 mb-1">☕ 카페 단골 → 공동구매 회원 전환</div>
-            <p class="text-sm text-slate-700 font-medium">기존 카페 단골 고객이 공동구매 회원으로 자연 전환됩니다.</p>
-          </div>
-          <div class="synergy-item">
-            <div class="text-base font-extrabold text-slate-900 mb-1">🔄 두 매출원이 상호 견인</div>
-            <p class="text-sm text-slate-700 font-medium">한쪽이 부진해도 다른 쪽이 방어하는 든든한 구조입니다.</p>
-          </div>
-          <div class="synergy-item">
-            <div class="text-base font-extrabold text-slate-900 mb-1">🛡 경쟁사가 따라할 수 없는 구조</div>
-            <p class="text-sm text-slate-700 font-medium">카페 + 공동구매의 결합은 본사의 소싱력이 있어야만 가능합니다.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 08: 초기 파트너 -->
-<section id="early-partner" class="relative py-24 md:py-32" style="background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);">
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="text-center mb-14 animate-on-scroll">
-      <div class="inline-flex items-center gap-2 mb-4">
-        <div class="w-8 h-px bg-orange-400"></div>
-        <span class="text-orange-400 text-sm font-bold tracking-widest uppercase">08 · 초기 파트너</span>
-        <div class="w-8 h-px bg-orange-400"></div>
-      </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 text-white">지금이 <span class="text-orange-400">가장 좋은 타이밍</span>입니다</h2>
-    </div>
-
-    <!-- Honest statement -->
-    <div class="max-w-3xl mx-auto mb-14 animate-on-scroll">
-      <div class="rounded-2xl p-8 md:p-10" style="background: rgba(249,115,22,0.08); border: 1px solid rgba(249,115,22,0.25);">
-        <div class="flex items-start gap-4">
-          <div class="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-            <iconify-icon icon="lucide:message-square-heart" width="20" class="text-orange-400"></iconify-icon>
-          </div>
-          <div>
-            <p class="text-base md:text-lg text-white/90 font-medium leading-relaxed" style="word-break: keep-all;">
-              큰 프랜차이즈는 조건이 이미 정해져 있습니다.<br><br>
-              저희는 다릅니다. <span class="text-orange-300 font-bold">초기 파트너와 함께 가장 좋은 조건을 만들어갑니다.</span> 원하는 지역을 먼저 선점하고, 대표와 직접 소통하며, 운영 방식을 함께 설계합니다.<br><br>
-              모든 브랜드에는 시작이 있습니다. <span class="text-white font-bold">그 시작에 함께하는 파트너가 가장 좋은 자리를 갖게 됩니다.</span> 이 기회는 지금만 가능합니다.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Benefits -->
-    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-      <div class="rounded-2xl p-8 animate-on-scroll delay-1" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(249,115,22,0.2);">
-        <div class="w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center mb-6">
-          <iconify-icon icon="lucide:map-pin" width="28" class="text-orange-400"></iconify-icon>
-        </div>
-        <h3 class="text-lg font-extrabold mb-3 text-white">지역 우선권</h3>
-        <p class="text-sm text-white/70 font-medium leading-relaxed">원하는 지역을 먼저 선점할 수 있습니다. 파트너가 늘어나면 지역 중복을 막기 위해 구역이 배정됩니다. 지금이 원하는 지역을 고를 수 있는 마지막 타이밍입니다.</p>
-      </div>
-      <div class="rounded-2xl p-8 animate-on-scroll delay-2" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(249,115,22,0.2);">
-        <div class="w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center mb-6">
-          <iconify-icon icon="lucide:phone-call" width="28" class="text-orange-400"></iconify-icon>
-        </div>
-        <h3 class="text-lg font-extrabold mb-3 text-white">대표 직접 소통</h3>
-        <p class="text-sm text-white/70 font-medium leading-relaxed">초기 파트너는 담당 매니저가 아닌 대표와 직접 소통합니다. 운영 중 어려운 점이 생기면 빠르게 함께 해결합니다. 브랜드가 커지면 이런 소통은 어려워집니다.</p>
-      </div>
-      <div class="rounded-2xl p-8 animate-on-scroll delay-3" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(249,115,22,0.2);">
-        <div class="w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center mb-6">
-          <iconify-icon icon="lucide:handshake" width="28" class="text-orange-400"></iconify-icon>
-        </div>
-        <h3 class="text-lg font-extrabold mb-3 text-white">조건 협의 가능</h3>
-        <p class="text-sm text-white/70 font-medium leading-relaxed">가맹 유형·운영 방식을 상황에 맞게 함께 조율할 수 있습니다. 나중에 가맹 조건이 표준화되면 개별 협의 기회가 사라집니다.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Section 09: Contact -->
-<section id="contact" class="relative py-24 md:py-32" style="background: linear-gradient(180deg, #FFF7ED 0%, #FFEDD5 100%);">
-  <div class="orange-blob" style="width: 600px; height: 600px; background: #FB923C; opacity: 0.06; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
-
-  <!-- Decorative blue dots -->
-  <div class="dot-pattern" style="top: 10%; left: 8%;">
-    <div class="blue-dot sm pulse" style="left:0;top:0;"></div>
-    <div class="blue-dot" style="left:18px;top:0;"></div>
-    <div class="blue-dot sm" style="left:36px;top:0;"></div>
-  </div>
-  <div class="dot-pattern" style="top: 8%; right: 10%;">
-    <div class="blue-dot" style="left:0;top:0;"></div>
-    <div class="blue-dot sm drift" style="left:0;top:22px;"></div>
-    <div class="blue-dot lg" style="left:0;top:42px;"></div>
-  </div>
-  <div class="dot-pattern" style="bottom: 10%; left: 15%;">
-    <div class="blue-dot sm" style="left:0;top:0;"></div>
-    <div class="blue-dot" style="left:18px;top:0;"></div>
-    <div class="blue-dot sm" style="left:36px;top:0;"></div>
-    <div class="blue-dot" style="left:54px;top:0;"></div>
-    <div class="blue-dot lg pulse" style="left:72px;top:0;"></div>
-  </div>
-
-  <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-12 animate-on-scroll">
-        <div class="inline-flex items-center gap-2 mb-4">
-          <div class="w-8 h-px bg-orange-400"></div>
-          <span class="text-orange-600 text-sm font-bold tracking-widest uppercase">09 · 파트너 상담</span>
-          <div class="w-8 h-px bg-orange-400"></div>
-        </div>
-        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-5 text-slate-900">함께 시작합시다.<br><span class="text-transparent bg-clip-text" style="background: linear-gradient(135deg, #F97316, #EA580C); -webkit-background-clip: text;">초기 파트너를 기다립니다.</span></h2>
-        <p class="text-slate-700 text-lg font-medium max-w-lg mx-auto">완성된 프랜차이즈가 아닙니다. <span class="text-slate-900 font-bold">함께 만들어갈 초기 파트너를 모집합니다.</span><br>기존 매출은 100% 그대로, 추가 매출은 10% 보장.</p>
-      </div>
-
-      <!-- Steps -->
-      <div class="grid md:grid-cols-3 gap-6 mb-12">
-        <div class="glass-card rounded-2xl p-6 text-center card-hover animate-on-scroll delay-1 step-connector" style="border-top: 4px solid #F97316;">
-          <div class="w-14 h-14 rounded-full bg-orange-50 border-2 border-orange-300 flex items-center justify-center mx-auto mb-4">
-            <span class="text-xl font-extrabold text-orange-600" style="font-family: ui-monospace, monospace;">1</span>
-          </div>
-          <div class="text-xs font-bold text-orange-600 tracking-widest mb-1">STEP 01</div>
-          <h3 class="text-base font-extrabold mb-1 text-slate-900">상담 신청</h3>
-          <p class="text-sm text-slate-700 font-medium">본사와 1차 미팅</p>
-        </div>
-        <div class="glass-card rounded-2xl p-6 text-center card-hover animate-on-scroll delay-2 step-connector" style="border-top: 4px solid #3B82F6;">
-          <div class="w-14 h-14 rounded-full bg-blue-50 border-2 border-blue-300 flex items-center justify-center mx-auto mb-4">
-            <span class="text-xl font-extrabold text-blue-600" style="font-family: ui-monospace, monospace;">2</span>
-          </div>
-          <div class="text-xs font-bold text-blue-600 tracking-widest mb-1">STEP 02</div>
-          <h3 class="text-base font-extrabold mb-1 text-slate-900">유형 결정</h3>
-          <p class="text-sm text-slate-700 font-medium">3유형 중 적합 모델 선택</p>
-        </div>
-        <div class="glass-card rounded-2xl p-6 text-center card-hover animate-on-scroll delay-3" style="border-top: 4px solid #F97316;">
-          <div class="w-14 h-14 rounded-full bg-orange-50 border-2 border-orange-300 flex items-center justify-center mx-auto mb-4">
-            <span class="text-xl font-extrabold text-orange-600" style="font-family: ui-monospace, monospace;">3</span>
-          </div>
-          <div class="text-xs font-bold text-orange-600 tracking-widest mb-1">STEP 03</div>
-          <h3 class="text-base font-extrabold mb-1 text-slate-900">오픈 준비</h3>
-          <p class="text-sm text-slate-700 font-medium">사인물·시스템 본사 지원</p>
-        </div>
-      </div>
-
-      <!-- 카카오톡 빠른 상담 안내 -->
-      <div class="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-6 md:p-8 mb-6 animate-on-scroll" style="border: 1px solid rgba(254,204,2,0.3);">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div class="flex items-center gap-4 text-center md:text-left">
-            <div class="w-14 h-14 rounded-full bg-yellow-300 flex items-center justify-center flex-shrink-0">
-              <iconify-icon icon="ri:kakao-talk-fill" width="28" style="color: #3C1E1E;"></iconify-icon>
-            </div>
-            <div>
-              <h3 class="text-base font-semibold text-slate-800 mb-1">카카오톡으로 대표와 직접 상담</h3>
-              <p class="text-xs text-slate-500 font-light">초기 파트너 문의는 대표가 직접 응답합니다. 편하게 먼저 연락주세요.</p>
-            </div>
-          </div>
-          <a href="https://pf.kakao.com/_pLxlsX/chat" target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-2 bg-yellow-300 hover:bg-yellow-400 text-slate-800 text-sm font-medium px-6 py-3 rounded-xl transition-all whitespace-nowrap"
-            style="box-shadow: 0 4px 14px rgba(254,204,2,0.4);">
-            <iconify-icon icon="ri:kakao-talk-fill" width="18"></iconify-icon>
-            카톡 상담하기
-          </a>
-        </div>
-      </div>
-
-      <!-- Form -->
-      <div class="bg-white/80 backdrop-blur-xl rounded-2xl p-8 md:p-10 animate-on-scroll" style="border: 1px solid rgba(249,115,22,0.1); box-shadow: 0 8px 40px rgba(249,115,22,0.08);">
-        <div class="mb-6 text-center">
-          <h3 class="text-base font-semibold text-slate-800 mb-1">📋 상세 상담 신청</h3>
-          <p class="text-xs text-slate-500 font-light">정식 상담을 원하시면 아래 양식을 작성해주세요. 영업일 기준 1~2일 내 연락드립니다.</p>
-        </div>
-        <form id="contact-form" action="https://formspree.io/f/mykoqlkv" method="POST">
-          <!-- Formspree 메일 설정 -->
-          <input type="hidden" name="_subject" value="[앤드마켓] 새로운 상담 신청이 도착했습니다">
-          <input type="hidden" name="_language" value="ko">
-          <div class="grid md:grid-cols-2 gap-5 mb-5">
-            <div>
-              <label class="block text-xs font-medium text-slate-500 mb-2">이름 <span class="text-orange-500">*</span></label>
-              <input type="text" name="이름" required placeholder="홍길동"
-                class="w-full bg-white border border-orange-100 rounded-lg px-4 py-3 text-sm text-slate-800 placeholder-slate-300 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition-all">
-            </div>
-            <div>
-              <label class="block text-xs font-medium text-slate-500 mb-2">연락처 <span class="text-orange-500">*</span></label>
-              <input type="tel" name="연락처" required placeholder="010-0000-0000"
-                class="w-full bg-white border border-orange-100 rounded-lg px-4 py-3 text-sm text-slate-800 placeholder-slate-300 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition-all">
-            </div>
-          </div>
-          <div class="mb-5">
-            <label class="block text-xs font-medium text-slate-500 mb-2">관심 유형</label>
-            <select name="관심유형"
-              class="w-full bg-white border border-orange-100 rounded-lg px-4 py-3 text-sm text-slate-500 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition-all appearance-none"
-              style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f97316' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E&quot;); background-repeat: no-repeat; background-position: right 12px center;">
-              <option value="">선택해 주세요</option>
-              <option value="함께하는 — 기존 카페 운영자">함께하는 — 기존 카페 운영자</option>
-              <option value="부가되는 — 기존 자영업자">부가되는 — 기존 자영업자</option>
-              <option value="살려내는 — 공실 상가 / 신규 창업자">살려내는 — 공실 상가 / 신규 창업자</option>
-              <option value="새로 시작하고 싶습니다">새로 시작하고 싶습니다</option>
-            </select>
-          </div>
-          <div class="mb-6">
-            <label class="block text-xs font-medium text-slate-500 mb-2">추가 문의</label>
-            <textarea name="추가문의" rows="4" placeholder="현재 운영 중인 사업이나 궁금한 점을 자유롭게 적어주세요."
-              class="w-full bg-white border border-orange-100 rounded-lg px-4 py-3 text-sm text-slate-800 placeholder-slate-300 focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 transition-all resize-none"></textarea>
-          </div>
-          <button type="submit"
-            class="w-full text-white text-base font-bold py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 hover:scale-[1.02]"
-            style="background: linear-gradient(135deg, #F97316, #EA580C); box-shadow: 0 10px 30px rgba(249,115,22,0.4);">
-            <iconify-icon icon="lucide:send" width="18"></iconify-icon>
-            상담 신청하기
-          </button>
-          <p class="text-center text-xs text-slate-600 font-medium mt-4">제출 후 영업일 기준 1~2일 내 본사에서 연락드립니다.</p>
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/mykoqlkv" method="POST">
+          <input type="hidden" name="_subject" value="[앤드마켓] 가맹 상담 신청" />
+          <label>이름 <input type="text" name="이름" placeholder="홍길동" required /></label>
+          <label>연락처 <input type="tel" name="연락처" placeholder="010-0000-0000" required /></label>
+          <label>희망지역 <input type="text" name="희망지역" placeholder="예: 동탄, 영통, 평택" /></label>
+          <label>문의내용 <textarea name="문의내용" rows="4" placeholder="현재 운영 중인 매장이나 궁금한 점을 적어주세요."></textarea></label>
+          <button class="btn btn-primary" type="submit">가맹 상담 신청하기</button>
+          <p class="form-note">제출 후 영업일 기준 1~2일 내 연락드립니다.</p>
         </form>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+  </main>
 
-<!-- Footer -->
-<footer class="relative py-16" style="background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);">
-  <div class="max-w-7xl mx-auto px-6">
-    <!-- Top slogan -->
-    <div class="text-center mb-12 pb-12 border-b border-slate-700">
-      <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-3">함께 만들어가는 공동구매 플랫폼</h3>
-      <p class="text-lg text-orange-400 font-bold">초기 파트너와 함께 성장합니다. 지금이 가장 좋은 조건입니다.</p>
-    </div>
-    
-    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="flex items-center gap-3">
-        <div class="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center" style="box-shadow: 0 4px 14px rgba(249,115,22,0.4);">
-          <img src="/logo.png" alt="앤드마켓 로고" class="w-full h-full object-cover">
-        </div>
-        <div>
-          <span class="text-white text-base font-extrabold">앤드마켓공구 | 앤드마켓</span>
-          <p class="text-xs text-slate-400 font-medium">앤드마켓공구 공동구매 픽업마켓</p>
-        </div>
-      </div>
-      <div class="flex items-center gap-6 flex-wrap justify-center">
-        <a href="#intro" class="text-sm text-slate-300 hover:text-orange-400 transition-colors font-medium">사업 소개</a>
-        <a href="#revenue" class="text-sm text-slate-300 hover:text-orange-400 transition-colors font-medium">수익 구조</a>
-        <a href="#types" class="text-sm text-slate-300 hover:text-orange-400 transition-colors font-medium">가맹 유형</a>
-        <a href="#contact" class="text-sm text-slate-300 hover:text-orange-400 transition-colors font-medium">상담 신청</a>
-        <a href="https://pf.kakao.com/_pLxlsX" target="_blank" rel="noopener noreferrer" class="text-sm text-slate-300 hover:text-yellow-400 transition-colors flex items-center gap-1 font-medium">
-          <iconify-icon icon="ri:kakao-talk-fill" width="16"></iconify-icon>
-          카톡채널
-        </a>
-      </div>
-      <p class="text-xs text-slate-500 font-medium">© 2026 앤드마켓공구. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
+  <a class="floating-kakao" href="https://pf.kakao.com/_pLxlsX/chat" target="_blank" rel="noopener noreferrer">카톡상담</a>
 
-<script src="/assets/js/toast.js"></script>
-<script src="/assets/js/animation.js"></script>
-<script src="/assets/js/navigation.js"></script>
-<script src="/assets/js/app.js"></script>
+  <footer class="footer">
+    <strong>앤드마켓</strong>
+    <p>우리동네 공동구매 픽업마켓 · Cafe & Market</p>
+    <div>
+      <a href="https://andmarket.net/" target="_blank" rel="noopener noreferrer">자사몰</a>
+      <a href="https://pf.kakao.com/_pLxlsX" target="_blank" rel="noopener noreferrer">카카오 채널</a>
+    </div>
+  </footer>
+
+  <script src="/assets/js/app.js"></script>
 </body>
 </html>
