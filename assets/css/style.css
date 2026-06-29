@@ -182,7 +182,8 @@ img { max-width: 100%; display: block; }
   .seojeong-gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .seojeong-gallery figcaption { font-size: 12px; padding: 10px 6px; }
   .hero-notice { display: flex; width: 100%; font-size: 13px; gap: 8px; padding: 8px 12px 8px 8px; border-radius: 18px; }
-  .hero-notice-text { flex: 1 1 auto; text-align: left; line-height: 1.35; }
+  .hero-notice-text { flex: 1 1 auto; text-align: center; line-height: 1.35; }
+  .hero-notice-text .hn-b { display: block; }
   .hero-notice-badge { font-size: 11px; padding: 4px 8px; }
   .store-showcase-body { padding: 24px 20px; }
   .store-showcase-body h3 { font-size: 24px; }
