@@ -42,10 +42,11 @@ img { max-width: 100%; display: block; }
 .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,23,42,.82) 0%, rgba(15,23,42,.58) 48%, rgba(15,23,42,.34) 100%); }
 .hero-content { position: relative; z-index: 1; width: min(1180px, calc(100% - 44px)); margin: 0 auto; color: #fff; padding: 90px 0; }
-.hero-notice { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3); backdrop-filter: blur(6px); padding: 8px 8px 8px 10px; border-radius: 999px; color: #fff; font-weight: 800; font-size: 15px; margin-bottom: 18px; transition: background .2s, transform .2s; }
+.hero-notice { display: inline-flex; align-items: center; gap: 10px; max-width: 100%; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3); backdrop-filter: blur(6px); padding: 8px 8px 8px 10px; border-radius: 999px; color: #fff; font-weight: 800; font-size: 15px; margin-bottom: 18px; transition: background .2s, transform .2s; }
 .hero-notice:hover { background: rgba(255,255,255,.2); transform: translateY(-1px); }
-.hero-notice-badge { display: inline-flex; align-items: center; background: var(--brand); color: #fff; font-size: 12px; font-weight: 950; letter-spacing: .04em; padding: 5px 10px; border-radius: 999px; }
-.hero-notice-arrow { font-weight: 950; padding-right: 6px; }
+.hero-notice-badge { flex: 0 0 auto; display: inline-flex; align-items: center; background: var(--brand); color: #fff; font-size: 12px; font-weight: 950; letter-spacing: .04em; padding: 5px 10px; border-radius: 999px; line-height: 1.2; }
+.hero-notice-text { flex: 0 1 auto; }
+.hero-notice-arrow { flex: 0 0 auto; font-weight: 950; padding-right: 6px; }
 .eyebrow { display: inline-flex; align-items: center; border: 1px solid rgba(255,255,255,.26); background: rgba(249,115,22,.22); padding: 9px 16px; border-radius: 999px; font-weight: 900; margin-bottom: 22px; }
 .hero h1 { font-size: clamp(44px, 6vw, 78px); line-height: 1.05; letter-spacing: -.06em; margin-bottom: 22px; }
 .hero p { font-size: clamp(18px, 2vw, 24px); line-height: 1.55; color: rgba(255,255,255,.9); font-weight: 700; margin-bottom: 34px; }
@@ -180,7 +181,8 @@ img { max-width: 100%; display: block; }
   .store-image-wrap, .store-illustration-wrap { height: 210px; }
   .seojeong-gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .seojeong-gallery figcaption { font-size: 12px; padding: 10px 6px; }
-  .hero-notice { font-size: 13px; gap: 8px; }
+  .hero-notice { display: flex; width: 100%; font-size: 13px; gap: 8px; padding: 8px 12px 8px 8px; border-radius: 18px; }
+  .hero-notice-text { flex: 1 1 auto; text-align: left; line-height: 1.35; }
   .hero-notice-badge { font-size: 11px; padding: 4px 8px; }
   .store-showcase-body { padding: 24px 20px; }
   .store-showcase-body h3 { font-size: 24px; }
