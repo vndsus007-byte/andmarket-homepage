@@ -115,6 +115,14 @@ img { max-width: 100%; display: block; }
 .pickup-store-mini span { display: inline-flex; color: #15803d; background: #dcfce7; border-radius: 999px; padding: 6px 10px; font-size: 12px; font-weight: 900; margin-bottom: 10px; }
 .pickup-store-mini span.muted { color: #475569; background: #e2e8f0; }
 .pickup-store-mini p { color: var(--muted); font-size: 14px; font-weight: 650; line-height: 1.6; }
+.store-branch em.open { background: #15803d; }
+
+
+/* 서정점 갤러리 */
+.seojeong-gallery { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+.seojeong-gallery figure { margin: 0; border-radius: 20px; overflow: hidden; background: #fff; border: 1px solid var(--line); box-shadow: 0 14px 36px rgba(15,23,42,.07); }
+.seojeong-gallery img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; display: block; }
+.seojeong-gallery figcaption { padding: 12px 10px; text-align: center; font-size: 13px; font-weight: 800; color: var(--ink); }
 
 
 /* FAQ */
@@ -151,6 +159,7 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 960px) {
   .store-showcase-grid, .pickup-store-mini { grid-template-columns: 1fr; }
+  .seojeong-gallery { grid-template-columns: repeat(3, 1fr); }
   .desktop-nav, .header-actions .btn-light { display: none; }
   .menu-button { display: inline-flex; }
   .hero { min-height: 680px; }
@@ -165,6 +174,8 @@ img { max-width: 100%; display: block; }
 @media (max-width: 560px) {
   .brand-logo { width: 38px; height: 38px; border-radius: 12px; }
   .store-image-wrap, .store-illustration-wrap { height: 210px; }
+  .seojeong-gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .seojeong-gallery figcaption { font-size: 12px; padding: 10px 6px; }
   .store-showcase-body { padding: 24px 20px; }
   .store-showcase-body h3 { font-size: 24px; }
   .store-icon-row span { width: 62px; height: 62px; border-radius: 20px; font-size: 28px; }
