@@ -154,6 +154,12 @@ img { max-width: 100%; display: block; }
 .revenue-notes article { background: rgba(255,255,255,.82); border: 1px solid var(--line); border-radius: 22px; padding: 22px 24px; }
 .revenue-notes strong { display: block; font-size: 17px; margin-bottom: 8px; }
 .revenue-notes p { color: var(--muted); font-size: 14px; font-weight: 650; line-height: 1.65; }
+.rev-note { display: block; margin-top: 14px; padding-top: 14px; border-top: 1px dashed #cbe8d4; color: #15803d; font-weight: 800; font-size: 14px; }
+.revenue-perks { max-width: 1180px; margin: 16px auto 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.revenue-perks article { background: linear-gradient(180deg, #fff7ed, #fff); border: 1px solid #fed7aa; border-radius: 22px; padding: 24px 26px; }
+.perk-tag { display: inline-flex; background: var(--brand); color: #fff; font-size: 12px; font-weight: 950; letter-spacing: .04em; padding: 6px 12px; border-radius: 999px; margin-bottom: 12px; }
+.revenue-perks strong { display: block; font-size: 18px; margin-bottom: 8px; }
+.revenue-perks p { color: var(--muted); font-size: 14px; font-weight: 650; line-height: 1.7; }
 
 /* 상생형 3유형 */
 .ftype-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -231,7 +237,7 @@ img { max-width: 100%; display: block; }
   .ftype-grid, .asset-grid, .role-split { grid-template-columns: 1fr; }
   .revenue-formula { grid-template-columns: 1fr; }
   .rev-plus { padding: 4px 0; }
-  .revenue-notes { grid-template-columns: 1fr; }
+  .revenue-notes, .revenue-perks { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 560px) {
