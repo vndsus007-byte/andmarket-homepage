@@ -139,6 +139,59 @@ img { max-width: 100%; display: block; }
 .faq-item h3 span { color: var(--brand-dark); font-weight: 950; flex: 0 0 auto; }
 .faq-item p { color: var(--muted); font-size: 16px; font-weight: 650; line-height: 1.85; padding-left: 32px; }
 
+/* 수익 구조 (100% + 10%) */
+.revenue-formula { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 18px; }
+.rev-card { background: #fff; border: 1px solid var(--line); border-radius: 28px; padding: 34px 32px; box-shadow: 0 16px 46px rgba(15,23,42,.06); }
+.rev-keep { border-color: #fed7aa; background: linear-gradient(180deg, #fff7ed, #fff); }
+.rev-add { border-color: #bbf7d0; background: linear-gradient(180deg, #f0fdf4, #fff); }
+.rev-pct { display: block; font-size: clamp(48px, 7vw, 76px); font-weight: 950; letter-spacing: -.05em; line-height: 1; margin-bottom: 14px; }
+.rev-keep .rev-pct { color: var(--brand-dark); }
+.rev-add .rev-pct { color: #15803d; }
+.rev-card strong { display: block; font-size: 22px; letter-spacing: -.03em; margin-bottom: 10px; }
+.rev-card p { color: var(--muted); font-weight: 650; line-height: 1.7; }
+.rev-plus { display: flex; align-items: center; justify-content: center; font-size: 46px; font-weight: 950; color: var(--brand); }
+.revenue-notes { max-width: 1180px; margin: 22px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.revenue-notes article { background: rgba(255,255,255,.82); border: 1px solid var(--line); border-radius: 22px; padding: 22px 24px; }
+.revenue-notes strong { display: block; font-size: 17px; margin-bottom: 8px; }
+.revenue-notes p { color: var(--muted); font-size: 14px; font-weight: 650; line-height: 1.65; }
+
+/* 상생형 3유형 */
+.ftype-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.ftype-card { background: #fff; border: 1px solid var(--line); border-radius: 28px; padding: 32px 30px; box-shadow: 0 14px 42px rgba(15,23,42,.06); display: flex; flex-direction: column; }
+.ftype-num { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 950; letter-spacing: .1em; color: var(--brand-dark); margin-bottom: 14px; }
+.ftype-num b { display: inline-flex; width: 30px; height: 30px; border-radius: 10px; align-items: center; justify-content: center; background: var(--brand); color: #fff; }
+.ftype-card h3 { font-size: 26px; letter-spacing: -.04em; margin-bottom: 12px; }
+.ftype-card p { color: var(--muted); font-weight: 650; line-height: 1.75; margin-bottom: 20px; flex: 1; }
+.ftype-target { display: inline-flex; align-self: flex-start; padding: 8px 14px; border-radius: 999px; background: #fff7ed; color: var(--brand-dark); border: 1px solid #fed7aa; font-size: 13px; font-weight: 900; }
+
+/* 역할 분담 */
+.role-split { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.role-col { background: #fff; border: 1px solid var(--line); border-radius: 28px; padding: 32px; box-shadow: 0 14px 42px rgba(15,23,42,.05); }
+.role-col h3 { display: flex; align-items: center; gap: 10px; font-size: 22px; letter-spacing: -.03em; margin-bottom: 22px; }
+.role-col h3 .role-tag { display: inline-flex; padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 950; letter-spacing: .04em; }
+.role-col.hq h3 .role-tag { background: #fff7ed; color: var(--brand-dark); border: 1px solid #fed7aa; }
+.role-col.partner h3 .role-tag { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+.role-col ul { list-style: none; display: grid; gap: 13px; }
+.role-col li { position: relative; padding-left: 26px; color: #394252; font-weight: 700; line-height: 1.6; }
+.role-col li::before { content: "✓"; position: absolute; left: 0; top: 0; font-weight: 950; }
+.role-col.hq li::before { color: var(--brand); }
+.role-col.partner li::before { color: #15803d; }
+
+/* 본사 3대 자산 */
+.asset-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.asset-card { background: #fff; border: 1px solid var(--line); border-radius: 28px; padding: 32px 30px; box-shadow: 0 14px 42px rgba(15,23,42,.05); }
+.asset-num { display: inline-flex; width: 52px; height: 52px; border-radius: 16px; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--brand), #fbbf24); color: #fff; font-weight: 950; font-size: 18px; margin-bottom: 22px; }
+.asset-card h3 { font-size: 22px; letter-spacing: -.03em; margin-bottom: 10px; }
+.asset-card .asset-sub { display: inline-flex; color: var(--brand-dark); font-weight: 900; font-size: 13px; margin-bottom: 14px; }
+.asset-card p { color: var(--muted); font-weight: 650; line-height: 1.75; }
+
+/* 가맹 진행 3단계 */
+.partner-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
+.partner-steps article { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16); border-radius: 20px; padding: 20px; }
+.partner-steps span { display: inline-flex; color: #fbbf24; font-size: 12px; font-weight: 950; letter-spacing: .1em; margin-bottom: 10px; }
+.partner-steps strong { display: block; font-size: 18px; margin-bottom: 6px; }
+.partner-steps p { color: rgba(255,255,255,.7); font-size: 14px; font-weight: 650; line-height: 1.6; }
+
 .partner-section { background: #111827; color: #fff; }
 .partner-box { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr .86fr; gap: 36px; align-items: center; }
 .partner-copy h2 { font-size: clamp(34px, 4vw, 54px); line-height: 1.12; letter-spacing: -.05em; margin-bottom: 20px; }
@@ -175,6 +228,10 @@ img { max-width: 100%; display: block; }
   .deal-panel, .partner-box { grid-template-columns: 1fr; }
   .step-grid, .store-grid { grid-template-columns: 1fr; }
   .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+  .ftype-grid, .asset-grid, .role-split { grid-template-columns: 1fr; }
+  .revenue-formula { grid-template-columns: 1fr; }
+  .rev-plus { padding: 4px 0; }
+  .revenue-notes { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 560px) {
@@ -207,4 +264,7 @@ img { max-width: 100%; display: block; }
   .preview-grid, .benefit-grid { grid-template-columns: 1fr; }
   .partner-copy, .section-head { text-align: left; }
   .floating-kakao { right: 16px; bottom: 16px; }
+  .partner-steps { grid-template-columns: 1fr; }
+  .rev-card { padding: 28px 24px; }
+  .ftype-card, .role-col, .asset-card { padding: 26px 22px; }
 }
