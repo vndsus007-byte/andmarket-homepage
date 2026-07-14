@@ -117,10 +117,12 @@ img { max-width: 100%; display: block; }
 .store-feature-list li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--brand); font-weight: 950; }
 .pickup-store-mini { max-width: 1180px; margin: 26px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .pickup-store-mini article { background: rgba(255,255,255,.82); border: 1px solid var(--line); border-radius: 22px; padding: 22px; box-shadow: 0 10px 30px rgba(15,23,42,.04); }
-.pickup-store-mini strong { display: block; font-size: 22px; letter-spacing: -.03em; margin-bottom: 10px; }
+.pickup-store-mini strong { display: block; font-size: 18px; letter-spacing: -.03em; line-height: 1.35; margin-bottom: 10px; }
 .pickup-store-mini span { display: inline-flex; color: #15803d; background: #dcfce7; border-radius: 999px; padding: 6px 10px; font-size: 12px; font-weight: 900; margin-bottom: 10px; }
 .pickup-store-mini span.muted { color: #475569; background: #e2e8f0; }
 .pickup-store-mini p { color: var(--muted); font-size: 14px; font-weight: 650; line-height: 1.6; }
+.pickup-store-mini p.store-addr { display: flex; gap: 6px; color: var(--brand-dark); font-size: 13px; font-weight: 800; line-height: 1.5; margin-bottom: 8px; }
+.pickup-store-mini p.store-addr::before { content: "📍"; flex: none; }
 .store-branch em.open { background: #15803d; }
 
 
