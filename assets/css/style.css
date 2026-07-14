@@ -224,6 +224,9 @@ img { max-width: 100%; display: block; }
 .footer p { color: rgba(255,255,255,.68); margin: 10px 0 18px; }
 .footer div { display: flex; justify-content: center; gap: 20px; color: #fed7aa; font-weight: 800; }
 
+.footer .footer-biz { display: block; margin-top: 26px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); }
+.footer-biz p { margin: 5px 0; font-size: 13px; line-height: 1.6; color: rgba(255,255,255,.5); font-weight: 400; }
+
 @media (max-width: 960px) {
   .store-showcase-grid, .pickup-store-mini { grid-template-columns: 1fr; }
   .seojeong-gallery { grid-template-columns: repeat(3, 1fr); }
