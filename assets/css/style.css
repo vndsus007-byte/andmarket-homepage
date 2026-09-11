@@ -105,7 +105,6 @@ img { max-width: 100%; display: block; }
 .store-showcase-body { padding: 30px; }
 .store-showcase-body h3 { font-size: 28px; line-height: 1.2; letter-spacing: -.04em; margin-bottom: 8px; }
 .store-branch { color: var(--brand-dark); font-weight: 950; margin-bottom: 18px; }
-.store-branch em { display: inline-flex; margin-left: 6px; font-style: normal; font-size: 11px; color: #fff; background: #2563eb; border-radius: 999px; padding: 4px 8px; vertical-align: middle; }
 .store-chip-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
 .store-chip-list span { display: inline-flex; padding: 7px 11px; border-radius: 999px; background: #fff7ed; color: var(--brand-dark); border: 1px solid #fed7aa; font-size: 12px; font-weight: 900; }
 .store-chip-list.green span { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
@@ -125,7 +124,6 @@ img { max-width: 100%; display: block; }
 .pickup-store-mini p { color: var(--muted); font-size: 14px; font-weight: 650; line-height: 1.6; }
 .pickup-store-mini p.store-addr { display: flex; gap: 6px; color: var(--brand-dark); font-size: 13px; font-weight: 800; line-height: 1.5; margin-bottom: 8px; }
 .pickup-store-mini p.store-addr::before { content: "📍"; flex: none; }
-.store-branch em.open { background: #15803d; }
 
 
 /* 서정점 갤러리 */
