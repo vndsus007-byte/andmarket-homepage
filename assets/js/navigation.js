@@ -22,7 +22,9 @@ function initNavigation() {
   }
 
   // 앵커 스무스 스크롤 (고정 헤더 높이만큼 보정)
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  // 매장 선택 모달 열기/닫기 링크는 store-picker.js가 처리하므로 제외한다
+  const SKIP = '[data-picker-open], [data-picker-close]';
+  document.querySelectorAll('a[href^="#"]:not(' + SKIP + ')').forEach((anchor) => {
     anchor.addEventListener('click', (event) => {
       const id = anchor.getAttribute('href');
       if (!id || id === '#') return;

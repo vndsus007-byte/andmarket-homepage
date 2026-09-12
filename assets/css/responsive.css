@@ -137,6 +137,13 @@ h1, h2, h3, h4, h5, p, span, div, li, a, label, button, dt, dd {
   .company-info > div.wide { grid-column: span 1; }
   .company-info > div { padding: 20px 22px; }
 
+  .store-picker { padding: 0; align-items: flex-end; }
+  .picker-panel { width: 100%; max-height: 90vh; border-radius: 24px 24px 0 0; padding: 26px 20px calc(26px + env(safe-area-inset-bottom)); }
+  .picker-head h2 { font-size: 23px; }
+  .picker-list a { padding: 16px; gap: 10px; }
+  .picker-store strong { font-size: 16px; }
+  .picker-go { min-width: 54px; font-size: 13px; }
+
   .floating-kakao { right: 16px; bottom: 16px; padding: 12px 18px; }
   .toast { bottom: 84px; padding: 13px 20px; font-size: 13px; }
   .footer-links { gap: 12px 18px; font-size: 14px; }
