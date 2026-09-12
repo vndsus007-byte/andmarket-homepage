@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initAnimation();
+  initStorePicker();
   initToast();
   initContactForm();
 });
