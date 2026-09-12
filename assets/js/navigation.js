@@ -1,63 +1,59 @@
+/* navigation.js — 헤더 / 모바일 메뉴 / 스크롤 내비게이션 */
 function initNavigation() {
-  const mobileMenu = document.getElementById('mobile-menu');
-  const overlay = document.getElementById('mobile-overlay');
-  const menuBtn = document.getElementById('menu-btn');
-  const closeBtn = document.getElementById('menu-close-btn');
+  const header = document.querySelector('.site-header');
+  const menuButton = document.querySelector('.menu-button');
+  const mobileNav = document.querySelector('.mobile-nav');
 
-  function openMobileMenu() {
-    mobileMenu.classList.add('open');
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
+  if (menuButton && mobileNav) {
+    const setOpen = (open) => {
+      mobileNav.classList.toggle('open', open);
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+    };
+    menuButton.addEventListener('click', () => {
+      setOpen(!mobileNav.classList.contains('open'));
+    });
+    mobileNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setOpen(false));
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') setOpen(false);
+    });
   }
 
-  function closeMobileMenu() {
-    mobileMenu.classList.remove('open');
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  menuBtn.addEventListener('click', openMobileMenu);
-  closeBtn.addEventListener('click', closeMobileMenu);
-  overlay.addEventListener('click', closeMobileMenu);
-
-  document.querySelectorAll('#mobile-menu a').forEach(a => {
-    a.addEventListener('click', closeMobileMenu);
-  });
-
-  document.querySelectorAll('a[href="#"]').forEach(el => {
-    el.addEventListener('click', e => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  // 앵커 스무스 스크롤 (고정 헤더 높이만큼 보정)
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', (event) => {
+      const id = anchor.getAttribute('href');
+      if (!id || id === '#') return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      event.preventDefault();
+      const offset = header ? header.offsetHeight : 0;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset + 1;
+      window.scrollTo({ top, behavior: 'smooth' });
     });
   });
 
-  document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
+  // 스크롤 시 헤더 그림자 + 현재 섹션 표시
+  const navLinks = Array.from(document.querySelectorAll('.desktop-nav a[href^="#"]'));
+  const sections = navLinks
+    .map((link) => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
 
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const nav = document.querySelector('.fixed.top-0');
-
-  window.addEventListener('scroll', () => {
+  const onScroll = () => {
+    if (header) header.classList.toggle('scrolled', window.scrollY > 24);
+    if (!sections.length) return;
+    const line = window.scrollY + (header ? header.offsetHeight : 0) + 80;
     let current = '';
-    sections.forEach(section => {
-      if (window.scrollY >= section.offsetTop - 100) current = section.getAttribute('id');
+    sections.forEach((section) => {
+      if (line >= section.offsetTop) current = '#' + section.id;
     });
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+    navLinks.forEach((link) => {
+      link.classList.toggle('active', link.getAttribute('href') === current);
     });
-    if (window.scrollY > 50) {
-      nav.style.background = 'rgba(255,250,245,0.9)';
-      nav.style.boxShadow = '0 1px 20px rgba(249,115,22,0.06)';
-    } else {
-      nav.style.background = 'rgba(255,255,255,0.7)';
-      nav.style.boxShadow = 'none';
-    }
-  });
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 }

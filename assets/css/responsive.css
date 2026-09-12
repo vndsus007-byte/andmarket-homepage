@@ -1,111 +1,151 @@
 /* ============================================
    responsive.css
-   - 모든 반응형(태블릿·모바일) 미디어쿼리 통합 관리
-   - 베이스 스타일은 style.css, 애니메이션은 animation.css
+   - 모든 반응형(데스크톱 축소·태블릿·모바일) 미디어쿼리 통합 관리
+   - 베이스/컴포넌트는 style.css, 애니메이션은 animation.css
    ============================================ */
 
-
-/* ====== 한국어 줄바꿈 글로벌 룰 (모든 화면 적용) ====== */
-/* 한국어는 단어 단위로 줄바꿈되어야 가독성이 좋음 */
-h1, h2, h3, h4, h5, p, span, div, li, a, label, button {
+/* ====== 한국어 줄바꿈 글로벌 룰 ====== */
+h1, h2, h3, h4, h5, p, span, div, li, a, label, button, dt, dd {
   word-break: keep-all;
   overflow-wrap: break-word;
 }
 
-
-/* ====== 태블릿 (≤1024px) ====== */
-@media (max-width: 1024px) {
-  /* Hero 이미지 영역 살짝 축소 */
-  .hero-image {
-    height: 70vh;
-    min-height: 480px;
-  }
+/* ====== 좁은 데스크톱 (≤1180px) ====== */
+@media (max-width: 1180px) {
+  .biz-grid { grid-template-columns: repeat(3, 1fr); }
+  .journey-grid { grid-template-columns: repeat(3, 1fr); }
+  .content-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ====== 태블릿 (≤960px) ====== */
+@media (max-width: 960px) {
+  .desktop-nav,
+  .header-actions .btn-light { display: none; }
+  .menu-button { display: inline-flex; }
 
-/* ====== 모바일 (≤768px) ====== */
-@media (max-width: 768px) {
+  .hero { min-height: 680px; }
+  .hero-overlay { background: rgba(15,23,42,.70); }
+  .hero-content { text-align: center; }
+  .hero-buttons { justify-content: center; }
+  .hero-keywords { justify-content: center; }
 
-  /* 가로 스크롤 방지 (orange-blob 등 음수좌표 요소가 밖으로 삐져나가는 것 차단) */
-  html, body {
-    overflow-x: hidden;
-    max-width: 100vw;
-  }
+  .flow-chain { flex-wrap: wrap; }
+  .flow-node { flex: 1 1 calc(50% - 28px); }
+  .flow-arrow { transform: none; }
 
-  /* 모든 섹션 제목 - 모바일에서 폰트 축소로 가독성 확보 */
-  section h2 {
-    font-size: 1.75rem !important;   /* 28px */
-    line-height: 1.25 !important;
-  }
-  /* 작은 부제 h3는 모바일에서 18px */
-  section h3 {
-    font-size: 1.125rem !important;  /* 18px */
-  }
+  .pillar-grid { grid-template-columns: repeat(2, 1fr); }
+  .biz-grid { grid-template-columns: repeat(2, 1fr); }
+  .journey-grid { grid-template-columns: repeat(2, 1fr); }
+  .axes-grid { grid-template-columns: 1fr; }
+  .axis-detail-grid { grid-template-columns: 1fr; }
+  .model-grid { grid-template-columns: repeat(2, 1fr); }
+  .ops-grid { grid-template-columns: repeat(2, 1fr); }
+  .vision-grid { grid-template-columns: repeat(2, 1fr); }
 
-  /* Hero 이미지 영역 - 모바일에서 컴팩트하게 */
-  .hero-image {
-    height: 58vh;
-    min-height: 440px;
-    max-height: 620px;
-  }
-  /* 이미지 초점 - 인테리어 상단 중심부가 보이게 */
-  .hero-image img {
-    object-position: center 30%;
-  }
-  /* Hero 슬로건은 별도 처리 (h1, !important 우선순위) */
-  .hero-image h1 {
-    font-size: 1.75rem !important;   /* 28px */
-    line-height: 1.2 !important;
-  }
+  .deal-panel,
+  .partner-box { grid-template-columns: 1fr; }
+  .case-feature { grid-template-columns: 1fr; }
+  .case-feature-photo { aspect-ratio: 16 / 9; }
+  .case-grid { grid-template-columns: 1fr; }
+  .pickup-store-mini { grid-template-columns: repeat(2, 1fr); }
 
-  /* 가맹 유형 단계 연결선 - 세로 배치라 가로 연결선 제거 */
-  .step-connector::after { display: none; }
+  .ftype-grid,
+  .asset-grid,
+  .role-split { grid-template-columns: 1fr; }
+  .revenue-formula { grid-template-columns: 1fr; }
+  .rev-plus { padding: 4px 0; }
+  .revenue-notes,
+  .revenue-perks { grid-template-columns: 1fr; }
+  .company-info { grid-template-columns: repeat(2, 1fr); }
+  .company-info > div.wide { grid-column: span 2; }
 
-  /* 도트 패턴 - 모바일에선 시각 노이즈 줄이고 텍스트 영역과 겹치지 않게 숨김 */
-  .dot-pattern {
-    display: none;
-  }
-
-  /* Orange blob - 모바일에서 화면 밖으로 삐져나가는 것 축소 */
-  .orange-blob {
-    opacity: 0.5 !important;
-    filter: blur(60px);
-  }
-
-  /* 섹션 상하 패딩 축소 - 모바일에서 스크롤 길이 단축 */
-  section[class*="py-24"] {
-    padding-top: 3.5rem !important;
-    padding-bottom: 3.5rem !important;
-  }
-
-  /* Toast - 모바일에서 좌우 여백 확보 (중앙 정렬 유지) */
-  .toast {
-    bottom: 24px;
-    padding: 14px 24px;
-    font-size: 13px;
-    max-width: calc(100vw - 32px);
-  }
+  .store-sub-head { margin-top: 56px; }
 }
 
+/* ====== 모바일 (≤640px) ====== */
+@media (max-width: 640px) {
+  .header-inner { height: 62px; padding: 0 16px; }
+  .brand-logo { width: 38px; height: 38px; border-radius: 12px; }
+  .brand-text { font-size: 16px; }
+  .mobile-nav { max-height: calc(100vh - 62px); }
 
-/* ====== 소형 모바일 (≤380px, iPhone SE 등) ====== */
+  .hero { min-height: 620px; padding-top: 62px; }
+  .hero-content { width: calc(100% - 32px); padding: 56px 0; }
+  .eyebrow { font-size: 12px; padding: 8px 13px; }
+  .hero h1 { font-size: 36px; }
+  .hero p { font-size: 17px; }
+  .hero-buttons .btn { width: 100%; }
+  .hero-keywords { gap: 6px; }
+  .hero-keywords li { font-size: 12px; padding: 6px 11px; }
+
+  .section { padding: 64px 16px; }
+  .section-head { margin-bottom: 32px; text-align: left; }
+  .section h2, .section-head h2 { font-size: 28px; }
+  .section-head p { font-size: 16px; }
+  .section-note { text-align: left; font-size: 15px; }
+
+  .flow-chain { flex-direction: column; }
+  .flow-node { flex: none; padding: 22px 20px; }
+  .flow-arrow { justify-content: center; transform: rotate(90deg); font-size: 20px; }
+
+  .brand-banner { border-radius: 20px; }
+  .brand-banner figcaption { padding: 14px 18px; font-size: 13px; }
+  .pillar-grid,
+  .biz-grid,
+  .journey-grid,
+  .model-grid,
+  .ops-grid,
+  .vision-grid,
+  .content-grid,
+  .preview-grid,
+  .pickup-store-mini { grid-template-columns: 1fr; }
+
+  .pipeline { gap: 8px; }
+  .pipeline li { font-size: 14px; padding: 10px 16px 10px 38px; }
+
+  .deal-panel { padding: 22px; border-radius: 24px; }
+  .deal-copy { padding: 0; }
+  .deal-actions .btn { width: 100%; }
+
+  .service-thesis { font-size: 26px; }
+  .axis-detail { padding: 26px 22px; }
+  .service-cta { flex-direction: column; }
+  .service-cta .btn { width: 100%; }
+
+  .case-feature-body { padding: 28px 22px; }
+  .case-body { padding: 24px 20px; }
+  .case-body h3 { font-size: 21px; }
+
+  .content-strip { padding: 26px 22px; }
+  .content-strip h3 { font-size: 21px; text-align: left; }
+
+  .faq-item { padding: 22px 20px; }
+  .faq-item h3 { font-size: 18px; }
+  .faq-item p { padding-left: 0; font-size: 15px; }
+
+  .rev-card { padding: 28px 24px; }
+  .ftype-card,
+  .role-col,
+  .asset-card { padding: 26px 22px; }
+
+  .partner-copy { text-align: left; }
+  .partner-steps { grid-template-columns: 1fr; }
+  .partner-tel { width: 100%; justify-content: center; }
+  .contact-form { padding: 24px 20px; border-radius: 24px; }
+
+  .company-info { grid-template-columns: 1fr; border-radius: 20px; }
+  .company-info > div.wide { grid-column: span 1; }
+  .company-info > div { padding: 20px 22px; }
+
+  .floating-kakao { right: 16px; bottom: 16px; padding: 12px 18px; }
+  .toast { bottom: 84px; padding: 13px 20px; font-size: 13px; }
+  .footer-links { gap: 12px 18px; font-size: 14px; }
+}
+
+/* ====== 소형 모바일 (≤380px) ====== */
 @media (max-width: 380px) {
-  .hero-image {
-    height: 56vh;
-    min-height: 420px;
-  }
-
-  /* 더 작은 화면에서 섹션 제목 더 축소 */
-  section h2 {
-    font-size: 1.5rem !important;    /* 24px */
-  }
-  .hero-image h1 {
-    font-size: 1.5rem !important;    /* 24px */
-  }
-
-  /* 모바일 메뉴 너비 - 작은 화면에선 더 좁게 */
-  .mobile-menu {
-    width: 260px;
-    padding: 70px 24px 24px;
-  }
+  .hero h1 { font-size: 31px; }
+  .section h2, .section-head h2 { font-size: 25px; }
+  .service-thesis { font-size: 23px; }
+  .rev-pct { font-size: 44px; }
 }
