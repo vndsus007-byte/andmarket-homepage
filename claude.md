@@ -3,6 +3,7 @@
 - git commit / push 는 반드시 사람의 명시적 승인 후에만 실행
 - 이 사이트는 push 시 즉시 라이브 배포됨 — 신중히
 - 작업은 feature/fix 브랜치 → PR → 머지 순서로 진행
+- 루트에 작업 파일(메모·스크립트)을 새로 만들면 `.vercelignore` 와 `vercel.json` 제외 목록에 **이름을 함께 추가** (아래 「배포 제외 · 빌드 건너뛰기」)
 
 ---
 
@@ -10,7 +11,7 @@
 
 # AND MARKET 프로젝트 운영 및 개선 가이드
 
-_최종 갱신: 2026-09-12 (회사소개서 기반 전면 개편 반영)_
+_최종 갱신: 2026-10-10 (배포 제외 · 빌드 건너뛰기 규칙 추가) · 2026-09-12 (회사소개서 기반 전면 개편 반영)_
 
 ## 프로젝트 개요
 
@@ -194,11 +195,43 @@ index.html 하나에 CSS · JS · Animation · SEO · 모든 섹션을 전부 �
 │   └── fonts/
 │
 ├── blog/
-├── doc/
+├── doc/                 # 작업 기록 — 배포 제외
 ├── robots.txt
 ├── sitemap.xml
-└── CLAUDE.md
+├── vercel.json          # ignoreCommand (빌드 건너뛰기)
+├── .vercelignore        # 배포 제외 목록
+└── CLAUDE.md            # 실제 파일명 claude.md — 배포 제외
 ```
+
+---
+
+# 배포 제외 · 빌드 건너뛰기 (2026-10-10 적용 · PR #21)
+
+Vercel 스토리지 과금(2026-10-23~) 대응과 작업 파일 공개 노출 차단.
+근거: andmarket-admin `docs/ops/vercel-cost-2026-10-work-order.md` §2
+
+## `.vercelignore` — 사이트에 서비스하지 않는 파일을 배포에서 뺀다
+
+과거에 `/claude.md` · `/mobile_check.js` · 작업 메모가 **공개 주소로 열렸다**(HTTP 200). 지금은 404.
+현재 제외: `claude.md` · `네이버검색관련.md` · `디자인수정가이드.txt` · `가격다운형_상품이미지 제작의뢰 템플릿.txt` · `mobile_check*.js` · `doc/` · `node_modules/`
+
+## `vercel.json` `ignoreCommand` — 작업 파일만 바뀐 푸시는 빌드하지 않는다
+
+```
+[ -n "$VERCEL_GIT_PREVIOUS_SHA" ] && git diff --quiet "$VERCEL_GIT_PREVIOUS_SHA" HEAD -- . ':(exclude)…'
+```
+
+- 비교 기준은 **마지막 배포 커밋 `$VERCEL_GIT_PREVIOUS_SHA`** — ⛔ `HEAD^` 금지(코드+문서 묶음 푸시 시 코드 배포 누락)
+- 기준 SHA가 비면 무조건 빌드(앞의 `[ -n … ] &&`) · 기준 커밋을 못 찾으면 128 → 빌드
+- 건너뛴 배포는 Vercel 목록에 **Canceled** 로 남는다 = 정상. 문서만 고친 뒤 재배포가 필요하면 Vercel 화면 **Redeploy**
+
+## 규칙
+
+- 🔴 **이름을 하나씩 적는다. 확장자 와일드카드(`*.txt` · `*.md`) 금지** — `*.txt` 는 `robots.txt` 까지 잡는다
+  (`.vercelignore` 면 robots.txt 404, `ignoreCommand` 면 robots.txt 수정이 배포 안 됨). `*.md` 는 나중 블로그 글을 막는다.
+- ⛔ 절대 제외하지 않는 것: `index.html` · `assets/` · `blog/` · `robots.txt` · `sitemap.xml` · `logo.png`
+- 루트 작업 파일 추가 시 **두 파일 모두** 갱신. 제외 목록을 바꾼 뒤에는 라이브에서 해당 주소 404 · robots.txt 200 확인
+- 롤백: `vercel.json` 의 `ignoreCommand` 삭제 / `.vercelignore` 삭제 후 푸시
 
 ---
 
