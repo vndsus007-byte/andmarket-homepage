@@ -12,6 +12,7 @@ h1, h2, h3, h4, h5, p, span, div, li, a, label, button, dt, dd {
 
 /* ====== 좁은 데스크톱 (≤1180px) ====== */
 @media (max-width: 1180px) {
+  .desktop-nav { gap: 16px; }
   .biz-grid { grid-template-columns: repeat(3, 1fr); }
   .journey-grid { grid-template-columns: repeat(3, 1fr); }
   .content-grid { grid-template-columns: repeat(2, 1fr); }
@@ -28,6 +29,12 @@ h1, h2, h3, h4, h5, p, span, div, li, a, label, button, dt, dd {
   .hero-content { text-align: center; }
   .hero-buttons { justify-content: center; }
   .hero-keywords { justify-content: center; }
+  .hero-fresh { margin-left: auto; margin-right: auto; }
+
+  .fresh-gallery { grid-template-columns: repeat(2, 1fr); }
+  .fresh-gallery figure:first-child { grid-column: span 2; }
+  .fresh-gallery figure:first-child img { aspect-ratio: 16 / 9; }
+  .fresh-ways { grid-template-columns: 1fr; }
 
   .flow-chain { flex-wrap: wrap; }
   .flow-node { flex: 1 1 calc(50% - 28px); }
@@ -77,6 +84,12 @@ h1, h2, h3, h4, h5, p, span, div, li, a, label, button, dt, dd {
   .hero-buttons .btn { width: 100%; }
   .hero-keywords { gap: 6px; }
   .hero-keywords li { font-size: 12px; padding: 6px 11px; }
+  .hero-fresh { font-size: 13px; text-align: left; }
+
+  .fresh-gallery { grid-template-columns: 1fr; gap: 14px; }
+  .fresh-gallery figure:first-child { grid-column: auto; }
+  .fresh-way { padding: 26px 22px; border-radius: 24px; }
+  .fresh-actions .btn { width: 100%; }
 
   .section { padding: 64px 16px; }
   .section-head { margin-bottom: 32px; text-align: left; }
