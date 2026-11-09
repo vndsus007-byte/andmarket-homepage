@@ -13,15 +13,15 @@ h1, h2, h3, h4, h5, p, span, div, li, a, label, button, dt, dd {
 
 /* ====== 좁은 데스크톱 (≤1180px) ====== */
 @media (max-width: 1180px) {
-  .desktop-nav { gap: 20px; font-size: 14px; }
+  .desktop-nav { gap: 24px; font-size: 15px; }
   .flow li { padding-right: 20px; }
   .section-head { column-gap: 48px; }
 }
 
 /* ====== 태블릿 (≤960px) ====== */
 @media (max-width: 960px) {
-  .desktop-nav,
-  .header-cta { display: none; }
+  .desktop-nav { display: none; }
+  .header-actions { display: flex; }
   .menu-button { display: inline-flex; }
 
   .hero { min-height: 640px; }
@@ -86,13 +86,11 @@ h1, h2, h3, h4, h5, p, span, div, li, a, label, button, dt, dd {
 /* ====== 모바일 (≤640px) ====== */
 @media (max-width: 640px) {
   .header-inner { height: 62px; padding: 0 16px; }
-  .brand-logo { width: 36px; height: 36px; }
-  .brand-text { font-size: 16px; }
+  .brand-text { font-size: 18px; }
   .mobile-nav { max-height: calc(100vh - 62px); padding: 4px 16px 18px; }
 
   .hero { min-height: 600px; padding-top: 62px; }
   .hero-content { width: calc(100% - 32px); padding: 80px 0 56px; }
-  .eyebrow { font-size: 13px; margin-bottom: 16px; }
   .hero h1 { font-size: 38px; }
   .hero-lead { font-size: 17px; margin-bottom: 28px; }
   .hero-buttons .btn { width: 100%; }

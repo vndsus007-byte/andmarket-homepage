@@ -58,19 +58,20 @@ img { max-width: 100%; height: auto; display: block; }
 :focus-visible { outline: 2px solid var(--brand-deep); outline-offset: 3px; border-radius: 4px; }
 
 /* ====== 헤더 ====== */
-.site-header { position: fixed; inset: 0 0 auto 0; z-index: 50; background: rgba(255,251,244,.94); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color .2s ease; }
+/* 배경은 불투명 단색 — 반투명·backdrop-filter 를 쓰면 Windows Chrome 이 헤더 글자의
+   ClearType(서브픽셀) 렌더링을 끄고 흑백 렌더링으로 바꿔 글자가 깨져 보인다 */
+.site-header { position: fixed; inset: 0 0 auto 0; z-index: 50; background: var(--paper); border-bottom: 1px solid transparent; transition: border-color .2s ease; }
 .site-header.scrolled { border-bottom-color: var(--line); }
 .header-inner { max-width: var(--wrap); height: 68px; margin: 0 auto; padding: 0 22px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
-.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; }
-.brand-logo { width: 40px; height: 40px; border-radius: var(--r-sm); overflow: hidden; display: inline-flex; }
-.brand-logo img { width: 100%; height: 100%; object-fit: cover; }
-.brand-text { font-size: 18px; letter-spacing: -.02em; }
-.desktop-nav { display: flex; gap: 28px; font-size: 15px; font-weight: 600; color: var(--ink-2); }
+.brand { display: flex; align-items: center; }
+.brand-text { font-size: 20px; font-weight: 600; letter-spacing: -.02em; color: var(--ink-2); }
+.brand-and { color: #e07a00; } /* 로고 오렌지보다 한 톤 깊게 — 크림 배경 위 워드마크용 */
+.desktop-nav { display: flex; gap: 32px; font-size: 16px; font-weight: 500; color: var(--ink-2); }
 .desktop-nav a { position: relative; padding: 6px 0; }
 .desktop-nav a:hover { color: var(--ink); }
 .desktop-nav a.active { color: var(--ink); }
 .desktop-nav a.active::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--brand); }
-.header-actions { display: flex; align-items: center; gap: 10px; }
+.header-actions { display: none; align-items: center; gap: 10px; }
 .menu-button { display: none; align-items: center; justify-content: center; width: 42px; height: 42px; border: 1px solid var(--line); background: transparent; border-radius: var(--r-sm); cursor: pointer; }
 .menu-icon, .menu-icon::before, .menu-icon::after { display: block; width: 18px; height: 2px; background: var(--ink); border-radius: 1px; transition: transform .2s ease, background-color .2s ease; }
 .menu-icon { position: relative; }
@@ -104,8 +105,6 @@ img { max-width: 100%; height: auto; display: block; }
 .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(34,29,23,.2) 0%, rgba(34,29,23,.5) 50%, rgba(34,29,23,.86) 100%); }
 .hero-content { position: relative; z-index: 1; width: min(var(--wrap), calc(100% - 44px)); margin: 0 auto; color: #fff; padding: 120px 0 96px; }
-.eyebrow { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,.86); margin-bottom: 22px; }
-.eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--brand); }
 .hero h1 { font-size: clamp(42px, 6vw, 76px); line-height: 1.12; letter-spacing: -.035em; font-weight: 800; margin-bottom: 22px; }
 .hero-lead { font-size: clamp(18px, 2vw, 22px); line-height: 1.6; color: rgba(255,255,255,.88); font-weight: 500; margin-bottom: 36px; }
 .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
