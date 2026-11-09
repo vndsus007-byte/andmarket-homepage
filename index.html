@@ -73,8 +73,8 @@
         <a href="#faq">자주묻는 질문</a>
       </nav>
       <div class="header-actions">
-        <a class="btn btn-light" href="#store-picker" data-picker-open>카카오톡 공구방</a>
-        <button class="menu-button" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-nav">☰</button>
+        <a class="btn btn-primary btn-sm header-cta" href="#store-picker" data-picker-open>카카오톡 공구방</a>
+        <button class="menu-button" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-nav"><span class="menu-icon" aria-hidden="true"></span></button>
       </div>
     </div>
     <nav class="mobile-nav" id="mobile-nav" aria-label="모바일 메뉴">
@@ -99,256 +99,137 @@
       <img class="hero-bg" src="/assets/images/hero/hero-main.jpg" alt="카페앤드마켓 매장 내부 - 카페 좌석과 공동구매 픽업 냉장고" width="1672" height="941" />
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <span class="eyebrow">카페앤드마켓 · 앤드마켓 | 지역 생활밀착형 온·오프라인 커머스</span>
-        <a class="hero-fresh" href="#fresh"><b>매일 입고</b>신선한 과일·야채 — 공구방 참여만 해도 회원가 <span aria-hidden="true">→</span></a>
+        <p class="eyebrow">카페앤드마켓 · 앤드마켓</p>
         <h1>우리 동네의<br />소비를 연결하다</h1>
-        <p>좋은 상품을 더 합리적으로,<br />가까운 매장에서 더 편리하게.</p>
+        <p class="hero-lead">좋은 상품을 더 합리적으로,<br />가까운 매장에서 더 편리하게.</p>
         <div class="hero-buttons">
           <a class="btn btn-primary" href="#store-picker" data-picker-open>카카오톡 공구방 입장하기</a>
           <a class="btn btn-outline-white" href="#partner">가맹 상담하기</a>
         </div>
-        <ul class="hero-keywords" aria-label="핵심 키워드">
-          <li>공동구매</li>
-          <li>카페</li>
-          <li>신선식품</li>
-          <li>모바일 주문</li>
-          <li>드라이브스루</li>
-          <li>지역상권</li>
-        </ul>
+        <a class="hero-fresh" href="#fresh"><b>매일 입고</b>신선한 과일·야채, 공구방 참여만 해도 회원가 <span aria-hidden="true">→</span></a>
       </div>
+      <p class="hero-caption">카페앤드마켓 매장 내부</p>
     </section>
 
-    <!-- ============ 회사 개요 ============ -->
-    <section class="section">
+    <!-- ============ 브랜드 (회사 개요 통합) ============ -->
+    <section id="brand" class="section">
       <div class="section-head animate-on-scroll">
-        <span class="section-label">COMPANY</span>
-        <h2>상품 · 채널 · 매장 · 고객을<br />하나의 흐름으로</h2>
-        <p>주식회사 원스파트너스는 상품 소싱부터 콘텐츠, 주문, 매장 운영까지 하나의 흐름으로 연결하는 운영회사입니다. 온라인 채널에서 수요를 만들고, 오프라인 매장에서 고객을 만나는 지역 생활밀착형 커머스 운영에 집중합니다.</p>
-      </div>
-      <div class="flow-chain animate-on-scroll" aria-label="핵심 역량 흐름">
-        <article class="flow-node">
-          <span class="flow-step">STEP 01</span>
-          <strong>상품</strong>
-          <p>합리적 가격의 상품 발굴</p>
-        </article>
-        <span class="flow-arrow" aria-hidden="true">→</span>
-        <article class="flow-node">
-          <span class="flow-step">STEP 02</span>
-          <strong>채널</strong>
-          <p>온라인 채널 노출</p>
-        </article>
-        <span class="flow-arrow" aria-hidden="true">→</span>
-        <article class="flow-node">
-          <span class="flow-step">STEP 03</span>
-          <strong>매장</strong>
-          <p>지역 거점 매장 공급</p>
-        </article>
-        <span class="flow-arrow" aria-hidden="true">→</span>
-        <article class="flow-node">
-          <span class="flow-step">STEP 04</span>
-          <strong>고객</strong>
-          <p>픽업 · 재구매 연결</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ 브랜드 ============ -->
-    <section id="brand" class="section soft-bg">
-      <div class="section-head animate-on-scroll">
-        <span class="section-label">BRAND</span>
-        <h2>매일 방문할 이유가 있는<br />동네 매장</h2>
-        <p>앤드마켓은 단순 판매점이 아니라 카페, 공동구매, 신선식품, 픽업 서비스가 한 공간에서 연결되는 생활밀착형 매장입니다.</p>
+        <span class="section-label">브랜드</span>
+        <h2>매일 들를 이유가 있는<br />동네 매장</h2>
+        <p>커피 한 잔 사러 들른 길에 장을 보고, 주문해 둔 상품도 찾아가는 매장입니다. 주식회사 원스파트너스가 상품 소싱부터 주문, 매장 운영까지 직접 챙깁니다.</p>
       </div>
 
-      <figure class="brand-banner animate-on-scroll">
+      <figure class="brand-photo animate-on-scroll">
         <img src="/assets/images/banners/brand-storefront-wide.webp" alt="카페앤드마켓 매장 전경 - 커피와 신선식품 진열대" loading="lazy" width="2000" height="762" />
-        <figcaption>Good Coffee, Brighter Neighborhood — 카페앤드마켓</figcaption>
+        <figcaption>Good Coffee, Brighter Neighborhood · 카페앤드마켓 매장 전경</figcaption>
       </figure>
 
-      <div class="pillar-grid animate-on-scroll">
-        <article class="pillar-card">
-          <span class="pillar-num">01</span>
+      <div class="pillars animate-on-scroll">
+        <article class="pillar">
           <h3>카페</h3>
           <p>커피·음료·디저트로 매일의 방문 이유를 만듭니다.</p>
         </article>
-        <article class="pillar-card">
-          <span class="pillar-num">02</span>
+        <article class="pillar">
           <h3>공동구매</h3>
           <p>매일 달라지는 공구상품으로 재방문을 만듭니다.</p>
         </article>
-        <article class="pillar-card">
-          <span class="pillar-num">03</span>
+        <article class="pillar">
           <h3>신선식품</h3>
-          <p>과일·야채·계란 등 반복구매 품목을 운영합니다.</p>
+          <p>과일·야채·계란처럼 자주 사는 품목을 들여놓습니다.</p>
         </article>
-        <article class="pillar-card">
-          <span class="pillar-num">04</span>
+        <article class="pillar">
           <h3>픽업</h3>
           <p>주문한 상품을 가까운 매장에서 수령합니다.</p>
         </article>
       </div>
     </section>
 
-    <!-- ============ 사업 모델 ============ -->
-    <section id="business" class="section">
+    <!-- ============ 사업 모델 (고객 여정 · 운영 체계 통합) ============ -->
+    <section id="business" class="section bg-cream">
       <div class="section-head animate-on-scroll">
-        <span class="section-label">BUSINESS MODEL</span>
+        <span class="section-label">사업 모델</span>
         <h2>온라인에서 수요를 만들고,<br />오프라인에서 고객을 만납니다</h2>
-        <p>공동구매를 단발성 이벤트가 아닌, 반복 가능한 지역 커머스 운영 구조로 설계합니다.</p>
+        <p>공동구매를 매일 반복되는 동네 장보기로 만듭니다. 주문을 먼저 받고 상품을 들여오기 때문에 매장 재고 부담도 낮습니다.</p>
       </div>
 
-      <ol class="pipeline animate-on-scroll" aria-label="온·오프라인 연결 흐름">
-        <li>상품 소싱</li>
-        <li>공구 기획</li>
-        <li>채널 노출</li>
-        <li>고객 주문</li>
-        <li>매장 공급</li>
-        <li>고객 픽업</li>
-        <li class="pipeline-loop">재구매 연결</li>
+      <ol class="flow animate-on-scroll" aria-label="주문부터 재구매까지 5단계">
+        <li class="is-online">
+          <span class="flow-where">온라인</span>
+          <strong>상품 발견</strong>
+          <p>오픈채팅·SNS에서 매일 새로운 공구상품을 확인합니다.</p>
+        </li>
+        <li class="is-online">
+          <span class="flow-where">온라인</span>
+          <strong>주문 접수</strong>
+          <p>사이렌오더로 미리 주문을 보내면 매장 화면에 바로 뜨고, 접수되면 채팅방으로 알려 드립니다.</p>
+        </li>
+        <li class="is-offline">
+          <span class="flow-where">매장</span>
+          <strong>매장 입고</strong>
+          <p>주문 수량 기준으로 매장에 실물 상품이 입고됩니다.</p>
+        </li>
+        <li class="is-offline">
+          <span class="flow-where">매장</span>
+          <strong>매장 픽업</strong>
+          <p>「나의 QR」을 보여주면 찾아갈 상품이 직원 화면에 뜹니다.</p>
+        </li>
+        <li class="is-online">
+          <span class="flow-where">온라인</span>
+          <strong>재구매 연결</strong>
+          <p>픽업 경험이 다음 공구 주문으로 이어집니다.</p>
+        </li>
       </ol>
 
-      <div class="biz-grid animate-on-scroll">
-        <article class="biz-card">
-          <span class="biz-num">01</span>
-          <h3>공동구매</h3>
-          <p>식품·생활상품을 매일 새롭게 제안하고 주문 수요를 확보합니다.</p>
-        </article>
-        <article class="biz-card">
-          <span class="biz-num">02</span>
-          <h3>신선식품</h3>
-          <p>과일·야채·계란·농산물 등 반복구매 품목을 운영합니다.</p>
-        </article>
-        <article class="biz-card">
-          <span class="biz-num">03</span>
-          <h3>카페</h3>
-          <p>일상 방문을 만드는 커피·음료·디저트 메뉴를 운영합니다.</p>
-        </article>
-        <article class="biz-card">
-          <span class="biz-num">04</span>
-          <h3>디지털 주문</h3>
-          <p>오픈채팅·SNS·사이렌오더·키오스크·QR로 고객 접점을 확장합니다.</p>
-        </article>
-        <article class="biz-card">
-          <span class="biz-num">05</span>
-          <h3>기업 간 식자재</h3>
-          <p>업소 대상 가락식자재 배달 등 유통 영역을 확장합니다.</p>
-        </article>
+      <div class="split-block animate-on-scroll">
+        <div class="split-intro">
+          <h3>운영하는 사업</h3>
+          <p>매장 한 곳에서 다섯 가지 사업이 함께 돌아갑니다.</p>
+        </div>
+        <dl class="rows">
+          <div><dt>공동구매</dt><dd>식품·생활상품을 매일 새롭게 제안하고 주문 수요를 확보합니다.</dd></div>
+          <div><dt>신선식품</dt><dd>과일·야채·계란·농산물 등 자주 사는 품목을 운영합니다.</dd></div>
+          <div><dt>카페</dt><dd>일상 방문을 만드는 커피·음료·디저트 메뉴를 운영합니다.</dd></div>
+          <div><dt>디지털 주문</dt><dd>오픈채팅·SNS·사이렌오더·키오스크·QR로 고객과 만납니다.</dd></div>
+          <div><dt>기업 간 식자재</dt><dd>업소 대상 식자재 배달로 유통 영역을 넓힙니다.</dd></div>
+        </dl>
       </div>
-
-      <p class="section-note animate-on-scroll">핵심은 <b>“매일 달라지는 공구상품”</b> — 고객이 채널과 매장을 반복 방문하게 만드는 운영 동력입니다.</p>
     </section>
 
     <!-- ============ 오늘의 공구상품 ============ -->
-    <section id="today" class="section soft-bg today-section">
-      <div class="section-head animate-on-scroll">
-        <span class="section-label">TODAY DEAL</span>
-        <h2>오늘의 공구특가</h2>
-        <p>진행 중인 상품은 카카오톡 공구방에서 매일 안내드립니다.</p>
-      </div>
-
-      <div class="deal-panel animate-on-scroll">
+    <section id="today" class="section">
+      <div class="deal animate-on-scroll">
         <div class="deal-copy">
-          <span class="tag">매일 업데이트</span>
-          <h3>매일 달라지는<br />오늘의 공동구매 상품</h3>
-          <p>신선식품, 냉동·냉장 간편식, 간식, 생활상품까지 매일 다른 특가를 준비합니다. 가격·중량·원산지·픽업 일정을 명확히 안내하고, 주문 방법은 카카오톡 공구방에서 상품과 함께 알려드립니다.</p>
-          <div class="deal-actions">
-            <a class="btn btn-primary" href="#store-picker" data-picker-open>카카오톡 공구방 입장하기</a>
-          </div>
+          <span class="section-label">오늘의 공구</span>
+          <h2>매일 달라지는<br />오늘의 공구특가</h2>
+          <p>신선식품, 냉동·냉장 간편식, 간식, 생활상품까지 매일 다른 특가를 준비합니다. 가격·중량·원산지·픽업 일정은 카카오톡 공구방에서 상품과 함께 안내드립니다.</p>
+          <ul class="deal-cats" aria-label="상품 카테고리">
+            <li><b>신선식품</b><span>과일·야채 등 시즌 산지 상품</span></li>
+            <li><b>냉동·냉장 간편식</b><span>식사 준비를 줄여주는 실속 상품</span></li>
+            <li><b>간식·디저트</b><span>가족이 함께 즐기는 인기 상품</span></li>
+            <li><b>생활상품</b><span>자주 쓰는 살림 품목</span></li>
+          </ul>
+          <a class="btn btn-primary" href="#store-picker" data-picker-open>카카오톡 공구방 입장하기</a>
         </div>
-        <div class="preview-grid" aria-label="상품 카테고리">
-          <article class="product-card">
-            <div class="product-thumb product-thumb-1">공구</div>
-            <h4>냉동·냉장 간편식</h4>
-            <p>식사 준비를 줄여주는 실속 상품</p>
-          </article>
-          <article class="product-card">
-            <div class="product-photo"><img src="/assets/images/products/product-fresh-apple.webp" alt="앤드마켓 매장 냉장 진열대에 입고된 사과" loading="lazy" width="1153" height="864" /></div>
-            <h4>신선식품</h4>
-            <p>과일·야채 등 시즌 산지 상품</p>
-          </article>
-          <article class="product-card">
-            <div class="product-thumb product-thumb-3">간식</div>
-            <h4>간식·디저트</h4>
-            <p>가족이 함께 즐기는 인기 상품</p>
-          </article>
-          <article class="product-card">
-            <div class="product-thumb product-thumb-4">픽업</div>
-            <h4>매장 픽업</h4>
-            <p>가까운 앤드마켓에서 편하게 수령</p>
-          </article>
-        </div>
+        <figure class="deal-photo">
+          <img src="/assets/images/products/product-fresh-apple.webp" alt="앤드마켓 매장 냉장 진열대에 입고된 사과" loading="lazy" width="1153" height="864" />
+          <figcaption>매장 냉장 진열대에 들어온 사과</figcaption>
+        </figure>
       </div>
-    </section>
-
-    <!-- ============ 디지털 연결 / 고객 여정 ============ -->
-    <section id="how" class="section">
-      <div class="section-head animate-on-scroll">
-        <span class="section-label">DIGITAL &amp; PICKUP</span>
-        <h2>주문부터 픽업까지,<br />고객 접점을 디지털로 연결합니다</h2>
-        <p>온라인에서 발견하고 주문한 상품을 가까운 오프라인 매장에서 편리하게 수령합니다.</p>
-      </div>
-
-      <div class="journey-grid animate-on-scroll" aria-label="고객 여정 5단계">
-        <article class="journey-card on">
-          <span class="journey-badge">ONLINE</span>
-          <strong>상품 발견</strong>
-          <p>오픈채팅·SNS에서 매일 새로운 공구상품을 확인합니다.</p>
-        </article>
-        <article class="journey-card on">
-          <span class="journey-badge">ONLINE</span>
-          <strong>주문 접수</strong>
-          <p>사이렌오더로 미리 주문을 보내면 매장 화면에 바로 뜨고, 접수되면 채팅방으로 알려 드립니다.</p>
-        </article>
-        <article class="journey-card off">
-          <span class="journey-badge">OFFLINE</span>
-          <strong>매장 입고</strong>
-          <p>주문 수량 기준으로 매장에 실물 상품이 입고됩니다.</p>
-        </article>
-        <article class="journey-card off">
-          <span class="journey-badge">OFFLINE</span>
-          <strong>매장 픽업</strong>
-          <p>가까운 매장에서 「나의 QR」을 보여주면 찾아갈 상품이 직원 화면에 뜹니다.</p>
-        </article>
-        <article class="journey-card on">
-          <span class="journey-badge">ONLINE</span>
-          <strong>재구매 연결</strong>
-          <p>픽업 경험이 다음 공구 주문으로 이어지는 순환을 만듭니다.</p>
-        </article>
-      </div>
-
-      <p class="section-note animate-on-scroll">온라인 → 오프라인 → 온라인. 발견과 주문은 온라인에서, 확인과 수령은 매장에서, 다시 재구매로 이어지는 순환 구조를 만듭니다.</p>
     </section>
 
     <!-- ============ 서비스 3축 (사이렌오더 · QR 픽업 · 브랜드상품) ============ -->
-    <section id="service" class="section service-section">
+    <section id="service" class="section bg-cream">
       <div class="section-head animate-on-scroll">
-        <span class="section-label">SERVICE</span>
+        <span class="section-label">서비스</span>
         <h2 class="service-thesis">주문은 <b>폰으로</b>,<br />픽업은 <b>QR 한 번</b>으로,<br />상품은 <b>바코드로</b>.</h2>
-        <p>동네 마켓을 프랜차이즈처럼 돌리는 세 가지 장치입니다.</p>
+        <p>동네 마켓을 프랜차이즈처럼 돌리는 세 가지 장치입니다. 주문할 때, 받을 때, 그리고 그 뒤에서 일합니다.</p>
       </div>
 
-      <div class="axes-grid animate-on-scroll">
-        <article class="axis-card">
+      <div class="axes animate-on-scroll">
+        <article class="axis">
           <span class="axis-when">주문할 때</span>
           <h3>사이렌오더</h3>
-          <p>줄을 서거나 주문을 다시 설명하지 않아도 됩니다.</p>
-        </article>
-        <article class="axis-card">
-          <span class="axis-when">받을 때</span>
-          <h3>QR 픽업</h3>
-          <p>이름을 말하지 않아도 화면 한 번으로 끝납니다.</p>
-        </article>
-        <article class="axis-card">
-          <span class="axis-when">그 뒤에서</span>
-          <h3>브랜드상품 관리</h3>
-          <p>상품 이름·가격·재고가 한 곳에서 나옵니다.</p>
-        </article>
-      </div>
-
-      <div class="axis-detail-grid animate-on-scroll">
-        <article class="axis-detail">
-          <span class="axis-when">주문할 때</span>
-          <h3>사이렌오더 — 미리 주문하고, 기다리지 않고 받는다</h3>
+          <p class="axis-sub">미리 주문하고, 기다리지 않고 받습니다.</p>
           <p>매장 앞에서 줄을 서거나, 무엇을 주문했는지 다시 설명하지 않아도 됩니다. 앱에서 <b>말하듯이 적어 보내면</b> 매장 카운터 화면에 곧바로 뜹니다. 직원이 접수하면 <b>채팅방으로 접수 내용이 그대로 전송</b>되니, 서로 다르게 기억할 일이 없습니다. 궁금한 점을 적어 보내시면 주문이 아니라 <b>문의로 답변</b>드립니다.</p>
           <ul class="axis-points">
             <li>정해진 양식 없이 하고 싶은 말 그대로 주문</li>
@@ -357,9 +238,10 @@
           </ul>
         </article>
 
-        <article class="axis-detail">
+        <article class="axis">
           <span class="axis-when">받을 때</span>
-          <h3>QR 픽업 — 이름을 말하지 않아도, 화면 한 번으로</h3>
+          <h3>QR 픽업</h3>
+          <p class="axis-sub">이름을 말하지 않아도, 화면 한 번으로.</p>
           <p>앱에서 <b>「나의 QR」</b>을 열어 보여 주시면 됩니다. 따로 발급받을 것도, 가입 절차도 없습니다. 직원이 읽는 순간 <b>찾아가실 상품이 화면에 뜨고</b>, 확인하면 그 자리에서 픽업이 끝납니다. 카메라가 안 되는 휴대폰이라면 QR 아래 <b>6자리 번호</b>를 말씀해 주셔도 똑같습니다.</p>
           <ul class="axis-points">
             <li>처음 열 때 자동으로 만들어지는 나의 QR</li>
@@ -368,9 +250,10 @@
           </ul>
         </article>
 
-        <article class="axis-detail">
+        <article class="axis">
           <span class="axis-when">그 뒤에서</span>
-          <h3>브랜드상품 관리 — 우리 매장 상품에 정식 번호를 붙인다</h3>
+          <h3>브랜드상품 관리</h3>
+          <p class="axis-sub">우리 매장 상품에 정식 번호를 붙입니다.</p>
           <p>시장에서 파는 손질 채소나 소분 상품에는 보통 바코드가 없습니다. 그래서 매장마다 이름이 다르고, 가격도 사람이 기억해 누릅니다. 앤드마켓은 그런 상품에도 <b>매장 전용 바코드를 발행해 라벨을 붙입니다.</b> 상품 이름·가격·면세 여부가 <b>한 곳에서 관리되어 계산대와 재고가 어긋나지 않습니다.</b></p>
           <ul class="axis-points">
             <li>입고일로 한 번에 불러 바코드 스캔·연결</li>
@@ -382,14 +265,14 @@
 
       <div class="service-cta animate-on-scroll">
         <p><b>운영 매장에서</b> 바로 쓰실 수 있습니다.</p>
-        <a class="btn btn-primary" href="https://order.andmarket09.com" target="_blank" rel="noopener noreferrer">주문 시스템 열기<small>order.andmarket09.com</small></a>
+        <a class="btn btn-dark" href="https://order.andmarket09.com" target="_blank" rel="noopener noreferrer">주문 시스템 열기<small>order.andmarket09.com</small></a>
       </div>
     </section>
 
     <!-- ============ 매일 신선 과일·야채 (예약 + 매장 상설 판매) ============ -->
     <section id="fresh" class="section fresh-section">
       <div class="section-head animate-on-scroll">
-        <span class="section-label">SERVICE · FRESH DAILY</span>
+        <span class="section-label">매일 신선</span>
         <h2>매일 들어오는<br />신선한 과일·야채</h2>
         <p>과일·야채가 매일 매장에 들어옵니다. 미리 예약해 받아 가셔도 되고, 지나는 길에 매장에서 바로 고르셔도 됩니다. <b>카카오톡 공구방에 참여만 해도 회원가</b>로 구매하실 수 있습니다.</p>
       </div>
@@ -420,7 +303,7 @@
           </ol>
           <div class="fresh-actions">
             <a class="btn btn-primary" href="https://order.andmarket09.com" target="_blank" rel="noopener noreferrer">앱에서 예약하기</a>
-            <a class="btn btn-subtle" href="#store-picker" data-picker-open>카카오톡 공구방 입장</a>
+            <a class="btn btn-line" href="#store-picker" data-picker-open>카카오톡 공구방 입장</a>
           </div>
         </article>
 
@@ -436,7 +319,7 @@
           <p class="fresh-member"><b>회원가</b>카카오톡 공구방에 참여만 해도 매장에서 회원가로 구매하실 수 있습니다.</p>
           <div class="fresh-actions">
             <a class="btn btn-kakao" href="#store-picker" data-picker-open>공구방 참여하고 회원가로</a>
-            <a class="btn btn-subtle" href="#stores">매장 위치 보기</a>
+            <a class="btn btn-line" href="#stores">매장 위치 보기</a>
           </div>
         </article>
       </div>
@@ -445,39 +328,38 @@
     </section>
 
     <!-- ============ 매장 안내 ============ -->
-    <section id="stores" class="section soft-bg store-showcase-section">
+    <section id="stores" class="section">
       <div class="section-head animate-on-scroll">
-        <span class="section-label">STORE MODEL</span>
+        <span class="section-label">매장 안내</span>
         <h2>상권에 맞춘<br />4가지 매장 모델</h2>
         <p>입지와 운영 환경에 따라 가장 적합한 매장 형태를 적용합니다.</p>
       </div>
 
-      <div class="model-grid animate-on-scroll">
-        <article class="model-card">
-          <span class="model-tag cafe">TYPE 01</span>
+      <div class="models animate-on-scroll">
+        <article class="model">
+          <span class="model-type">TYPE 01</span>
           <h3>카페형</h3>
           <p>커피·음료 중심의 일상 방문 매장. 카페 매출을 기반으로 공동구매 회원을 자연스럽게 확보합니다.</p>
         </article>
-        <article class="model-card">
-          <span class="model-tag pickup">TYPE 02</span>
+        <article class="model">
+          <span class="model-type">TYPE 02</span>
           <h3>픽업형</h3>
           <p>공동구매 주문 상품 수령 중심 매장. 소공간·공실 상가도 낮은 초기 투자로 거점화할 수 있습니다.</p>
         </article>
-        <article class="model-card">
-          <span class="model-tag fresh">TYPE 03</span>
+        <article class="model">
+          <span class="model-type">TYPE 03</span>
           <h3>신선식품형</h3>
-          <p>과일·야채 판매를 강화한 매장. 반복구매 품목으로 방문 주기를 짧게 만듭니다.</p>
+          <p>과일·야채 판매를 강화한 매장. 자주 사는 품목으로 방문 주기를 짧게 만듭니다.</p>
         </article>
-        <article class="model-card">
-          <span class="model-tag mix">TYPE 04</span>
+        <article class="model">
+          <span class="model-type">TYPE 04</span>
           <h3>복합형</h3>
           <p>카페·공동구매·신선식품을 동시 운영. 주변 픽업점의 허브 역할까지 확장할 수 있습니다.</p>
         </article>
       </div>
 
-      <div class="section-head store-sub-head animate-on-scroll">
-        <span class="section-label">OUR STORES</span>
-        <h2>운영 중인 매장</h2>
+      <div class="sub-head animate-on-scroll">
+        <h3>운영 중인 매장</h3>
         <p>동탄여울공원DT지점을 시작으로 수도권 생활권에서 매장을 운영하고 있습니다.</p>
       </div>
 
@@ -486,7 +368,7 @@
           <div class="store-mini-photo"><img src="/assets/images/stores/store-dongtan-yeoul-dt.webp" alt="카페앤드마켓 동탄여울공원DT지점 외관" loading="lazy" width="1125" height="844" /></div>
           <div class="store-mini-body">
             <strong>카페앤드마켓 동탄여울공원DT지점</strong>
-            <span class="store-badges"><em class="live">운영중</em><em class="model">복합형 · 드라이브스루</em></span>
+            <span class="store-badges"><em class="live">운영중</em><em class="store-model">복합형 · 드라이브스루</em></span>
             <p class="store-addr">경기도 화성시 동탄구 동부대로 1062 동원로얄듀크비스타 3차 605동 1층 101호</p>
             <p>카페·공동구매·간편식에 드라이브스루를 결합한 거점 매장입니다.</p>
           </div>
@@ -495,7 +377,7 @@
           <div class="store-mini-photo"><img src="/assets/images/stores/store-dongtan-hoban.webp" alt="카페앤드마켓 동탄호반써밋점 외관" loading="lazy" width="1200" height="900" /></div>
           <div class="store-mini-body">
             <strong>카페앤드마켓 동탄호반써밋점</strong>
-            <span class="store-badges"><em class="live">운영중</em><em class="model">카페형 · 복합형</em></span>
+            <span class="store-badges"><em class="live">운영중</em><em class="store-model">카페형 · 복합형</em></span>
             <p class="store-addr">경기도 화성시 동탄구 동탄대로시범길 122 상가동-2동 1층 109호</p>
             <p>아파트 생활권에 밀착해 카페 이용과 공동구매 픽업을 함께 제공합니다.</p>
           </div>
@@ -504,7 +386,7 @@
           <div class="store-mini-photo"><img src="/assets/images/stores/store-seongnam-sujin.webp" alt="카페앤드마켓 성남수진점 외관" loading="lazy" width="750" height="562" /></div>
           <div class="store-mini-body">
             <strong>카페앤드마켓 성남수진점</strong>
-            <span class="store-badges"><em class="live">운영중</em><em class="model">복합형</em></span>
+            <span class="store-badges"><em class="live">운영중</em><em class="store-model">복합형</em></span>
             <p class="store-addr">경기도 성남시 중원구 광명로 89 1층 155호</p>
             <p>주거·상업 혼합 상권에서 카페와 공동구매를 함께 운영합니다.</p>
           </div>
@@ -513,7 +395,7 @@
           <div class="store-mini-photo"><img src="/assets/images/stores/store-seongnam-yatap.webp" alt="188청과 야채 앤드마켓 성남 야탑점 외관" loading="lazy" width="750" height="562" /></div>
           <div class="store-mini-body">
             <strong>188청과/야채'앤드마켓 성남 야탑점</strong>
-            <span class="store-badges"><em class="live">운영중</em><em class="model">신선식품형</em></span>
+            <span class="store-badges"><em class="live">운영중</em><em class="store-model">신선식품형</em></span>
             <p class="store-addr">경기도 성남시 중원구 여수동 188번지 스마트캐슬2.0 1층</p>
             <p>과일·야채 등 신선식품을 중심으로 공동구매 픽업을 함께 운영합니다.</p>
           </div>
@@ -522,32 +404,22 @@
           <div class="store-mini-photo"><img src="/assets/images/stores/store-pyeongtaek-seojeong.webp" alt="앤드마켓 평택서정점 외관" loading="lazy" width="1104" height="828" /></div>
           <div class="store-mini-body">
             <strong>앤드마켓 평택서정점</strong>
-            <span class="store-badges"><em class="live">운영중</em><em class="model">픽업형</em></span>
+            <span class="store-badges"><em class="live">운영중</em><em class="store-model">픽업형</em></span>
             <p class="store-addr">경기 평택시 정암로 46 1층</p>
             <p>공동구매 픽업과 신선식품 판매에 집중한 마켓형 거점입니다.</p>
           </div>
         </article>
-        <article>
-          <div class="store-mini-photo soon" aria-hidden="true"><span>OPEN SOON</span></div>
-          <div class="store-mini-body"><strong>수지 동천점</strong><span class="store-badges"><em class="muted">준비중</em></span><p>용인 수지 동천동 · 신규 픽업 거점으로 오픈을 준비하고 있습니다.</p></div>
-        </article>
-        <article>
-          <div class="store-mini-photo soon" aria-hidden="true"><span>OPEN SOON</span></div>
-          <div class="store-mini-body"><strong>수원 곡반정점</strong><span class="store-badges"><em class="muted">준비중</em></span><p>수원 곡반정동 · 신규 픽업 거점으로 오픈을 준비하고 있습니다.</p></div>
-        </article>
-        <article>
-          <div class="store-mini-photo soon" aria-hidden="true"><span>OPEN SOON</span></div>
-          <div class="store-mini-body"><strong>광주 탄벌점</strong><span class="store-badges"><em class="muted">준비중</em></span><p>광주 탄벌동 · 신규 픽업 거점으로 오픈을 준비하고 있습니다.</p></div>
-        </article>
       </div>
+
+      <p class="store-soon animate-on-scroll"><b>오픈 준비중</b><span>수지 동천점</span><span>수원 곡반정점</span><span>광주 탄벌점</span></p>
     </section>
 
     <!-- ============ 매장 사례 ============ -->
-    <section id="cases" class="section">
+    <section id="cases" class="section bg-cream">
       <div class="section-head animate-on-scroll">
-        <span class="section-label">STORE CASE</span>
-        <h2>실제 운영 사례</h2>
-        <p>상권마다 다른 방식으로 카페·공동구매·신선식품을 연결하고 있습니다.</p>
+        <span class="section-label">운영 사례</span>
+        <h2>상권마다 다른 방식으로<br />운영하고 있습니다</h2>
+        <p>아파트 단지, 주거·상업 혼합 상권, 차량 동선까지. 상권에 맞춰 카페·공동구매·신선식품을 다르게 엮습니다.</p>
       </div>
 
       <article class="case-feature animate-on-scroll">
@@ -557,12 +429,12 @@
         <div class="case-feature-body">
           <span class="case-badge">국내 최초 김밥 드라이브스루</span>
           <h3>롤앤롤 × 카페앤드마켓<br />동탄여울공원DT지점</h3>
-          <p>카페와 간편식, 드라이브스루를 결합한 새로운 지역형 외식 운영 모델입니다.</p>
-          <ul class="case-points">
-            <li><b>차에서 바로</b> 내리지 않고 받는 간편식</li>
-            <li><b>빠른 주문</b> 대기 시간을 줄인 주문 동선</li>
-            <li><b>차량 픽업</b> 차량 동선 기반 수령 구조</li>
-          </ul>
+          <p>카페와 간편식, 드라이브스루를 결합한 지역형 외식 운영 모델입니다.</p>
+          <dl class="case-points">
+            <div><dt>차에서 바로</dt><dd>내리지 않고 받는 간편식</dd></div>
+            <div><dt>빠른 주문</dt><dd>대기 시간을 줄인 주문 동선</dd></div>
+            <div><dt>차량 픽업</dt><dd>차량 동선 기반 수령 구조</dd></div>
+          </dl>
         </div>
       </article>
 
@@ -602,41 +474,14 @@
       </div>
     </section>
 
-    <!-- ============ 상품·콘텐츠 / 운영 체계 ============ -->
-    <section id="operation" class="section soft-bg">
+    <!-- ============ 가맹안내: 수익구조 + 상생형 3유형 ============ -->
+    <section id="franchise" class="section">
       <div class="section-head animate-on-scroll">
-        <span class="section-label">OPERATION</span>
-        <h2>단순 유통이 아니라,<br />반복 가능한 운영 체계</h2>
-        <p>상품 소싱부터 주문·픽업·콘텐츠까지 하나의 기준으로 관리합니다.</p>
-      </div>
-
-      <div class="ops-grid animate-on-scroll">
-        <article class="ops-card"><span class="ops-num">01</span><h3>상품 소싱</h3><p>공동구매에 적합한 가격·구성의 상품을 지속 발굴합니다.</p></article>
-        <article class="ops-card"><span class="ops-num">02</span><h3>수요 선확보</h3><p>온라인 주문을 먼저 확보해 매장 재고 부담을 낮춥니다.</p></article>
-        <article class="ops-card"><span class="ops-num">03</span><h3>콘텐츠 표준화</h3><p>매장별로 동일한 정보 체계와 이미지 스타일을 유지합니다.</p></article>
-        <article class="ops-card"><span class="ops-num">04</span><h3>픽업 관리</h3><p>주문·픽업완료·미픽업 상태를 구분해 운영합니다.</p></article>
-        <article class="ops-card"><span class="ops-num">05</span><h3>상권 대응</h3><p>카페형·픽업형·신선식품형·복합형을 유연하게 적용합니다.</p></article>
-        <article class="ops-card"><span class="ops-num">06</span><h3>고객 재방문</h3><p>카페·공구·신선식품으로 일상적인 방문 이유를 설계합니다.</p></article>
-      </div>
-
-      <div class="content-strip animate-on-scroll">
-        <h3>상품 운영과 콘텐츠를 하나의 시스템으로</h3>
-        <div class="content-grid">
-          <article><strong>매일 달라지는 공구 편성</strong><p>식품·생활상품을 매일 새롭게 제안해 채널과 매장 방문 이유를 만듭니다.</p></article>
-          <article><strong>표준화된 상품 콘텐츠</strong><p>매장별 동일한 정보 체계와 이미지 스타일로 신뢰도를 높입니다.</p></article>
-          <article><strong>명확한 상품 정보</strong><p>가격·중량·원산지·픽업 일정을 명확히 안내해 주문 이탈을 줄입니다.</p></article>
-          <article><strong>반복구매 품목 운영</strong><p>과일·야채·계란 등 일상 소비 품목으로 재구매 주기를 만듭니다.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 가맹안내: 수익구조 ============ -->
-    <section id="franchise" class="section revenue-section">
-      <div class="section-head animate-on-scroll">
-        <span class="section-label">REVENUE</span>
+        <span class="section-label">가맹 안내</span>
         <h2>기존 매출은 그대로,<br />공구 매출은 더하기</h2>
-        <p>기존 카페·매장 매출은 100% 점주님께 귀속되고,<br />공동구매 픽업 매출의 10%가 확정 수익으로 더해집니다.</p>
+        <p>기존 카페·매장 매출은 100% 점주님께 귀속되고, 공동구매 픽업 매출의 10%가 확정 수익으로 더해집니다.</p>
       </div>
+
       <div class="revenue-formula animate-on-scroll">
         <div class="rev-card rev-keep">
           <span class="rev-pct">100%</span>
@@ -651,6 +496,7 @@
           <span class="rev-note">점별 최소 매출 3,000만원 예상 기준</span>
         </div>
       </div>
+
       <div class="revenue-notes animate-on-scroll">
         <article>
           <strong>무자본 · 무점포</strong>
@@ -665,9 +511,10 @@
           <p>점별 키오스크·정산 데이터를 공유하고, 취소·반품·재고를 정기적으로 크로스 체크합니다. 키오스크 매출은 점주 귀속으로, 점포→본사 역(逆) 세금계산서를 발행합니다.</p>
         </article>
       </div>
+
       <div class="revenue-perks animate-on-scroll">
         <article>
-          <span class="perk-tag">GRAND OPEN</span>
+          <span class="perk-tag">그랜드오픈</span>
           <strong>그랜드오픈 집객 프로모션</strong>
           <p>오픈 시 5백만원 상당의 집객 프로모션을 지원합니다. (본사·점주 250:250 매칭)</p>
         </article>
@@ -677,47 +524,46 @@
           <p>일상 공급 상품 외 경품·특별 사은행사 비용은 본사와 점주가 5:5로 분담합니다.</p>
         </article>
       </div>
-    </section>
 
-    <!-- ============ 상생형 3유형 ============ -->
-    <section class="section soft-bg">
-      <div class="section-head animate-on-scroll">
-        <span class="section-label">3 TYPES</span>
-        <h2>함께하고 · 부가되며 · 살려내는<br />상생형 가맹 3유형</h2>
+      <div class="sub-head animate-on-scroll">
+        <h3>매장 상황에 맞춘 상생형 가맹 3유형</h3>
         <p>운영 환경에 맞춰 세 가지 형태 중 가장 적합한 모델을 선택할 수 있습니다.</p>
       </div>
-      <div class="ftype-grid animate-on-scroll">
-        <article class="ftype-card">
-          <span class="ftype-num"><b>01</b> 함께하는</span>
+      <div class="ftypes animate-on-scroll">
+        <article class="ftype">
+          <span class="ftype-num">01</span>
+          <span class="ftype-kicker">함께하는</span>
           <h3>회생형</h3>
           <p>폐업을 고민하던 카페에 공동구매 매출을 더해 기존 사업을 회생시킵니다. 카페 매출 100%는 점주님께 귀속되고, 지역 회원 모집을 통해 카페 매출과 공구 매출이 함께 상승합니다.</p>
-          <span class="ftype-target">TARGET · 기존 카페 운영자</span>
+          <span class="ftype-target"><b>대상</b>기존 카페 운영자</span>
         </article>
-        <article class="ftype-card">
-          <span class="ftype-num"><b>02</b> 부가되는</span>
+        <article class="ftype">
+          <span class="ftype-num">02</span>
+          <span class="ftype-kicker">부가되는</span>
           <h3>수익추가형</h3>
           <p>이미 운영 중인 매장에 공동구매 판매 공간을 더하는 형태입니다. 무자본·무점포로 새로운 수익원이 생기고, 픽업 고객 유입 효과까지 함께 누릴 수 있습니다.</p>
-          <span class="ftype-target">TARGET · 기존 자영업자</span>
+          <span class="ftype-target"><b>대상</b>기존 자영업자</span>
         </article>
-        <article class="ftype-card">
-          <span class="ftype-num"><b>03</b> 살려내는</span>
+        <article class="ftype">
+          <span class="ftype-num">03</span>
+          <span class="ftype-kicker">살려내는</span>
           <h3>공실활용형</h3>
           <p>공실 상가를 픽업 공간으로 활용합니다. 매출 셰어와 상권 활성화로 임대 공실 부담을 최소화하고, 죽어가던 상권에 다시 활기를 더합니다.</p>
-          <span class="ftype-target">TARGET · 공실 상가 · 신규 창업자</span>
+          <span class="ftype-target"><b>대상</b>공실 상가 · 신규 창업자</span>
         </article>
       </div>
     </section>
 
-    <!-- ============ 역할 분담 ============ -->
-    <section class="section">
+    <!-- ============ 역할 분담 + 본사 자산 ============ -->
+    <section id="role" class="section bg-cream">
       <div class="section-head animate-on-scroll">
-        <span class="section-label">ROLE</span>
+        <span class="section-label">역할 분담</span>
         <h2>본사가 다 하고,<br />점주님은 핵심만</h2>
         <p>상품 소싱부터 시스템 운영까지 본사가 책임지고, 점주님은 지역 고객과 픽업 운영에 집중합니다.</p>
       </div>
       <div class="role-split animate-on-scroll">
         <div class="role-col hq">
-          <h3><span class="role-tag">HQ</span> 본사가 하는 것</h3>
+          <h3><span class="role-tag">본사</span>본사가 하는 것</h3>
           <ul>
             <li>상품 소싱 (생산지 관리·자체 물류)</li>
             <li>오픈채팅방 운영 (콘텐츠·고객 소통)</li>
@@ -728,7 +574,7 @@
           </ul>
         </div>
         <div class="role-col partner">
-          <h3><span class="role-tag">점주</span> 사업장이 하는 것</h3>
+          <h3><span class="role-tag">점주</span>사업장이 하는 것</h3>
           <ul>
             <li>지역 회원 오픈채팅 가입 관리</li>
             <li>지역 단골·VIP 고객 소통</li>
@@ -739,30 +585,23 @@
           </ul>
         </div>
       </div>
-    </section>
 
-    <!-- ============ 본사 3대 자산 ============ -->
-    <section class="section soft-bg">
-      <div class="section-head animate-on-scroll">
-        <span class="section-label">SUPPORT</span>
-        <h2>본사가 제공하는<br />3가지 핵심 자산</h2>
-        <p>점주님은 받기만 하고, 본사가 책임집니다.</p>
+      <div class="sub-head animate-on-scroll">
+        <h3>본사가 제공하는 3가지 핵심 자산</h3>
+        <p>점주님이 처음부터 혼자 만들 필요가 없도록, 본사가 갖춘 것을 그대로 나눕니다.</p>
       </div>
-      <div class="asset-grid animate-on-scroll">
-        <article class="asset-card">
-          <span class="asset-num">01</span>
+      <div class="assets animate-on-scroll">
+        <article class="asset">
           <h3>상품 소싱력</h3>
           <span class="asset-sub">산지직송 · 다양한 브랜드 상품</span>
-          <p>자체 상품이 아닌, 고객이 좋아하는 상품을 AI 시스템으로 발굴합니다. 물류부터 재고까지 본사가 책임 운영합니다.</p>
+          <p>고객이 좋아하는 상품을 산지와 브랜드사에서 직접 찾아옵니다. 물류부터 재고까지 본사가 책임 운영합니다.</p>
         </article>
-        <article class="asset-card">
-          <span class="asset-num">02</span>
+        <article class="asset">
           <h3>운영 시스템</h3>
           <span class="asset-sub">주문조회 · 자동봇 · 정산</span>
           <p>자체 주문조회 플랫폼, 자동 환영 안내봇, 키오스크·정산 시스템까지 운영에 필요한 시스템을 제공합니다.</p>
         </article>
-        <article class="asset-card">
-          <span class="asset-num">03</span>
+        <article class="asset">
           <h3>운영 노하우</h3>
           <span class="asset-sub">콘텐츠 + 매뉴얼</span>
           <p>오픈채팅 운영 표준 가이드, 위기 대응·재고·CS 매뉴얼, 친구추천 회원 확장 시스템까지 전수합니다.</p>
@@ -770,72 +609,49 @@
       </div>
     </section>
 
-    <!-- ============ 비전 ============ -->
-    <section id="vision" class="section vision-section">
-      <div class="section-head animate-on-scroll">
-        <span class="section-label">VISION</span>
-        <h2>동네 매장을<br />지역 커머스 플랫폼으로</h2>
-        <p>오프라인 거점과 디지털 공동구매 네트워크를 연결해 생활권 기반 유통을 확장합니다.</p>
-      </div>
-      <div class="vision-grid animate-on-scroll">
-        <article>지역 거점형 카페앤드마켓 확대</article>
-        <article>공동구매 전문 앤드마켓 운영 모델 확장</article>
-        <article>신선식품·과일·야채 경쟁력 강화</article>
-        <article>모바일·키오스크 기반 주문 경험 고도화</article>
-        <article>김밥 드라이브스루 등 외식 혁신 포맷 확대</article>
-        <article>업소 대상 식자재 배달·기업 간 유통 확장</article>
-      </div>
-      <p class="vision-quote animate-on-scroll">고객의 일상 가까이에서<br /><b>구매 · 식사 · 픽업</b>을 연결합니다.</p>
-    </section>
-
     <!-- ============ FAQ ============ -->
-    <section id="faq" class="section faq-section soft-bg">
-      <div class="section-head animate-on-scroll">
-        <span class="section-label">FAQ</span>
-        <h2>자주 묻는 질문</h2>
-        <p>매장 이용과 가맹에 대해 자주 문의하시는 내용을 앤드마켓 기준으로 정리했습니다.</p>
-      </div>
+    <section id="faq" class="section faq-section">
+      <div class="faq-wrap">
+        <div class="section-head animate-on-scroll">
+          <span class="section-label">자주 묻는 질문</span>
+          <h2>궁금한 점을<br />먼저 답해 드립니다</h2>
+          <p>매장 이용과 가맹에 대해 자주 문의하시는 내용입니다. 더 궁금한 점은 <a href="tel:031-375-0717">031-375-0717</a>로 전화 주세요.</p>
+        </div>
 
-      <div class="faq-list animate-on-scroll">
-        <article class="faq-item">
-          <h3><span>Q.</span> 과일·야채는 어떻게 살 수 있나요?</h3>
-          <p>두 가지 방법이 있습니다. 카카오톡 공구방에서 안내드리는 과일·야채를 앱이나 공구방에서 예약하고 매장에서 찾아가시거나, 동탄여울공원DT지점·동탄호반써밋점·성남수진점에서 매일 들어온 과일·야채를 예약 없이 바로 구매하실 수 있습니다. 카카오톡 공구방에 참여만 해도 매장에서 회원가로 구매하실 수 있습니다.</p>
-        </article>
-
-        <article class="faq-item">
-          <h3><span>Q.</span> 정말 가맹비가 0원인가요?</h3>
-          <p>초기 파트너 모집 기간에는 가맹비 없이 시작할 수 있습니다. 기존 카페 매출은 100% 점주님께 귀속되고, 공동구매 픽업 매출은 상담 시 안내되는 기준에 따라 정산합니다. 간판·냉동고·키오스크 등 물리적 설비는 점포 상황에 따라 별도 협의가 필요합니다.</p>
-        </article>
-
-        <article class="faq-item">
-          <h3><span>Q.</span> 카페를 이미 운영 중인데 같이 할 수 있나요?</h3>
-          <p>네, 가장 잘 맞는 형태입니다. 기존 카페 운영은 그대로 두고 유휴공간에 공동구매 픽업존을 더하는 방식입니다. 픽업 고객이 음료나 디저트를 함께 구매하는 추가 매출 효과도 기대할 수 있습니다.</p>
-        </article>
-
-        <article class="faq-item">
-          <h3><span>Q.</span> 어떤 매장 형태를 선택할 수 있나요?</h3>
-          <p>상권에 따라 카페형, 픽업형, 신선식품형, 복합형 네 가지 모델을 적용합니다. 입지·면적·운영 인력·주변 고객층을 함께 검토해 가장 적합한 형태를 상담 시 안내드립니다.</p>
-        </article>
-
-        <article class="faq-item">
-          <h3><span>Q.</span> 직원을 더 뽑아야 하나요?</h3>
-          <p>전담 직원을 반드시 둘 필요는 없습니다. 앤드마켓은 단순 픽업 구조를 기본으로 하며, 상품 소싱·주문 안내·배송 관리는 본사와 시스템이 지원합니다. 점주님은 상품 수령, 간단한 분류, 현장 픽업 응대에 집중하시면 됩니다.</p>
-        </article>
-
-        <article class="faq-item">
-          <h3><span>Q.</span> 공실 상가나 소형 매장도 가능한가요?</h3>
-          <p>가능합니다. 10평 내외의 소공간이나 공실 상가도 픽업 거점으로 활용할 수 있습니다. 다만 냉장·냉동 상품 보관, 고객 픽업 동선, 운영 인력 여부에 따라 적합한 형태를 상담 후 결정하는 것이 좋습니다.</p>
-        </article>
-
-        <article class="faq-item">
-          <h3><span>Q.</span> 본사는 어떤 것을 지원하나요?</h3>
-          <p>상품 소싱, 공동구매 상품 구성, 카카오톡 채널 안내, 배송 관리, 주문조회 시스템, 운영 가이드 등을 지원합니다. 매장에서는 지역 고객 관리와 픽업 응대에 집중할 수 있도록 운영 부담을 줄이는 방향으로 설계합니다.</p>
-        </article>
-
-        <article class="faq-item">
-          <h3><span>Q.</span> 수익 정산은 어떻게 되나요?</h3>
-          <p>기존 카페 매출은 점주님 매출로 그대로 유지됩니다. 공동구매 픽업 매출에 대한 정산 방식, 수익률, 정산 주기는 매장 형태와 운영 조건에 따라 상담 시 구체적으로 안내드립니다.</p>
-        </article>
+        <div class="faq-list animate-on-scroll">
+          <article class="faq-item">
+            <h3>과일·야채는 어떻게 살 수 있나요?</h3>
+            <p>두 가지 방법이 있습니다. 카카오톡 공구방에서 안내드리는 과일·야채를 앱이나 공구방에서 예약하고 매장에서 찾아가시거나, 동탄여울공원DT지점·동탄호반써밋점·성남수진점에서 매일 들어온 과일·야채를 예약 없이 바로 구매하실 수 있습니다. 카카오톡 공구방에 참여만 해도 매장에서 회원가로 구매하실 수 있습니다.</p>
+          </article>
+          <article class="faq-item">
+            <h3>정말 가맹비가 0원인가요?</h3>
+            <p>초기 파트너 모집 기간에는 가맹비 없이 시작할 수 있습니다. 기존 카페 매출은 100% 점주님께 귀속되고, 공동구매 픽업 매출은 상담 시 안내되는 기준에 따라 정산합니다. 간판·냉동고·키오스크 등 물리적 설비는 점포 상황에 따라 별도 협의가 필요합니다.</p>
+          </article>
+          <article class="faq-item">
+            <h3>카페를 이미 운영 중인데 같이 할 수 있나요?</h3>
+            <p>네, 가장 잘 맞는 형태입니다. 기존 카페 운영은 그대로 두고 유휴공간에 공동구매 픽업존을 더하는 방식입니다. 픽업 고객이 음료나 디저트를 함께 구매하는 추가 매출 효과도 기대할 수 있습니다.</p>
+          </article>
+          <article class="faq-item">
+            <h3>어떤 매장 형태를 선택할 수 있나요?</h3>
+            <p>상권에 따라 카페형, 픽업형, 신선식품형, 복합형 네 가지 모델을 적용합니다. 입지·면적·운영 인력·주변 고객층을 함께 검토해 가장 적합한 형태를 상담 시 안내드립니다.</p>
+          </article>
+          <article class="faq-item">
+            <h3>직원을 더 뽑아야 하나요?</h3>
+            <p>전담 직원을 반드시 둘 필요는 없습니다. 앤드마켓은 단순 픽업 구조를 기본으로 하며, 상품 소싱·주문 안내·배송 관리는 본사와 시스템이 지원합니다. 점주님은 상품 수령, 간단한 분류, 현장 픽업 응대에 집중하시면 됩니다.</p>
+          </article>
+          <article class="faq-item">
+            <h3>공실 상가나 소형 매장도 가능한가요?</h3>
+            <p>가능합니다. 10평 내외의 소공간이나 공실 상가도 픽업 거점으로 활용할 수 있습니다. 다만 냉장·냉동 상품 보관, 고객 픽업 동선, 운영 인력 여부에 따라 적합한 형태를 상담 후 결정하는 것이 좋습니다.</p>
+          </article>
+          <article class="faq-item">
+            <h3>본사는 어떤 것을 지원하나요?</h3>
+            <p>상품 소싱, 공동구매 상품 구성, 카카오톡 공구방 안내, 배송 관리, 주문조회 시스템, 운영 가이드 등을 지원합니다. 매장에서는 지역 고객 관리와 픽업 응대에 집중할 수 있도록 운영 부담을 줄이는 방향으로 설계합니다.</p>
+          </article>
+          <article class="faq-item">
+            <h3>수익 정산은 어떻게 되나요?</h3>
+            <p>기존 카페 매출은 점주님 매출로 그대로 유지됩니다. 공동구매 픽업 매출에 대한 정산 방식, 수익률, 정산 주기는 매장 형태와 운영 조건에 따라 상담 시 구체적으로 안내드립니다.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -843,7 +659,7 @@
     <section id="partner" class="section partner-section">
       <div class="partner-box">
         <div class="partner-copy">
-          <span class="section-label">PARTNER</span>
+          <span class="section-label">가맹 문의</span>
           <h2>카페·소형매장에<br />공동구매 픽업 매출을 더하세요.</h2>
           <p>기존 공간을 활용해 앤드마켓 공동구매 픽업 거점으로 운영할 수 있습니다. 본사는 상품 소싱, 주문 안내, 배송 관리, 운영 시스템을 지원합니다.</p>
           <ul>
@@ -852,26 +668,27 @@
             <li>상품 소싱·물류·CS·배송까지 본사 책임 운영</li>
           </ul>
           <a class="partner-tel" href="tel:031-375-0717"><span>가맹문의</span><b>031-375-0717</b></a>
-          <div class="partner-steps">
-            <article>
+          <ol class="partner-steps">
+            <li>
               <span>STEP 1</span>
               <strong>상담 신청</strong>
               <p>본사와 1차 미팅을 진행합니다.</p>
-            </article>
-            <article>
+            </li>
+            <li>
               <span>STEP 2</span>
               <strong>유형 결정</strong>
               <p>매장 모델과 가맹 유형을 선택합니다.</p>
-            </article>
-            <article>
+            </li>
+            <li>
               <span>STEP 3</span>
               <strong>오픈 준비</strong>
               <p>마케팅·브랜드 홍보와 시스템 전반 교육을 본사가 지원합니다.</p>
-            </article>
-          </div>
+            </li>
+          </ol>
         </div>
         <form class="contact-form" id="contact-form" action="https://formspree.io/f/mykoqlkv" method="POST">
           <input type="hidden" name="_subject" value="[앤드마켓] 가맹 상담 신청" />
+          <p class="form-title">가맹 상담 신청</p>
           <label>이름 <input type="text" name="이름" placeholder="홍길동" required /></label>
           <label>연락처 <input type="tel" name="연락처" placeholder="010-0000-0000" required /></label>
           <label>희망지역 <input type="text" name="희망지역" placeholder="예: 동탄, 성남, 평택" /></label>
@@ -885,7 +702,7 @@
     <!-- ============ 회사소개 ============ -->
     <section id="company" class="section company-section">
       <div class="section-head animate-on-scroll">
-        <span class="section-label">ABOUT US</span>
+        <span class="section-label">회사 소개</span>
         <h2>회사 정보</h2>
         <p>법인 기반의 유통·서비스 역량을 바탕으로 지역 생활형 커머스를 운영합니다.</p>
       </div>
@@ -909,11 +726,11 @@
     <div class="picker-panel">
       <div class="picker-head">
         <div class="picker-heading">
-          <span class="picker-label">KAKAOTALK</span>
+          <span class="picker-label">카카오톡 공구방</span>
           <h2 id="store-picker-title">공구방 입장</h2>
           <p>가까운 매장을 선택하시면 해당 매장의 카카오톡 오픈채팅방으로 이동합니다.</p>
         </div>
-        <a class="picker-close" href="#top" data-picker-close aria-label="닫기">✕</a>
+        <a class="picker-close" href="#top" data-picker-close aria-label="닫기"><span aria-hidden="true"></span></a>
       </div>
 
       <ul class="picker-list">
@@ -974,13 +791,17 @@
   </div>
 
   <footer class="footer">
-    <div class="footer-brand">
-      <img src="/logo.png" alt="앤드마켓 로고" width="54" height="54" />
-      <strong>앤드마켓</strong>
-    </div>
-    <p>우리 동네의 소비를 연결하다 · 카페앤드마켓 · 앤드마켓</p>
-    <div class="footer-links">
-      <a href="tel:031-375-0717">가맹문의 031-375-0717</a>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="/logo.png" alt="앤드마켓 로고" width="48" height="48" />
+        <div>
+          <strong>앤드마켓</strong>
+          <p>우리 동네의 소비를 연결하다 · 카페앤드마켓 · 앤드마켓</p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="tel:031-375-0717">가맹문의 031-375-0717</a>
+      </div>
     </div>
     <div class="footer-biz">
       <p>상호 : 주식회사 원스파트너스 &nbsp;|&nbsp; 대표자 : 노남정 &nbsp;|&nbsp; 설립일 : 2019.12.20</p>
